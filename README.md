@@ -1,2 +1,20 @@
-# ros_training
-Study materials of ROS Training For Industry
+# ros\_training
+>Study materials of ROS Training For Industry
+
+## Instructions & slides
+Lecture slides as well as guidances for practical assignments are on `gh-pages` branch published at:
+
+<https://ut-ims-robotics.github.io/ros_training>
+
+## Software packages
+The master branch of this repository contains ROS packages with examples and templates for various exercises throughout the training.
+The packages will be located in `clearbot_ros_ws` workspace, which can be found in the home directory.
+
+To setup the workspace:
+```
+source /opt/ros/kinetic/setup.bash
+mkdir -p ~/clearbot_ros_ws/src
+cd ~/clearbot_ros_ws/src
+git clone https://github.com/ut-ims-robotics/ros_training.git
+catkin build
+```

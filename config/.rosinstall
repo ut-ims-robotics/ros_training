@@ -1,0 +1,18 @@
+- git:
+    local-name: realsense
+    uri: https://github.com/intel-ros/realsense.git
+- git:
+    local-name: robotont
+    uri: https://github.com/ut-ims-robotics/robotont.git
+- git:
+    local-name: ros_training
+    uri: https://github.com/ut-ims-robotics/ros_training.git
+- git:
+    local-name: rtabmap
+    uri: https://github.com/introlab/rtabmap.git
+- git:
+    local-name: usb_cam
+    uri: https://github.com/ros-drivers/usb_cam
+- git:
+    local-name: depth_nav_tools
+    uri: https://github.com/mdrwiega/depth_nav_tools.git
