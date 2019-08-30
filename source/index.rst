@@ -15,6 +15,11 @@ A sample template
 
 .. toctree::
    :maxdepth: 1
+
+   System Setup <setup/system_setup.rst>
+
+.. toctree::
+   :maxdepth: 1
  
    Day 1 <day1/index.rst>
 
