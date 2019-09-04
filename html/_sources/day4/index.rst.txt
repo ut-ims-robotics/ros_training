@@ -1,4 +1,4 @@
-Day 3
+Day 4
 =====
 
 Slides are available here: :download:`pdf <day4_slides.pdf>`
@@ -12,7 +12,8 @@ Slides are available here: :download:`pdf <day4_slides.pdf>`
 .. .. Navigation with Path Planning
 .. .. Workshop (2D navigation with move_base (action client usage), simulation and ClearBot)
 
-.. ..    transforms.rst
-.. ..    2d_slam.rst
-.. ..    3d_slam.rst
-.. ..    navigation.rst
+.. include:: transforms.rst
+.. include:: mappinginsim.rst
+.. include:: 2d_slam.rst
+.. include:: navigation.rst
+.. include:: 3dmap.rst
