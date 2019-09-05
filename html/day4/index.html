@@ -99,7 +99,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Day 4</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Day 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#background">Background</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#workshop">Workshop</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#transforms">Transforms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mapping-in-simulated-environment">Mapping in simulated environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#launching-the-simulation">Launching the simulation</a></li>
@@ -181,11 +185,20 @@
             
   <div class="section" id="day-4">
 <h1>Day 4<a class="headerlink" href="#day-4" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="background">
+<h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
 <p>Slides are available here: <code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></p>
 <div class="toctree-wrapper compound">
 </div>
+</div>
+<div class="section" id="workshop">
+<h1>Workshop<a class="headerlink" href="#workshop" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="transforms">
 <h2>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h2>
+<p>In the last workshop, you wrote a driver for an IMU and ultrasonic sensor.</p>
+<p>In this workshop, you will define a transform between your sensors.
+The goal is to śee your sensor moving in RViz when you move your IMU.</p>
 </div>
 <div class="section" id="mapping-in-simulated-environment">
 <h2>Mapping in simulated environment<a class="headerlink" href="#mapping-in-simulated-environment" title="Permalink to this headline">¶</a></h2>
@@ -244,6 +257,39 @@ using ROS tools e.g. rostopic list, rostopic echo etc.</p>
 </div>
 <div class="section" id="d-mapping">
 <h2>3D mapping<a class="headerlink" href="#d-mapping" title="Permalink to this headline">¶</a></h2>
+<p>Although 3D mapping requires much more resources and is less developed field than 2D mapping, it is worth to try out how 3D mapping works in ROS using RTABMap.</p>
+<ol class="arabic">
+<li><p>Create a ssh-connection to the robot and launch roscore to keep ROS running and prevent us from having to restart all nodes every time. (If you close the first roslaunch you ran, whole ROS system will collapse because it is the same as killing the core.)</p></li>
+<li><p>Create a ssh-connection to the robot and launch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_3dmapping.launch
+</pre></div>
+</div>
+</li>
+<li><p>In another terminal in your PC, for visualization, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_description display_3dmapping.launch
+</pre></div>
+</div>
+</li>
+<li><p>In another terminal, for controlling the robot, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_pc_side.launch
+</pre></div>
+</div>
+</li>
+<li><p>Drive around the room and try mapping it.</p></li>
+<li><p>You should notice, that default settings do not create a very good map.</p></li>
+</ol>
+<p>Currently, it can be seen, that the mapping software needs some tuning.</p>
+<p>For that, a simplified approach is made with launch files (arguments in robotont_teleop/launch/teleop_3dmapping.launch).
+But if you want to explore more options/parameters, refer to <a class="reference external" href="http://wiki.ros.org/rtabmap_ros#rtabmap">http://wiki.ros.org/rtabmap_ros#rtabmap</a> .</p>
+<ol class="arabic">
+<li><p>Kill the process where you ran <em>teleop_3dmapping.launch</em> .</p></li>
+<li><p>Instead, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_3dmapping.launch angular_update:<span class="o">=</span><span class="m">0</span>.1 linear_update:<span class="o">=</span><span class="m">0</span>.1 cell_size:<span class="o">=</span><span class="m">0</span>.1
+</pre></div>
+</div>
+<p>And here you can change some values and hopefully get a better 3D map.</p>
+</li>
+</ol>
 </div>
 </div>
 

@@ -67,6 +67,6 @@ If you have determined the correct topic, launch
 
     roslaunch robotont_teleop teleop_sim_cartographer_2d.launch odom_topic:=<YOUR ODOMETRY TOPIC>      
         
-Cartographer configuration files are located in robotont_teleop/configuration_files.    
+Cartographer configuration files are located in robotont_teleop/configuration_files.
 
         

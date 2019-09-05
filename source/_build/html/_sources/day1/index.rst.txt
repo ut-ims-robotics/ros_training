@@ -7,7 +7,8 @@ Slides are available here: :download:`pdf <ros_intro_slides.pdf>`
    :maxdepth: 2
  
    welcome_system_setup.rst
-   linux_shell_intro.rst
+   ubuntu_gui.rst
+   linux_shell.rst
    ros_intro.rst
    workshop.rst
 
