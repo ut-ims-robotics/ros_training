@@ -99,21 +99,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Day 4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#background">Background</a><ul class="simple">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Day 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#workshop">Workshop</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#transforms">Transforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mapping-in-simulated-environment">Mapping in simulated environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#launching-the-simulation">Launching the simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gmapping">gmapping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#google-cartographer">Google Cartographer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workshop">Workshop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transforms">Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mapping-in-simulated-environment">Mapping in simulated environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#launching-the-simulation">Launching the simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gmapping">gmapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#google-cartographer">Google Cartographer</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#d-slam">2D SLAM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#navigation">Navigation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#d-mapping">3D mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-slam">2D SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation">Navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-mapping">3D mapping</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -185,28 +187,27 @@
             
   <div class="section" id="day-4">
 <h1>Day 4<a class="headerlink" href="#day-4" title="Permalink to this headline">¶</a></h1>
-</div>
 <div class="section" id="background">
-<h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Slides are available here: <code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
 <div class="section" id="workshop">
-<h1>Workshop<a class="headerlink" href="#workshop" title="Permalink to this headline">¶</a></h1>
+<h2>Workshop<a class="headerlink" href="#workshop" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="transforms">
-<h2>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h2>
+<h3>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h3>
 <p>In the last workshop, you wrote a driver for an IMU and ultrasonic sensor.</p>
 <p>In this workshop, you will define a transform between your sensors.
 The goal is to śee your sensor moving in RViz when you move your IMU.</p>
 </div>
 <div class="section" id="mapping-in-simulated-environment">
-<h2>Mapping in simulated environment<a class="headerlink" href="#mapping-in-simulated-environment" title="Permalink to this headline">¶</a></h2>
+<h3>Mapping in simulated environment<a class="headerlink" href="#mapping-in-simulated-environment" title="Permalink to this headline">¶</a></h3>
 <p>Before going in the real world, many tasks are first done in a simulation
 to prevent unwanted damage to the robot and it’s surroundings.
 In this section, we will use different ROS packages to map a simulated environment.</p>
 <div class="section" id="launching-the-simulation">
-<h3>Launching the simulation<a class="headerlink" href="#launching-the-simulation" title="Permalink to this headline">¶</a></h3>
+<h4>Launching the simulation<a class="headerlink" href="#launching-the-simulation" title="Permalink to this headline">¶</a></h4>
 <p>In separate terminals, run:</p>
 <ol class="arabic">
 <li><div class="first highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description gazebo_teleop_keyboard.launch world:<span class="o">=</span><span class="k">$(</span>rospack find turtlebot3_gazebo<span class="k">)</span>/worlds/turtlebot3_world.world
@@ -222,7 +223,7 @@ In this section, we will use different ROS packages to map a simulated environme
 </ol>
 </div>
 <div class="section" id="gmapping">
-<h3>gmapping<a class="headerlink" href="#gmapping" title="Permalink to this headline">¶</a></h3>
+<h4>gmapping<a class="headerlink" href="#gmapping" title="Permalink to this headline">¶</a></h4>
 <p>gmapping is a popular 2D SLAM software in ROS. It uses laserscans to build a 2D map.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun gmapping slam_gmapping
 </pre></div>
@@ -237,7 +238,7 @@ In this section, we will use different ROS packages to map a simulated environme
 <p>Notice the underscore before the parameter. This example will change map update interval to 1 second (default is 5 seconds).</p>
 </div>
 <div class="section" id="google-cartographer">
-<h3>Google Cartographer<a class="headerlink" href="#google-cartographer" title="Permalink to this headline">¶</a></h3>
+<h4>Google Cartographer<a class="headerlink" href="#google-cartographer" title="Permalink to this headline">¶</a></h4>
 <p>Kill the gmapping process.</p>
 <p>Google Cartographer also uses odometry data.</p>
 <p>Find out what topic has odometry data,
@@ -250,13 +251,13 @@ using ROS tools e.g. rostopic list, rostopic echo etc.</p>
 </div>
 </div>
 <div class="section" id="d-slam">
-<h2>2D SLAM<a class="headerlink" href="#d-slam" title="Permalink to this headline">¶</a></h2>
+<h3>2D SLAM<a class="headerlink" href="#d-slam" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="navigation">
-<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h2>
+<h3>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="d-mapping">
-<h2>3D mapping<a class="headerlink" href="#d-mapping" title="Permalink to this headline">¶</a></h2>
+<h3>3D mapping<a class="headerlink" href="#d-mapping" title="Permalink to this headline">¶</a></h3>
 <p>Although 3D mapping requires much more resources and is less developed field than 2D mapping, it is worth to try out how 3D mapping works in ROS using RTABMap.</p>
 <ol class="arabic">
 <li><p class="first">Create a ssh-connection to the robot and launch roscore to keep ROS running and prevent us from having to restart all nodes every time. (If you close the first roslaunch you ran, whole ROS system will collapse because it is the same as killing the core.)</p>
@@ -294,6 +295,7 @@ But if you want to explore more options/parameters, refer to <a class="reference
 <p>And here you can change some values and hopefully get a better 3D map.</p>
 </li>
 </ol>
+</div>
 </div>
 </div>
 

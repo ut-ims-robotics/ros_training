@@ -1,5 +1,6 @@
+##############
 System Setup
-============
+##############
 
 This section gives brief instructions on how to set up laptops for this training.
 The training is tested on `ROS Kinetic Kame <http://wiki.ros.org/kinetic/Installation>`_ distribution for Ubuntu 16.04. 

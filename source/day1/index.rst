@@ -1,5 +1,6 @@
+#######
 Day 1
-=====
+#######
 
 Slides are available here: :download:`pdf <ros_intro_slides.pdf>`
 
