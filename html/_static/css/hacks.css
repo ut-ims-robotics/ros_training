@@ -23,6 +23,9 @@ p {
   font-size: 120%; 
 }
 
+.wy-plain-list-decimal li ul, .rst-content .section ol li ul, .rst-content ol.arabic li ul, article ol li ul {
+     margin-bottom: 24px;
+}
 
 
 /* Colors and text decoration.

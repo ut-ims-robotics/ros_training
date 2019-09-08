@@ -11,8 +11,6 @@ Starting the Terminal
    .. figure:: ../_static/pics/ubuntu_terminal_icon.png
       :scale: 70%
 
-
-
 #. Create a second terminal window, either by:
 
    * Right-clicking on the terminal and selecting the "Open Terminal" or
@@ -23,7 +21,7 @@ Starting the Terminal
 #. Close the 2nd terminal tab, either by:
 
    * clicking the small 'x' in the terminal tab (not the main terminal window)
-   * typing `exit` and hitting enter.
+   * typing :code:`exit` and hitting enter.
 
 #. The window will have a single line, which looks like this:
 
@@ -35,7 +33,7 @@ Starting the Terminal
    #. :code:`laptop-0` is the host name of the computer.
    #. :code:`~` is the directory in which the terminal is currently in. (More on this later).
 
-#. Close the terminal window by typing `exit` or clicking on the red 'x' in the window's titlebar.
+#. Close the terminal window by typing :code:`exit` or clicking on the red 'x' in the window's titlebar.
 
 Navigating Directories and Listing Files
 ----------------------------------------
@@ -43,60 +41,72 @@ Navigating Directories and Listing Files
 Prepare your environment
 ************************
 
-#. Open your home folder in the file browser.
-#. Double-click on the `ex0.3` folder we created in the previous step.
-   * _We'll use this to illustrate various file operations in the terminal._
+#. Open the file browser and navigate to your home directory:
+
+   .. figure:: ../_static/pics/ubuntu_terminal_icon.png
+      :scale: 70%
+
+#. Double-click on the :code:`linux_intro` folder we created in the previous step.
+
+   * We'll use this to illustrate various file operations in the terminal.
 
 #. Right click in the main file-browser window and select "Open in Terminal" to create a terminal window at that location.
-#. In the terminal window, type the following command to create some sample files that we can study later:
-   * `cp -a ~/industrial_training/exercises/0.3/. .`
+#. In the terminal window, type the following command to copy some sample files that we can study later:
+
+   * :code:`cp -a ~/ros_training/resources/linux_intro/* .`
 
 ls Command
 **********
-#. Enter `ls` into the terminal. 
-   * You should see `test.txt`, and `new` listed. (If you don't see 'new', go back and complete the [previous exercise](Exploring-the-Linux-File-System.md)).
-   * Directories, like `new`, are colored in blue.
-   * The file `sample_job` is in green; this indicates it has its "execute" bit set, which means it can be executed as a command.  
+#. Enter :code:`ls` into the terminal. 
 
-#. Type `ls *.txt`.  Only the file `test.txt` will be displayed.
+   * You should see :code:`test.txt`, and :code:`new` listed. (If you don't see 'new', go back and complete the :doc:`previous exercise <ubuntu_gui>`.
+   * Directories, like :code:`new`, are colored in blue.
+   * The file :code:`sample_job` is in green; this indicates it has its "execute" bit set, which means it can be executed as a command.
 
-#. Enter `ls -l` into the terminal.
-   * Adding the `-l` option shows one entry per line, with additional information about each entry in the directory.
+#. Type :code:`ls *.txt`. This lists all the files ending with ".txt". Only the file :code:`test.txt` will be displayed.
+
+#. Enter :code:`ls -l` into the terminal.
+
+   * Adding the :code:`-l` option shows one entry per line, with additional information about each entry in the directory.
    * The first 10 characters indicate the file type and permissions
-   * The first character is `d` if the entry is a directory.
+   * The first character is :code:`d` if the entry is a directory.
    * The next 9 characters are the permissions bits for the file
    * The third and fourth fields are the owning user and group, respectively.
    * The second-to-last field is the time the file was last modified.
    * If the file is a symbolic link, the link's target file is listed after the link's file name.
 
-#. Enter `ls -a` in the terminal.
-   * You will now see one additional file, which is hidden.
+#. Enter :code:`ls -a` in the terminal.
+
+   * You will now see one additional file, which is hidden (i.e. its name begins with a dot).
      
-#. Enter `ls -a -l` (or `ls -al`) in the command.
-   * You'll now see that the file `hidden_link.txt` points to `.hidden_text_file.txt`.
+#. Enter :code:`ls -a -l` (or :code:`ls -al`) in the command.
+
+   * You'll now see that the file :code:`hidden_link.txt` points to :code:`.hidden_text_file.txt`.
 
 `pwd` and `cd` Commands
 ***********************
 
- #. Enter `pwd` into the terminal.
+ #. Enter :code:`pwd` into the terminal.
 
     * This will show you the full path of the directory you are working in.
 
  #. Enter `cd new` into the terminal.
 
-    * The prompt should change to `ros-industrial@ros-i-kinetic-vm:~/ex0.3/new$`.
+    * The prompt should change to `academy@laptop-0:~/linux_intro/new$`.
     * Typing `pwd` will show you now in the directory `/home/ros-industrial/ex0.3/new`.
 
  #. Enter `cd ..` into the terminal.
 
-    * In the [previous exercise](Exploring-the-Linux-File-System.md), we noted that `..` is the parent folder.
+    * In the :doc:`previous exercise <ubuntu_gui>`, we noted that :code:`..` is the parent folder. 
     * The prompt should therefore indicate that the current working directory is `/home/ros-industrial/ex0.3`.
       
  #. Enter `cd /bin`, followed by `ls`.
-    * This folder contains a list of the most basic Linux commands.<BR>
-    _Note that `pwd` and `ls` are both in this folder._
+
+    * | This folder contains a list of the most basic Linux commands.
+      | Note that `pwd` and `ls` are both in this folder.
 
  #. Enter `cd ~/ex0.3` to return to our working directory.
+
     * Linux uses the `~` character as a shorthand representation for your home directory.
     * It's a convenient way to reference files and paths in command-line commands.
     * You'll be typing it a lot in this class... remember it!
@@ -110,12 +120,12 @@ Altering Files
 mv Command
 **********
  #. Type `mv test.txt test2.txt`, followed by `ls`.
-    * You will notice that the file has been renamed to `test2.txt`.<BR>
+    * You will notice that the file has been renamed to `test2.txt`.
     _This step shows how `mv` can rename files._
  #. Type `mv test2.txt new`, then `ls`.
     * The file will no longer be present in the folder. 
  #. Type `cd new`, then `ls`.
-    * You will see `test2.txt` in the folder.<BR>
+    * You will see `test2.txt` in the folder.
     _These steps show how `mv` can move files._
  #. Type `mv test2.txt ../test.txt`, then `ls`.
     * `test2.txt` will no longer be there.

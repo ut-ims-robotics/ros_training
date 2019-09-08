@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ROS: Introduction" href="ros_intro.html" />
+    <link rel="next" title="Hello ROS" href="hello_ros.html" />
     <link rel="prev" title="Introduction to Ubuntu 16.04 GUI" href="ubuntu_gui.html" /> 
 </head>
 
@@ -118,8 +118,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ros_intro.html">ROS: Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workshop.html">Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello_ros.html">Hello ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello_ros.html#running-your-first-ros-program">Running your first ROS program</a></li>
 </ul>
 </li>
 </ul>
@@ -222,7 +222,7 @@
 <li><p class="first">Close the 2nd terminal tab, either by:</p>
 <ul class="simple">
 <li>clicking the small ‘x’ in the terminal tab (not the main terminal window)</li>
-<li>typing <cite>exit</cite> and hitting enter.</li>
+<li>typing <code class="code docutils literal notranslate"><span class="pre">exit</span></code> and hitting enter.</li>
 </ul>
 </li>
 <li><p class="first">The window will have a single line, which looks like this:</p>
@@ -235,7 +235,7 @@
 <li><code class="code docutils literal notranslate"><span class="pre">~</span></code> is the directory in which the terminal is currently in. (More on this later).</li>
 </ol>
 </li>
-<li><p class="first">Close the terminal window by typing <cite>exit</cite> or clicking on the red ‘x’ in the window’s titlebar.</p>
+<li><p class="first">Close the terminal window by typing <code class="code docutils literal notranslate"><span class="pre">exit</span></code> or clicking on the red ‘x’ in the window’s titlebar.</p>
 </li>
 </ol>
 </div>
@@ -243,62 +243,93 @@
 <h2>Navigating Directories and Listing Files<a class="headerlink" href="#navigating-directories-and-listing-files" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="prepare-your-environment">
 <h3>Prepare your environment<a class="headerlink" href="#prepare-your-environment" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>Open your home folder in the file browser.</li>
-<li>Double-click on the <cite>ex0.3</cite> folder we created in the previous step.
-* _We’ll use this to illustrate various file operations in the terminal._</li>
-<li>Right click in the main file-browser window and select “Open in Terminal” to create a terminal window at that location.</li>
-<li>In the terminal window, type the following command to create some sample files that we can study later:
-* <cite>cp -a ~/industrial_training/exercises/0.3/. .</cite></li>
+<ol class="arabic">
+<li><p class="first">Open the file browser and navigate to your home directory:</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/ubuntu_terminal_icon.png"><img alt="../_images/ubuntu_terminal_icon.png" src="../_images/ubuntu_terminal_icon.png" style="width: 56.0px; height: 56.0px;" /></a>
+</div>
+</li>
+<li><p class="first">Double-click on the <code class="code docutils literal notranslate"><span class="pre">linux_intro</span></code> folder we created in the previous step.</p>
+<ul class="simple">
+<li>We’ll use this to illustrate various file operations in the terminal.</li>
+</ul>
+</li>
+<li><p class="first">Right click in the main file-browser window and select “Open in Terminal” to create a terminal window at that location.</p>
+</li>
+<li><p class="first">In the terminal window, type the following command to copy some sample files that we can study later:</p>
+<ul class="simple">
+<li><code class="code docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-a</span> <span class="pre">~/ros_training/resources/linux_intro/*</span> <span class="pre">.</span></code></li>
+</ul>
+</li>
 </ol>
 </div>
 <div class="section" id="ls-command">
 <h3>ls Command<a class="headerlink" href="#ls-command" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Enter <cite>ls</cite> into the terminal.
-* You should see <cite>test.txt</cite>, and <cite>new</cite> listed. (If you don’t see ‘new’, go back and complete the [previous exercise](Exploring-the-Linux-File-System.md)).
-* Directories, like <cite>new</cite>, are colored in blue.
-* The file <cite>sample_job</cite> is in green; this indicates it has its “execute” bit set, which means it can be executed as a command.</li>
-<li>Type <cite>ls *.txt</cite>.  Only the file <cite>test.txt</cite> will be displayed.</li>
-<li>Enter <cite>ls -l</cite> into the terminal.
-* Adding the <cite>-l</cite> option shows one entry per line, with additional information about each entry in the directory.
-* The first 10 characters indicate the file type and permissions
-* The first character is <cite>d</cite> if the entry is a directory.
-* The next 9 characters are the permissions bits for the file
-* The third and fourth fields are the owning user and group, respectively.
-* The second-to-last field is the time the file was last modified.
-* If the file is a symbolic link, the link’s target file is listed after the link’s file name.</li>
-<li>Enter <cite>ls -a</cite> in the terminal.
-* You will now see one additional file, which is hidden.</li>
-<li>Enter <cite>ls -a -l</cite> (or <cite>ls -al</cite>) in the command.
-* You’ll now see that the file <cite>hidden_link.txt</cite> points to <cite>.hidden_text_file.txt</cite>.</li>
+<li>Enter <code class="code docutils literal notranslate"><span class="pre">ls</span></code> into the terminal.<ul>
+<li>You should see <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code>, and <code class="code docutils literal notranslate"><span class="pre">new</span></code> listed. (If you don’t see ‘new’, go back and complete the <a class="reference internal" href="ubuntu_gui.html"><span class="doc">previous exercise</span></a>.</li>
+<li>Directories, like <code class="code docutils literal notranslate"><span class="pre">new</span></code>, are colored in blue.</li>
+<li>The file <code class="code docutils literal notranslate"><span class="pre">sample_job</span></code> is in green; this indicates it has its “execute” bit set, which means it can be executed as a command.</li>
+</ul>
+</li>
+<li>Type <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.txt</span></code>. This lists all the files ending with “.txt”. Only the file <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code> will be displayed.</li>
+<li>Enter <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> into the terminal.<ul>
+<li>Adding the <code class="code docutils literal notranslate"><span class="pre">-l</span></code> option shows one entry per line, with additional information about each entry in the directory.</li>
+<li>The first 10 characters indicate the file type and permissions</li>
+<li>The first character is <code class="code docutils literal notranslate"><span class="pre">d</span></code> if the entry is a directory.</li>
+<li>The next 9 characters are the permissions bits for the file</li>
+<li>The third and fourth fields are the owning user and group, respectively.</li>
+<li>The second-to-last field is the time the file was last modified.</li>
+<li>If the file is a symbolic link, the link’s target file is listed after the link’s file name.</li>
+</ul>
+</li>
+<li>Enter <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code> in the terminal.<ul>
+<li>You will now see one additional file, which is hidden (i.e. its name begins with a dot).</li>
+</ul>
+</li>
+<li>Enter <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span> <span class="pre">-l</span></code> (or <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-al</span></code>) in the command.<ul>
+<li>You’ll now see that the file <code class="code docutils literal notranslate"><span class="pre">hidden_link.txt</span></code> points to <code class="code docutils literal notranslate"><span class="pre">.hidden_text_file.txt</span></code>.</li>
+</ul>
+</li>
 </ol>
 </div>
 <div class="section" id="pwd-and-cd-commands">
 <h3><cite>pwd</cite> and <cite>cd</cite> Commands<a class="headerlink" href="#pwd-and-cd-commands" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><ol class="arabic simple">
-<li>Enter <cite>pwd</cite> into the terminal.<ul>
+<div><ol class="arabic">
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">pwd</span></code> into the terminal.</p>
+<ul class="simple">
 <li>This will show you the full path of the directory you are working in.</li>
 </ul>
 </li>
-<li>Enter <cite>cd new</cite> into the terminal.<ul>
-<li>The prompt should change to <cite>ros-industrial&#64;ros-i-kinetic-vm:~/ex0.3/new$</cite>.</li>
+<li><p class="first">Enter <cite>cd new</cite> into the terminal.</p>
+<ul class="simple">
+<li>The prompt should change to <cite>academy&#64;laptop-0:~/linux_intro/new$</cite>.</li>
 <li>Typing <cite>pwd</cite> will show you now in the directory <cite>/home/ros-industrial/ex0.3/new</cite>.</li>
 </ul>
 </li>
-<li>Enter <cite>cd ..</cite> into the terminal.<ul>
-<li>In the [previous exercise](Exploring-the-Linux-File-System.md), we noted that <cite>..</cite> is the parent folder.</li>
+<li><p class="first">Enter <cite>cd ..</cite> into the terminal.</p>
+<ul class="simple">
+<li>In the <a class="reference internal" href="ubuntu_gui.html"><span class="doc">previous exercise</span></a>, we noted that <code class="code docutils literal notranslate"><span class="pre">..</span></code> is the parent folder.</li>
 <li>The prompt should therefore indicate that the current working directory is <cite>/home/ros-industrial/ex0.3</cite>.</li>
 </ul>
 </li>
-<li>Enter <cite>cd /bin</cite>, followed by <cite>ls</cite>.
-* This folder contains a list of the most basic Linux commands.&lt;BR&gt;
-_Note that <cite>pwd</cite> and <cite>ls</cite> are both in this folder._</li>
-<li>Enter <cite>cd ~/ex0.3</cite> to return to our working directory.
-* Linux uses the <cite>~</cite> character as a shorthand representation for your home directory.
-* It’s a convenient way to reference files and paths in command-line commands.
-* You’ll be typing it a lot in this class… remember it!</li>
+<li><p class="first">Enter <cite>cd /bin</cite>, followed by <cite>ls</cite>.</p>
+<ul>
+<li><div class="first line-block">
+<div class="line">This folder contains a list of the most basic Linux commands.</div>
+<div class="line">Note that <cite>pwd</cite> and <cite>ls</cite> are both in this folder.</div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Enter <cite>cd ~/ex0.3</cite> to return to our working directory.</p>
+<ul class="simple">
+<li>Linux uses the <cite>~</cite> character as a shorthand representation for your home directory.</li>
+<li>It’s a convenient way to reference files and paths in command-line commands.</li>
+<li>You’ll be typing it a lot in this class… remember it!</li>
+</ul>
+</li>
 </ol>
 </div></blockquote>
 <p>_If you want a full list of options available for any of the commands given in this section, type <cite>man &lt;command&gt;</cite> (where <cite>&lt;command&gt;</cite> is the command you want information on) in the command line.  This will provide you with built-in documentation for the command.  Use the arrow and page up/down keys to scroll, and <cite>q</cite> to exit._</p>
@@ -311,12 +342,12 @@ _Note that <cite>pwd</cite> and <cite>ls</cite> are both in this folder._</li>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Type <cite>mv test.txt test2.txt</cite>, followed by <cite>ls</cite>.
-* You will notice that the file has been renamed to <cite>test2.txt</cite>.&lt;BR&gt;
+* You will notice that the file has been renamed to <cite>test2.txt</cite>.
 _This step shows how <cite>mv</cite> can rename files._</li>
 <li>Type <cite>mv test2.txt new</cite>, then <cite>ls</cite>.
 * The file will no longer be present in the folder.</li>
 <li>Type <cite>cd new</cite>, then <cite>ls</cite>.
-* You will see <cite>test2.txt</cite> in the folder.&lt;BR&gt;
+* You will see <cite>test2.txt</cite> in the folder.
 _These steps show how <cite>mv</cite> can move files._</li>
 <li>Type <cite>mv test2.txt ../test.txt</cite>, then <cite>ls</cite>.
 * <cite>test2.txt</cite> will no longer be there.</li>
@@ -487,7 +518,7 @@ _This can be used to determine which processes are using too much memory._</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ros_intro.html" class="btn btn-neutral float-right" title="ROS: Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hello_ros.html" class="btn btn-neutral float-right" title="Hello ROS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ubuntu_gui.html" class="btn btn-neutral float-left" title="Introduction to Ubuntu 16.04 GUI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

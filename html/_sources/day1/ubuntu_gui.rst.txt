@@ -44,10 +44,10 @@ Taskbar
 Task 2: Open and Inspect an Application
 ---------------------------------------
 
-Click on the filing-cabinet icon in the launcher.  A window should show up, and your desktop should look like something below: 
+Click on the filing-cabinet icon in the launcher. A window should show up, and your desktop should look like something below: 
 
-    .. figure:: ../_static/pics/ubuntu_folder_browser.png
-       :scale: 70%
+  .. figure:: ../_static/pics/ubuntu_folder_browser.png
+     :scale: 70%
 
 Things to notice:
 
@@ -55,11 +55,11 @@ Things to notice:
 #. The menu for windows are found on the menu bar at the top of the screen, much in the same way Macs do. The menus, however, only show up when you hover the mouse over the menu bar.
 #. Notice that there are triangles on the left and right of the folder icon. The triangles on the left show how many windows of this application are open, and the right shows which application is currently in the foreground, or "has focus". Clicking on these icons when the applications are open does one of two things:
 
- * If there is only one window open, this window gets focus.
- * If more than one are open, clicking a second time causes all of the windows to show up in the foreground, so that you can choose which window to go to (see below): 
+  * If there is only one window open, this window gets focus.
+  * If more than one are open, clicking a second time causes all of the windows to show up in the foreground, so that you can choose which window to go to (see below): 
 
-    .. figure:: ../_static/pics/ubuntu_inspect.png
-       :scale: 70%
+  .. figure:: ../_static/pics/ubuntu_inspect.png
+     :scale: 70%
 
 
 Task 3: Start an Application & Pin it to the Launcher Bar
@@ -70,15 +70,12 @@ Click on the launcher button (top left) and type gedit in the search box. The "T
   .. figure:: ../_static/pics/ubuntu_start_application.png
      :scale: 70%
 
-  ..
-
 Click on the application. The text editor window should show up on the screen, and the text editor icon should show up on the launcher bar on the left-hand side (see below):
 
   .. figure:: ../_static/pics/ubuntu_application_pin.png
      :scale: 70%
 
-  ..
-
 #. Right-click on the text editor launch icon, and select "Lock to Launcher".
 #. Close the gedit window. The launcher icon should remain after the window closes.
 #. Click on the gedit launcher icon. You should see a new gedit window appear.
+#. The gedit application can now be opened quickly by a single click.
