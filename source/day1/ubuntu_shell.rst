@@ -25,7 +25,9 @@ Starting the Terminal
 
 #. The window will have a single line, which looks like this:
 
-   :code:`academy@laptop-0:~$`
+   .. code-block:: bash
+
+      academy@laptop-0:~$
 
 #. This is called the prompt, where you enter commands. The prompt, by default, provides three pieces of information:
 
@@ -55,7 +57,9 @@ Prepare your environment
 #. Right click in the main file-browser window and select "Open in Terminal" to create a terminal window at that location.
 #. In the terminal window, type the following command to copy some sample files that we can study later:
 
-   * :code:`cp -a ~/ros_training/resources/linux_intro/. .`
+   .. code-block:: bash
+
+      cp -a ~/ros_training/resources/linux_intro/. .
 
 ls Command
 **********
@@ -85,29 +89,31 @@ ls Command
 
    * You'll now see that the file :code:`hidden_link.txt` points to :code:`.hidden_text_file.txt`.
 
-`pwd` and `cd` Commands
-***********************
+   .. tip:: If you check the contents of :code:`.bashrc` in your home folder, you will find that several aliases (:code:`l`, :code:`ll`, and :code:`la`) have been defined. These are real time savers when using :code:`ls` with arguments often.
+
+pwd and cd Commands
+***********************************
 
  #. Enter :code:`pwd` into the terminal.
 
     * This will show you the full path of the directory you are working in.
 
- #. Enter `cd new` into the terminal.
+ #. Enter :code:`cd new` into the terminal.
 
     * The prompt should change to :code:`academy@laptop-0:~/linux_intro/new$`.
-    * Typing `pwd` will show you now in the directory :code:`/home/academy/linux_intro/new`.
+    * Typing :code:`pwd` will show you now in the directory :code:`/home/academy/linux_intro/new`.
 
- #. Enter `cd ..` into the terminal.
+ #. Enter :code:`cd ..` into the terminal.
 
     * In the :doc:`previous exercise <ubuntu_gui>`, we noted that :code:`..` is the parent folder. 
-    * The prompt should therefore indicate that the current working directory is `/home/academy/linux_intro`.
+    * The prompt should therefore indicate that the current working directory is :code:`/home/academy/linux_intro`.
       
- #. Enter `cd /bin`, followed by `ls`.
+ #. Enter :code:`cd /bin`, followed by :code:`ls`.
 
     * | This folder contains a list of the most basic Linux commands.
-      | Note that the programs `pwd` and `ls` are both in this folder.
+      | Note that the programs :code:`pwd` and :code:`ls` are both in this folder.
 
- #. Enter `cd ~/linux_intro` to return to our working directory.
+ #. Enter :code:`cd ~/linux_intro` to return to our working directory.
 
     * Linux uses the :code:`~` character as a shorthand representation for your home directory.
     * It's a convenient way to reference files and paths in command-line commands.
@@ -121,39 +127,55 @@ Altering Files
 
 mv Command
 **********
- #. Type `mv test.txt test2.txt`, followed by `ls`.
-    * You will notice that the file has been renamed to `test2.txt`.
-    _This step shows how `mv` can rename files._
- #. Type `mv test2.txt new`, then `ls`.
+The :code:`mv` command can be used to move and rename files.
+
+ #. Type :code:`mv test.txt test2.txt`, followed by :code:`ls`.
+
+    * You will notice that the file has been renamed to :code:`test2.txt`.
+
+ #. Type :code:`mv test2.txt new`, then :code:`ls`.
+
     * The file will no longer be present in the folder. 
- #. Type `cd new`, then `ls`.
-    * You will see `test2.txt` in the folder.
-    _These steps show how `mv` can move files._
- #. Type `mv test2.txt ../test.txt`, then `ls`.
-    * `test2.txt` will no longer be there.
- #. Type `cd ..`, then `ls`.
-    * You will notice that `test.txt` is present again.<BR>
-    _This shows how `mv` can move and rename files in one step._
+
+ #. Type :code:`cd new`, then :code:`ls`.
+    
+    * You will see that :code:`test2.txt` has been moved into the :code:`new` folder.
+
+ #. Type :code:`mv test2.txt ../test.txt`, then :code:`ls`.
+
+    * :code:`test2.txt` will no longer be there.
+
+ #. Type :code:`cd ..`, then :code:`ls`.
+
+    This shows how :code:`mv` can move and rename files in one step. The file :code:`test.txt` is present again in our working directory.
 
 cp Command
 **********
- #. Type `cp test.txt new/test2.txt`, then `ls new`.
-    * You will see `test2.txt` is now in the `new` folder.
- #. Type `cp test.txt "test copy.txt"`, then `ls -l`.
-    * You will see that `test.txt` has been copied to `test copy.txt`.<BR>
-    _Note that the quotation marks are necessary when spaces or other special characters are included in the file name._
+ #. Type :code:`cp test.txt new/test2.txt`, then :code:`ls new`.
+
+    * You will see :code:`test2.txt` is now in the :code:`new` folder.
+
+ #. Type :code:`cp test.txt "test copy.txt"`, then :code:`ls -l`.
+
+    * You will see that :code:`test.txt` has been copied to :code:`test copy.txt`.
+
+    .. note:: The quotation marks are necessary when spaces or other special characters are included in the file name.
 
 rm Command
 **********
- 1. Type `rm "test copy.txt"`, then `ls -l`.
-    * You will notice that `test copy.txt` is no longer there.
+
+ #. Type :code:`rm "test copy.txt"`, then :code:`ls -l`.
+
+    * You will notice that :code:`test copy.txt` is no longer there.
+
 
 mkdir Command
 *************
- 1. Type `mkdir new2`, then `ls`.
-    * You will see there is a new folder `new2`.
+ #. Type :code:`mkdir new2`, then :code:`ls`.
 
-_You can use the  `-i` flag with `cp`, `mv`, and `rm` commands to prompt you when a file will be overwritten or removed._
+    * You will see there is a new folder :code:`new2`.
+
+    .. tip:: You can use the  :code:`-i` flag with :code:`cp`, :code:`mv`, and :code:`rm` commands to prompt you when a file will be overwritten or removed.
 
 
 Job management
@@ -161,86 +183,121 @@ Job management
 
 Stopping Jobs
 *************
- #. Type `./sample_job`.
+ #. Type :code:`./sample_job`.
+
     * The program will start running.
- #. Press Control+C.
+
+ #. Press :kbd:`Control+C`.
+
     * The program should exit.
- #. Type `./sample_job sigterm`.
+
+ #. Type :code:`./sample_job sigterm`.
+
     * The program will start running.
- #. Press Control+C.
+
+ #. Press :kbd:`Control+C`.
+
     * This time the program will not die.
 
 Stopping "Out of Control" Jobs
 ******************************
  #. Open a new terminal window.
- #. Type `ps ax`.
- #. Scroll up until you find `python ./sample_job sigterm`.
+ #. Type :code:`ps ax`.
+ #. Scroll up until you find :code:`python ./sample_job sigterm`.
+
     * This is the job that is running in the first window.
-    * The first field in the table is the ID of the process (use `man ps` to learn more about the other fields).
- #. Type `ps ax | grep sample`.
+    * The first field in the table is the ID of the process (use :code:`man ps` to learn more about the other fields).
+
+ #. Type :code:`ps ax | grep sample`.
+
     * You will notice that only a few lines are returned.
     * This is useful if you want to find a particular process
-    * _Note: this is an advanced technique called "piping", where the output of one program is passed into the input of the next.  This is beyond the scope of this class, but is useful to learn if you intend to use the terminal extensively._
- #. Type `kill <id>`, where `<id>` is the job number you found with the `ps ax`.
- #. In the first window, type `./sample_job sigterm sigkill`.
+    .. note:: This is an advanced technique called "piping", where the output of one program is passed into the input of the next. This is beyond the scope of this class, but is useful to learn if you intend to use the terminal extensively.
+
+ #. Type :code:`kill <id>`, where :code:`<id>` is the job number you found with the :code:`ps ax`.
+
+ #. In the first window, type :code:`./sample_job sigterm sigkill`.
+
     * The program will start running.
- #. In the second window, type `ps ax | grep sample` to get the id of the process.
- #. Type `kill <id>`.
+
+ #. In the second window, type :code:`ps ax | grep sample` to get the id of the process.
+
+ #. Type :code:`kill <id>`.
+
     * This time, the process will not die.
- #. Type `kill -SIGKILL <id>`.
+
+ #. Type :code:`kill -SIGKILL <id>`.
+
     * This time the process will exit.
 
 Showing Process and Memory usage
 ********************************
- #. In a terminal, type `top`.
+ #. In a terminal, type :code:`top`.
+
     * A table will be shown, updated once per second, showing all of the processes on the system, as well as the overall CPU and memory usage.
- #. Press the Shift+P key.
-    * This will sort processes by CPU utilization.<BR>
-    _This can be used to determine which processes are using too much CPU time._
+
+ #. Press the :kbd:`Shift+P` key.
+
+    * This will sort processes by CPU utilization and shows which processes are using too much CPU time.
+
  #. Press the Shift+M key.
-    * This will sort processes by memory utilization<BR>
-    _This can be used to determine which processes are using too much memory._
- #. Press q or Ctrl+C to exit the program.
+
+    * This will sort processes by memory utilization and shows which processes are using too much memory.
+    
+ #. Press :kbd:`q` or :kbd:`Ctrl+C` to exit the program.
 
 Editing Text (and Other GUI Commands)
 *************************************
- #. Type `gedit test.txt`.
-    * You will notice that a new text editor window will open, and `test.txt` will be loaded.
+ #. Type :code:`gedit test.txt`.
+
+    * You will notice that a new text editor window will open, and :code:`test.txt` will be loaded.
     * The terminal will not come back with a prompt until the window is closed.
+
  #. There are two ways around this limitation.  Try both...
+
  #. **Starting the program and immediately returning a prompt:**
+
     #. Type code:`gedit test.txt &`.
 
        * The :code:`&` character tells the terminal to run this command in "the background", meaning the prompt will return immediately.
 
-    #. Close the window, then type `ls`.
-       * In addition to showing the files, the terminal will notify you that `gedit` has finished.
+    #. Close the window, then type :code:`ls`.
+
+       * In addition to showing the files, the terminal will notify you that :code:`gedit` has finished.
 
  #. **Moving an already running program into the background:**
-    #. Type `gedit test.txt`.
+
+    #. Type :code:`gedit test.txt`.
 
        * The window should open, and the terminal should not have a prompt waiting.
 
-    #. In the terminal window, press Ctrl+Z. 
-       * The terminal will indicate that `gedit` has stopped, and a prompt will appear.
+    #. In the terminal window, press :kbd:`Ctrl+Z`. 
 
-    #. Try to use the `gedit` window.
+       * The terminal will indicate that :code:`gedit` has stopped, and a prompt will appear.
+
+    #. Try to use the :code:`gedit` window.
+
        * Because it is paused, the window will not run.
 
-    #. Type `bg` in the terminal.
-       * The `gedit` window can now run.
+    #. Type :code:`bg` in the terminal.
 
-    #. Close the `gedit` window, and type `ls` in the terminal window.
-       * As before, the terminal window will indicate that `gedit` is finished.
+       * The :code:`gedit` window can now run.
+
+    #. Close the :code:`gedit` window, and type :code:`ls` in the terminal window.
+
+       * As before, the terminal window will indicate that :code:`gedit` is finished.
 
 Running Commands as Root
 ************************
- #. In a terminal, type `ls -a /root`.
-    * The terminal will indicate that you cannot read the folder `/root`.
-    * Many times you will need to run a command that cannot be done as an ordinary user, and must be done as the "super user"
- #. To run the previous command as root, add `sudo` to the beginning of the command.
-    * In this instance, type `sudo ls -a /root` instead.
-    * The terminal will request your password (in this case, `rosindustrial`) in order to proceed.
-    * Once you enter the password, you should see the contents of the `/root` directory.
+ #. In a terminal, type :code:`ls -a /root`.
 
-.. warning:: :code:`sudo` is a powerful tool which doesn't provide any sanity checks on what you ask it to do, so be **VERY** careful in using it._
+    * The terminal will indicate that you cannot read the folder :code:`/root`.
+    * Many times you will need to run a command that cannot be done as an ordinary user, and must be done as the "super user"
+
+ #. To run the previous command as root, add :code:`sudo` to the beginning of the command.
+
+    * In this instance, type :code:`sudo ls -a /root` instead.
+    * The terminal will request your password (in this case, :code:`academy`) in order to proceed.
+    * Once you enter the password, you should see the contents of the :code:`/root` directory.
+
+.. warning:: :code:`sudo` is a powerful tool which doesn't provide any sanity checks on what you ask it to do, so be **VERY** careful in using it.
