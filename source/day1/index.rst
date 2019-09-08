@@ -10,4 +10,4 @@ Slides are available here: :download:`pdf <ros_intro_slides.pdf>`
    ubuntu_gui.rst
    ubuntu_filesystem.rst
    ubuntu_shell.rst
-   hello_ros.rst
+   ros_intro.rst
