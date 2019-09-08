@@ -8,8 +8,8 @@ Starting the Terminal
 
 #. To open the terminal, click on the terminal icon: 
 
-   .. figure:: ../_static/pics/ubuntu_terminal_icon.png
-      :scale: 70%
+     .. figure:: ../_static/pics/ubuntu_terminal_icon.png
+        :scale: 70%
 
 #. Create a second terminal window, either by:
 
@@ -41,10 +41,12 @@ Navigating Directories and Listing Files
 Prepare your environment
 ************************
 
-#. Open the file browser and navigate to your home directory:
+#. Open the file browser, by clicking on the following icon:
 
-   .. figure:: ../_static/pics/ubuntu_terminal_icon.png
+   .. figure:: ../_static/pics/ubuntu_file_browser_icon.png
       :scale: 70%
+
+#. Navigate to the home directory.
 
 #. Double-click on the :code:`linux_intro` folder we created in the previous step.
 
@@ -53,7 +55,7 @@ Prepare your environment
 #. Right click in the main file-browser window and select "Open in Terminal" to create a terminal window at that location.
 #. In the terminal window, type the following command to copy some sample files that we can study later:
 
-   * :code:`cp -a ~/ros_training/resources/linux_intro/* .`
+   * :code:`cp -a ~/ros_training/resources/linux_intro/. .`
 
 ls Command
 **********
@@ -92,26 +94,26 @@ ls Command
 
  #. Enter `cd new` into the terminal.
 
-    * The prompt should change to `academy@laptop-0:~/linux_intro/new$`.
-    * Typing `pwd` will show you now in the directory `/home/ros-industrial/ex0.3/new`.
+    * The prompt should change to :code:`academy@laptop-0:~/linux_intro/new$`.
+    * Typing `pwd` will show you now in the directory :code:`/home/academy/linux_intro/new`.
 
  #. Enter `cd ..` into the terminal.
 
     * In the :doc:`previous exercise <ubuntu_gui>`, we noted that :code:`..` is the parent folder. 
-    * The prompt should therefore indicate that the current working directory is `/home/ros-industrial/ex0.3`.
+    * The prompt should therefore indicate that the current working directory is `/home/academy/linux_intro`.
       
  #. Enter `cd /bin`, followed by `ls`.
 
     * | This folder contains a list of the most basic Linux commands.
-      | Note that `pwd` and `ls` are both in this folder.
+      | Note that the programs `pwd` and `ls` are both in this folder.
 
- #. Enter `cd ~/ex0.3` to return to our working directory.
+ #. Enter `cd ~/linux_intro` to return to our working directory.
 
-    * Linux uses the `~` character as a shorthand representation for your home directory.
+    * Linux uses the :code:`~` character as a shorthand representation for your home directory.
     * It's a convenient way to reference files and paths in command-line commands.
     * You'll be typing it a lot in this class... remember it!
 
-_If you want a full list of options available for any of the commands given in this section, type `man <command>` (where `<command>` is the command you want information on) in the command line.  This will provide you with built-in documentation for the command.  Use the arrow and page up/down keys to scroll, and `q` to exit._
+    .. hint:: If you want a full list of options available for any of the commands given in this section, type :code:`man <command>` (where `<command>` is the command you want information on) in the command line. This will provide you with built-in documentation for the command. Use the arrow and page up/down keys to scroll, and :code:`q` to exit.
 
 
 Altering Files

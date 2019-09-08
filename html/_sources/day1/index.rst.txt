@@ -8,5 +8,6 @@ Slides are available here: :download:`pdf <ros_intro_slides.pdf>`
  
    welcome_system_setup.rst
    ubuntu_gui.rst
-   linux_shell.rst
+   ubuntu_filesystem.rst
+   ubuntu_shell.rst
    hello_ros.rst
