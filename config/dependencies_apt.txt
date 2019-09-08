@@ -1,5 +1,15 @@
 ros-kinetic-desktop-full
 python-catkin-tools
+python-wstool
+git
+cmake
 ros-kinetic-costmap-2d
 ros-kinetic-teleop-twist-joy
 ros-kinetic-serial
+
+#RTAB-Map dependencies
+libsqlite3-dev
+libpcl-dev
+libopencv-dev
+libproj-dev
+libqt5svg5-dev
