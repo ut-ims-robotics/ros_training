@@ -79,3 +79,30 @@ Click on the application. The text editor window should show up on the screen, a
 #. Close the gedit window. The launcher icon should remain after the window closes.
 #. Click on the gedit launcher icon. You should see a new gedit window appear.
 #. The gedit application can now be opened quickly by a single click.
+
+
+Task 4: Changing the IP
+-----------------------
+ When working with robots, we often have to configure the network manually and fix IP addresses for hosts. Let's have a look on how network profiles can be configured in Ubuntu via GUI. 
+
+#. Click on the radio button on the statusbar and choose "Edit Connections..."
+
+   .. figure:: ../_static/pics/ubuntu_wifi.png
+
+#. A window with all your network connection profiles opens. Select "clearbot-0" and click "edit".
+
+   .. figure:: ../_static/pics/ubuntu_wifi_conn.png
+
+#. Under the "IPv4 settings" tab, you can choose between manual or automatic (DHCP) mode. During this training we use the following manual network configuration:
+
+   * IP range for robots:  192.168.200.<1--99>
+   * IP range for laptops: 192.168.200.<101--199>
+   * Network mask: 255.255.255.0 (or shortly 24)
+   * Gateway: 192.168.200.250
+   * Nameserver: 8.8.8.8
+
+#. For example, laptop-1 should have the following settings:
+
+   .. figure:: ../_static/pics/ubuntu_wifi_ipv4.png
+
+#. Check the number marked on your USB stick and make sure your configuration matches with the above. 
