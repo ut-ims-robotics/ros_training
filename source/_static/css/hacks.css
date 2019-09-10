@@ -11,18 +11,28 @@
 
 .rst-content code {
   font-size: 90%;
+  padding-top: 2px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+  padding-left: 5px;
 }
-
-
 
 .rst-content div[class^='highlight'] pre {
   font-size: 90%; 
 }
 
+
 p {
-  font-size: 120%; 
+  font-size: 110%; 
 }
 
+.wy-plain-list-decimal li ul, .rst-content .section ol li ul, .rst-content ol.arabic li ul, article ol li ul {
+     margin-bottom: 24px;
+}
+
+.wy-plain-list-decimal li, .rst-content .section ol li, .rst-content ol.arabic li, article ol li {
+     margin-bottom: 6px;
+}
 
 
 /* Colors and text decoration.
