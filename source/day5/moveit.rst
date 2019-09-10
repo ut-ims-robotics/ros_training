@@ -1,2 +1,2 @@
-MoveGroup C++ Interface
-=======================
+Demo of MoveIt
+==============
