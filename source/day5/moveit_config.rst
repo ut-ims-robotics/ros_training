@@ -1,0 +1,2 @@
+MoveIt Configuration package
+============================
