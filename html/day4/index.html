@@ -111,7 +111,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#google-cartographer">Google Cartographer</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#d-slam">2D SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-slam-with-a-robot">2D SLAM with a robot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#copying-necessary-files-to-your-workspace">Copying necessary files to your workspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-and-launching-google-cartographer">Configuring and launching Google Cartographer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tuning-google-cartographer">Tuning Google Cartographer</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#navigation">Navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#d-mapping">3D mapping</a></li>
 </ul>
@@ -199,7 +204,7 @@
 <h3>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h3>
 <p>In the last workshop, you wrote a driver for an IMU and ultrasonic sensor.</p>
 <p>In this workshop, you will define a transform between your sensors.
-The goal is to śee your sensor moving in RViz when you move your IMU.</p>
+The goal is to see your sensor moving in RViz when you move your IMU.</p>
 </div>
 <div class="section" id="mapping-in-simulated-environment">
 <h3>Mapping in simulated environment<a class="headerlink" href="#mapping-in-simulated-environment" title="Permalink to this headline">¶</a></h3>
@@ -247,11 +252,93 @@ using ROS tools e.g. rostopic list, rostopic echo etc.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_sim_cartographer_2d.launch odom_topic:<span class="o">=</span>&lt;YOUR ODOMETRY TOPIC&gt;
 </pre></div>
 </div>
-<p>Cartographer configuration files are located in robotont_teleop/configuration_files.</p>
 </div>
 </div>
-<div class="section" id="d-slam">
-<h3>2D SLAM<a class="headerlink" href="#d-slam" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="d-slam-with-a-robot">
+<h3>2D SLAM with a robot<a class="headerlink" href="#d-slam-with-a-robot" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have tested some SLAM packages in a simulation,
+let’s try them out on a real robot - Clearbot. We will be using Google Cartographer.</p>
+<div class="section" id="copying-necessary-files-to-your-workspace">
+<h4>Copying necessary files to your workspace<a class="headerlink" href="#copying-necessary-files-to-your-workspace" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic">
+<li><p>For starters, ssh to your robot and go to your workspace’s source folder.</p></li>
+<li><p>In your source folder, use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin_create_pkg &lt;your_package_name&gt;
+</pre></div>
+</div>
+<p>where your package name could be something along the lines of <em>my_mapping</em>.
+You don’t need any dependencies because this package will only hold launch and configuration files.</p>
+</li>
+<li><p>Create a folder named <em>launch</em> in your package.</p></li>
+<li><p>Create a folder named <em>configuration</em> in your package.</p></li>
+<li><p>Using <strong>roscp</strong> (<a class="reference external" href="http://wiki.ros.org/rosbash#roscp">http://wiki.ros.org/rosbash#roscp</a>),
+copy <em>teleop_cartographer_2d.launch</em>
+and <em>navstack.launch</em>
+and <em>teleop_carto_with_navstack.launch</em>
+from <em>robotont_teleop</em> package
+into your new package’s <em>launch</em> folder.</p></li>
+<li><p>Using <strong>roscp</strong>, copy the following files from <em>robotont_teleop</em>
+into your package’s configuration folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>robotont_cartographer_2d.lua
+robotont_cartographer_localization_2d.lua
+robotont_depth_camera_2d.lua
+costmap_common.yaml
+costmap_exploration.yaml
+costmap_global_laser.yaml
+costmap_global_static.yaml
+costmap_local.yaml
+laser_params.yaml
+planner.yaml
+</pre></div>
+</div>
+</li>
+<li><p>Do <strong>catkin build</strong> and source the workspace.</p></li>
+</ol>
+<p>Now you have a package with launch and
+configuration files that you can safely modify.</p>
+</div>
+<div class="section" id="configuring-and-launching-google-cartographer">
+<h4>Configuring and launching Google Cartographer<a class="headerlink" href="#configuring-and-launching-google-cartographer" title="Permalink to this headline">¶</a></h4>
+<p>Next task is to modify your copied launch files
+to include the configuration files from your package.</p>
+<ol class="arabic simple">
+<li><p>Open <em>teleop_cartographer_2d.launch</em> from your package.</p></li>
+<li><p>Change the launch file so that it reads configuration files from your package.
+(NOTE: You have to change paths in 2 places.)</p></li>
+</ol>
+<p>Now that you have configured the launch files, let’s try running the SLAM package.</p>
+<ol class="arabic">
+<li><p>In robot’s terminal, run <strong>roscore</strong>.</p></li>
+<li><p>In another robot terminal, launch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch &lt;your_package_name&gt; teleop_cartographer_2d.launch
+</pre></div>
+</div>
+<p>This will run the mapping software.</p>
+</li>
+<li><p>In the PC, launch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_description display_2dmapping.launch
+</pre></div>
+</div>
+<p>This will launch preconfigured RViz environment.</p>
+</li>
+<li><p>In the PC, launch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_pc_side.launch
+</pre></div>
+</div>
+<p>From this terminal, you can control the robot.</p>
+</li>
+<li><p>Now you should be able to map the world.</p></li>
+</ol>
+</div>
+<div class="section" id="tuning-google-cartographer">
+<h4>Tuning Google Cartographer<a class="headerlink" href="#tuning-google-cartographer" title="Permalink to this headline">¶</a></h4>
+<p>Although last step will already produce a map, it could be better (or worse).
+Therefore, you have the chance to try tuning the algorithm
+and maybe get a better result.</p>
+<ol class="arabic simple">
+<li></li>
+</ol>
+</div>
 </div>
 <div class="section" id="navigation">
 <h3>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h3>

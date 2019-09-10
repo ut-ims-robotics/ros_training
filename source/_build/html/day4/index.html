@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Day 4 &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Day 5" href="../day5/index.html" />
+    <link rel="prev" title="Day 3" href="../day3/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../template/template.html">Training Style Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/index.html">Day 2</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Day 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#workshop">Workshop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transforms">Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mapping-in-simulated-environment">Mapping in simulated environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#launching-the-simulation">Launching the simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gmapping">gmapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#google-cartographer">Google Cartographer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#d-slam-with-a-robot">2D SLAM with a robot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#copying-necessary-files-to-your-workspace">Copying necessary files to your workspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-and-launching-google-cartographer">Configuring and launching Google Cartographer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tuning-google-cartographer">Tuning Google Cartographer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation">Navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-mapping">3D mapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day5/index.html">Day 5</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Day 4</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day4/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="day-4">
+<h1>Day 4<a class="headerlink" href="#day-4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>Slides are available here: <code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="workshop">
+<h2>Workshop<a class="headerlink" href="#workshop" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transforms">
+<h3>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h3>
+<p>In the last workshop, you wrote a driver for an IMU and ultrasonic sensor.</p>
+<p>In this workshop, you will define a transform between your sensors.
+The goal is to see your sensor moving in RViz when you move your IMU.</p>
+</div>
+<div class="section" id="mapping-in-simulated-environment">
+<h3>Mapping in simulated environment<a class="headerlink" href="#mapping-in-simulated-environment" title="Permalink to this headline">¶</a></h3>
+<p>Before going in the real world, many tasks are first done in a simulation
+to prevent unwanted damage to the robot and it’s surroundings.
+In this section, we will use different ROS packages to map a simulated environment.</p>
+<div class="section" id="launching-the-simulation">
+<h4>Launching the simulation<a class="headerlink" href="#launching-the-simulation" title="Permalink to this headline">¶</a></h4>
+<p>In separate terminals, run:</p>
+<ol class="arabic">
+<li><div class="first highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description gazebo_teleop_keyboard.launch world:<span class="o">=</span><span class="k">$(</span>rospack find turtlebot3_gazebo<span class="k">)</span>/worlds/turtlebot3_world.world
+</pre></div>
+</div>
+<p>This will launch the simulation environment. Also, from this terminal, you can use keyboard teleop.</p>
+</li>
+<li><div class="first highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description display_2dmapping.launch
+</pre></div>
+</div>
+<p>This will launch RViz, that shows the generated map.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="gmapping">
+<h4>gmapping<a class="headerlink" href="#gmapping" title="Permalink to this headline">¶</a></h4>
+<p>gmapping is a popular 2D SLAM software in ROS. It uses laserscans to build a 2D map.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun gmapping slam_gmapping
+</pre></div>
+</div>
+<p>This will launch the gmapping mapping software.</p>
+<p>Drive around, using your keyboard, and map the world.</p>
+<p>To configure gmapping, refer to <a class="reference external" href="http://wiki.ros.org/gmapping">http://wiki.ros.org/gmapping</a> .</p>
+<p>To use your own parameters, add them to rosrun command like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun gmapping slam_gmapping _map_update_interval:<span class="o">=</span>1.0
+</pre></div>
+</div>
+<p>Notice the underscore before the parameter. This example will change map update interval to 1 second (default is 5 seconds).</p>
+</div>
+<div class="section" id="google-cartographer">
+<h4>Google Cartographer<a class="headerlink" href="#google-cartographer" title="Permalink to this headline">¶</a></h4>
+<p>Kill the gmapping process.</p>
+<p>Google Cartographer also uses odometry data.</p>
+<p>Find out what topic has odometry data,
+using ROS tools e.g. rostopic list, rostopic echo etc.</p>
+<p>If you have determined the correct topic, launch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_sim_cartographer_2d.launch odom_topic:<span class="o">=</span>&lt;YOUR ODOMETRY TOPIC&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="d-slam-with-a-robot">
+<h3>2D SLAM with a robot<a class="headerlink" href="#d-slam-with-a-robot" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have tested some SLAM packages in a simulation,
+let’s try them out on a real robot - Clearbot. We will be using Google Cartographer.</p>
+<div class="section" id="copying-necessary-files-to-your-workspace">
+<h4>Copying necessary files to your workspace<a class="headerlink" href="#copying-necessary-files-to-your-workspace" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic">
+<li><p class="first">For starters, ssh to your robot and go to your workspace’s source folder.</p>
+</li>
+<li><p class="first">In your source folder, use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin_create_pkg &lt;your_package_name&gt;
+</pre></div>
+</div>
+<p>where your package name could be something along the lines of <em>my_mapping</em>.
+You don’t need any dependencies because this package will only hold launch and configuration files.</p>
+</li>
+<li><p class="first">Create a folder named <em>launch</em> in your package.</p>
+</li>
+<li><p class="first">Create a folder named <em>configuration</em> in your package.</p>
+</li>
+<li><p class="first">Using <strong>roscp</strong> (<a class="reference external" href="http://wiki.ros.org/rosbash#roscp">http://wiki.ros.org/rosbash#roscp</a>),
+copy <em>teleop_cartographer_2d.launch</em>
+and <em>navstack.launch</em>
+and <em>teleop_carto_with_navstack.launch</em>
+from <em>robotont_teleop</em> package
+into your new package’s <em>launch</em> folder.</p>
+</li>
+<li><p class="first">Using <strong>roscp</strong>, copy the following files from <em>robotont_teleop</em>
+into your package’s configuration folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>robotont_cartographer_2d.lua
+robotont_cartographer_localization_2d.lua
+robotont_depth_camera_2d.lua
+costmap_common.yaml
+costmap_exploration.yaml
+costmap_global_laser.yaml
+costmap_global_static.yaml
+costmap_local.yaml
+laser_params.yaml
+planner.yaml
+</pre></div>
+</div>
+</li>
+<li><p class="first">Do <strong>catkin build</strong> and source the workspace.</p>
+</li>
+</ol>
+<p>Now you have a package with launch and
+configuration files that you can safely modify.</p>
+</div>
+<div class="section" id="configuring-and-launching-google-cartographer">
+<h4>Configuring and launching Google Cartographer<a class="headerlink" href="#configuring-and-launching-google-cartographer" title="Permalink to this headline">¶</a></h4>
+<p>Next task is to modify your copied launch files
+to include the configuration files from your package.</p>
+<ol class="arabic simple">
+<li>Open <em>teleop_cartographer_2d.launch</em> from your package.</li>
+<li>Change the launch file so that it reads configuration files from your package.
+(NOTE: You have to change paths in 2 places.)</li>
+</ol>
+<p>Now that you have configured the launch files, let’s try running the SLAM package.</p>
+<ol class="arabic">
+<li><p class="first">In robot’s terminal, run <strong>roscore</strong>.</p>
+</li>
+<li><p class="first">In another robot terminal, launch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch &lt;your_package_name&gt; teleop_cartographer_2d.launch
+</pre></div>
+</div>
+<p>This will run the mapping software.</p>
+</li>
+<li><p class="first">In the PC, launch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description display_2dmapping.launch
+</pre></div>
+</div>
+<p>This will launch preconfigured RViz environment.</p>
+</li>
+<li><p class="first">In the PC, launch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_pc_side.launch
+</pre></div>
+</div>
+<p>From this terminal, you can control the robot.</p>
+</li>
+<li><p class="first">Now you should be able to map the world.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="tuning-google-cartographer">
+<h4>Tuning Google Cartographer<a class="headerlink" href="#tuning-google-cartographer" title="Permalink to this headline">¶</a></h4>
+<p>Although last step will already produce a map, it could be better (or worse).
+Therefore, you have the chance to try tuning the algorithm
+and maybe get a better result.</p>
+<ol class="arabic simple">
+<li></li>
+</ol>
+</div>
+</div>
+<div class="section" id="navigation">
+<h3>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="d-mapping">
+<h3>3D mapping<a class="headerlink" href="#d-mapping" title="Permalink to this headline">¶</a></h3>
+<p>Although 3D mapping requires much more resources and is less developed field than 2D mapping, it is worth to try out how 3D mapping works in ROS using RTABMap.</p>
+<ol class="arabic">
+<li><p class="first">Create a ssh-connection to the robot and launch roscore to keep ROS running and prevent us from having to restart all nodes every time. (If you close the first roslaunch you ran, whole ROS system will collapse because it is the same as killing the core.)</p>
+</li>
+<li><p class="first">Create a ssh-connection to the robot and launch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_3dmapping.launch
+</pre></div>
+</div>
+</li>
+<li><p class="first">In another terminal in your PC, for visualization, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description display_3dmapping.launch
+</pre></div>
+</div>
+</li>
+<li><p class="first">In another terminal, for controlling the robot, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_pc_side.launch
+</pre></div>
+</div>
+</li>
+<li><p class="first">Drive around the room and try mapping it.</p>
+</li>
+<li><p class="first">You should notice, that default settings do not create a very good map.</p>
+</li>
+</ol>
+<p>Currently, it can be seen, that the mapping software needs some tuning.</p>
+<p>For that, a simplified approach is made with launch files (arguments in robotont_teleop/launch/teleop_3dmapping.launch).
+But if you want to explore more options/parameters, refer to <a class="reference external" href="http://wiki.ros.org/rtabmap_ros#rtabmap">http://wiki.ros.org/rtabmap_ros#rtabmap</a> .</p>
+<ol class="arabic">
+<li><p class="first">Kill the process where you ran <em>teleop_3dmapping.launch</em> .</p>
+</li>
+<li><p class="first">Instead, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_3dmapping.launch angular_update:<span class="o">=</span>0.1 linear_update:<span class="o">=</span>0.1 cell_size:<span class="o">=</span>0.1
+</pre></div>
+</div>
+<p>And here you can change some values and hopefully get a better 3D map.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../day5/index.html" class="btn btn-neutral float-right" title="Day 5" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../day3/index.html" class="btn btn-neutral float-left" title="Day 3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, License CC BY-ND-NC, Karl Kruusamäe, Veiko Vunder, Robert Valner, Madis Kaspar Nigol, Renno Raudmäe
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

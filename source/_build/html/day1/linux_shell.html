@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Linux Terminal &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS: Introduction" href="ros_intro.html" />
+    <link rel="prev" title="Introduction to Ubuntu 16.04 GUI" href="ubuntu_gui.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../template/template.html">Training Style Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 1</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="welcome_system_setup.html">Welcome &amp; System Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_gui.html">Introduction to Ubuntu 16.04 GUI</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The Linux Terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#starting-the-terminal">Starting the Terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigating-directories-and-listing-files">Navigating Directories and Listing Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-your-environment">Prepare your environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ls-command">ls Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pwd-and-cd-commands"><cite>pwd</cite> and <cite>cd</cite> Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#altering-files">Altering Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mv-command">mv Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cp-command">cp Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rm-command">rm Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mkdir-command">mkdir Command</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#job-management">Job management</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stopping-jobs">Stopping Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stopping-out-of-control-jobs">Stopping “Out of Control” Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showing-process-and-memory-usage">Showing Process and Memory usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-text-and-other-gui-commands">Editing Text (and Other GUI Commands)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-commands-as-root">Running Commands as Root</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ros_intro.html">ROS: Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workshop.html">Workshop</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/index.html">Day 2</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/index.html">Day 4</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day5/index.html">Day 5</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Day 1</a> &raquo;</li>
+        
+      <li>The Linux Terminal</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day1/linux_shell.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-linux-terminal">
+<h1>The Linux Terminal<a class="headerlink" href="#the-linux-terminal" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise, we will familiarize ourselves with the Linux terminal.</p>
+<div class="section" id="starting-the-terminal">
+<h2>Starting the Terminal<a class="headerlink" href="#starting-the-terminal" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">To open the terminal, click on the terminal icon:</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/ubuntu_terminal_icon.png"><img alt="../_images/ubuntu_terminal_icon.png" src="../_images/ubuntu_terminal_icon.png" style="width: 56.0px; height: 56.0px;" /></a>
+</div>
+</li>
+<li><p class="first">Create a second terminal window, either by:</p>
+<ul class="simple">
+<li>Right-clicking on the terminal and selecting the “Open Terminal” or</li>
+<li>Selecting “Open Terminal” from the “File” menu</li>
+</ul>
+</li>
+<li><p class="first">Create a second terminal within the same window by pressing <kbd class="kbd docutils literal notranslate">Ctrl+Shift+T</kbd> while the terminal window is selected.</p>
+</li>
+<li><p class="first">Close the 2nd terminal tab, either by:</p>
+<ul class="simple">
+<li>clicking the small ‘x’ in the terminal tab (not the main terminal window)</li>
+<li>typing <cite>exit</cite> and hitting enter.</li>
+</ul>
+</li>
+<li><p class="first">The window will have a single line, which looks like this:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">academy&#64;laptop-0:~$</span></code></p>
+</li>
+<li><p class="first">This is called the prompt, where you enter commands. The prompt, by default, provides three pieces of information:</p>
+<ol class="arabic simple">
+<li><code class="code docutils literal notranslate"><span class="pre">academy</span></code> is the login name of the user you are running as.</li>
+<li><code class="code docutils literal notranslate"><span class="pre">laptop-0</span></code> is the host name of the computer.</li>
+<li><code class="code docutils literal notranslate"><span class="pre">~</span></code> is the directory in which the terminal is currently in. (More on this later).</li>
+</ol>
+</li>
+<li><p class="first">Close the terminal window by typing <cite>exit</cite> or clicking on the red ‘x’ in the window’s titlebar.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="navigating-directories-and-listing-files">
+<h2>Navigating Directories and Listing Files<a class="headerlink" href="#navigating-directories-and-listing-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prepare-your-environment">
+<h3>Prepare your environment<a class="headerlink" href="#prepare-your-environment" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Open your home folder in the file browser.</li>
+<li>Double-click on the <cite>ex0.3</cite> folder we created in the previous step.
+* _We’ll use this to illustrate various file operations in the terminal._</li>
+<li>Right click in the main file-browser window and select “Open in Terminal” to create a terminal window at that location.</li>
+<li>In the terminal window, type the following command to create some sample files that we can study later:
+* <cite>cp -a ~/industrial_training/exercises/0.3/. .</cite></li>
+</ol>
+</div>
+<div class="section" id="ls-command">
+<h3>ls Command<a class="headerlink" href="#ls-command" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Enter <cite>ls</cite> into the terminal.
+* You should see <cite>test.txt</cite>, and <cite>new</cite> listed. (If you don’t see ‘new’, go back and complete the [previous exercise](Exploring-the-Linux-File-System.md)).
+* Directories, like <cite>new</cite>, are colored in blue.
+* The file <cite>sample_job</cite> is in green; this indicates it has its “execute” bit set, which means it can be executed as a command.</li>
+<li>Type <cite>ls *.txt</cite>.  Only the file <cite>test.txt</cite> will be displayed.</li>
+<li>Enter <cite>ls -l</cite> into the terminal.
+* Adding the <cite>-l</cite> option shows one entry per line, with additional information about each entry in the directory.
+* The first 10 characters indicate the file type and permissions
+* The first character is <cite>d</cite> if the entry is a directory.
+* The next 9 characters are the permissions bits for the file
+* The third and fourth fields are the owning user and group, respectively.
+* The second-to-last field is the time the file was last modified.
+* If the file is a symbolic link, the link’s target file is listed after the link’s file name.</li>
+<li>Enter <cite>ls -a</cite> in the terminal.
+* You will now see one additional file, which is hidden.</li>
+<li>Enter <cite>ls -a -l</cite> (or <cite>ls -al</cite>) in the command.
+* You’ll now see that the file <cite>hidden_link.txt</cite> points to <cite>.hidden_text_file.txt</cite>.</li>
+</ol>
+</div>
+<div class="section" id="pwd-and-cd-commands">
+<h3><cite>pwd</cite> and <cite>cd</cite> Commands<a class="headerlink" href="#pwd-and-cd-commands" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Enter <cite>pwd</cite> into the terminal.<ul>
+<li>This will show you the full path of the directory you are working in.</li>
+</ul>
+</li>
+<li>Enter <cite>cd new</cite> into the terminal.<ul>
+<li>The prompt should change to <cite>ros-industrial&#64;ros-i-kinetic-vm:~/ex0.3/new$</cite>.</li>
+<li>Typing <cite>pwd</cite> will show you now in the directory <cite>/home/ros-industrial/ex0.3/new</cite>.</li>
+</ul>
+</li>
+<li>Enter <cite>cd ..</cite> into the terminal.<ul>
+<li>In the [previous exercise](Exploring-the-Linux-File-System.md), we noted that <cite>..</cite> is the parent folder.</li>
+<li>The prompt should therefore indicate that the current working directory is <cite>/home/ros-industrial/ex0.3</cite>.</li>
+</ul>
+</li>
+<li>Enter <cite>cd /bin</cite>, followed by <cite>ls</cite>.
+* This folder contains a list of the most basic Linux commands.&lt;BR&gt;
+_Note that <cite>pwd</cite> and <cite>ls</cite> are both in this folder._</li>
+<li>Enter <cite>cd ~/ex0.3</cite> to return to our working directory.
+* Linux uses the <cite>~</cite> character as a shorthand representation for your home directory.
+* It’s a convenient way to reference files and paths in command-line commands.
+* You’ll be typing it a lot in this class… remember it!</li>
+</ol>
+</div></blockquote>
+<p>_If you want a full list of options available for any of the commands given in this section, type <cite>man &lt;command&gt;</cite> (where <cite>&lt;command&gt;</cite> is the command you want information on) in the command line.  This will provide you with built-in documentation for the command.  Use the arrow and page up/down keys to scroll, and <cite>q</cite> to exit._</p>
+</div>
+</div>
+<div class="section" id="altering-files">
+<h2>Altering Files<a class="headerlink" href="#altering-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mv-command">
+<h3>mv Command<a class="headerlink" href="#mv-command" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Type <cite>mv test.txt test2.txt</cite>, followed by <cite>ls</cite>.
+* You will notice that the file has been renamed to <cite>test2.txt</cite>.&lt;BR&gt;
+_This step shows how <cite>mv</cite> can rename files._</li>
+<li>Type <cite>mv test2.txt new</cite>, then <cite>ls</cite>.
+* The file will no longer be present in the folder.</li>
+<li>Type <cite>cd new</cite>, then <cite>ls</cite>.
+* You will see <cite>test2.txt</cite> in the folder.&lt;BR&gt;
+_These steps show how <cite>mv</cite> can move files._</li>
+<li>Type <cite>mv test2.txt ../test.txt</cite>, then <cite>ls</cite>.
+* <cite>test2.txt</cite> will no longer be there.</li>
+<li>Type <cite>cd ..</cite>, then <cite>ls</cite>.
+* You will notice that <cite>test.txt</cite> is present again.&lt;BR&gt;
+_This shows how <cite>mv</cite> can move and rename files in one step._</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="cp-command">
+<h3>cp Command<a class="headerlink" href="#cp-command" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Type <cite>cp test.txt new/test2.txt</cite>, then <cite>ls new</cite>.
+* You will see <cite>test2.txt</cite> is now in the <cite>new</cite> folder.</li>
+<li>Type <cite>cp test.txt “test copy.txt”</cite>, then <cite>ls -l</cite>.
+* You will see that <cite>test.txt</cite> has been copied to <cite>test copy.txt</cite>.&lt;BR&gt;
+_Note that the quotation marks are necessary when spaces or other special characters are included in the file name._</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="rm-command">
+<h3>rm Command<a class="headerlink" href="#rm-command" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Type <cite>rm “test copy.txt”</cite>, then <cite>ls -l</cite>.
+* You will notice that <cite>test copy.txt</cite> is no longer there.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="mkdir-command">
+<h3>mkdir Command<a class="headerlink" href="#mkdir-command" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Type <cite>mkdir new2</cite>, then <cite>ls</cite>.
+* You will see there is a new folder <cite>new2</cite>.</li>
+</ol>
+</div></blockquote>
+<p>_You can use the  <cite>-i</cite> flag with <cite>cp</cite>, <cite>mv</cite>, and <cite>rm</cite> commands to prompt you when a file will be overwritten or removed._</p>
+</div>
+</div>
+<div class="section" id="job-management">
+<h2>Job management<a class="headerlink" href="#job-management" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stopping-jobs">
+<h3>Stopping Jobs<a class="headerlink" href="#stopping-jobs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Type <cite>./sample_job</cite>.
+* The program will start running.</li>
+<li>Press Control+C.
+* The program should exit.</li>
+<li>Type <cite>./sample_job sigterm</cite>.
+* The program will start running.</li>
+<li>Press Control+C.
+* This time the program will not die.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="stopping-out-of-control-jobs">
+<h3>Stopping “Out of Control” Jobs<a class="headerlink" href="#stopping-out-of-control-jobs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Open a new terminal window.</li>
+<li>Type <cite>ps ax</cite>.</li>
+<li>Scroll up until you find <cite>python ./sample_job sigterm</cite>.
+* This is the job that is running in the first window.
+* The first field in the table is the ID of the process (use <cite>man ps</cite> to learn more about the other fields).</li>
+<li>Type <cite>ps ax | grep sample</cite>.
+* You will notice that only a few lines are returned.
+* This is useful if you want to find a particular process
+* _Note: this is an advanced technique called “piping”, where the output of one program is passed into the input of the next.  This is beyond the scope of this class, but is useful to learn if you intend to use the terminal extensively._</li>
+<li>Type <cite>kill &lt;id&gt;</cite>, where <cite>&lt;id&gt;</cite> is the job number you found with the <cite>ps ax</cite>.</li>
+<li>In the first window, type <cite>./sample_job sigterm sigkill</cite>.
+* The program will start running.</li>
+<li>In the second window, type <cite>ps ax | grep sample</cite> to get the id of the process.</li>
+<li>Type <cite>kill &lt;id&gt;</cite>.
+* This time, the process will not die.</li>
+<li>Type <cite>kill -SIGKILL &lt;id&gt;</cite>.
+* This time the process will exit.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="showing-process-and-memory-usage">
+<h3>Showing Process and Memory usage<a class="headerlink" href="#showing-process-and-memory-usage" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>In a terminal, type <cite>top</cite>.
+* A table will be shown, updated once per second, showing all of the processes on the system, as well as the overall CPU and memory usage.</li>
+<li>Press the Shift+P key.
+* This will sort processes by CPU utilization.&lt;BR&gt;
+_This can be used to determine which processes are using too much CPU time._</li>
+<li>Press the Shift+M key.
+* This will sort processes by memory utilization&lt;BR&gt;
+_This can be used to determine which processes are using too much memory._</li>
+<li>Press q or Ctrl+C to exit the program.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="editing-text-and-other-gui-commands">
+<h3>Editing Text (and Other GUI Commands)<a class="headerlink" href="#editing-text-and-other-gui-commands" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Type <cite>gedit test.txt</cite>.
+* You will notice that a new text editor window will open, and <cite>test.txt</cite> will be loaded.
+* The terminal will not come back with a prompt until the window is closed.</p>
+</li>
+<li><p class="first">There are two ways around this limitation.  Try both…</p>
+</li>
+<li><p class="first"><strong>Starting the program and immediately returning a prompt:</strong>
+#. Type code:<cite>gedit test.txt &amp;</cite>.</p>
+<blockquote>
+<div><ul class="simple">
+<li>The <code class="code docutils literal notranslate"><span class="pre">&amp;</span></code> character tells the terminal to run this command in “the background”, meaning the prompt will return immediately.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Close the window, then type <cite>ls</cite>.
+* In addition to showing the files, the terminal will notify you that <cite>gedit</cite> has finished.</li>
+</ol>
+</li>
+<li><p class="first"><strong>Moving an already running program into the background:</strong>
+#. Type <cite>gedit test.txt</cite>.</p>
+<blockquote>
+<div><ul class="simple">
+<li>The window should open, and the terminal should not have a prompt waiting.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li>In the terminal window, press Ctrl+Z.
+* The terminal will indicate that <cite>gedit</cite> has stopped, and a prompt will appear.</li>
+<li>Try to use the <cite>gedit</cite> window.
+* Because it is paused, the window will not run.</li>
+<li>Type <cite>bg</cite> in the terminal.
+* The <cite>gedit</cite> window can now run.</li>
+<li>Close the <cite>gedit</cite> window, and type <cite>ls</cite> in the terminal window.
+* As before, the terminal window will indicate that <cite>gedit</cite> is finished.</li>
+</ol>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="running-commands-as-root">
+<h3>Running Commands as Root<a class="headerlink" href="#running-commands-as-root" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>In a terminal, type <cite>ls -a /root</cite>.
+* The terminal will indicate that you cannot read the folder <cite>/root</cite>.
+* Many times you will need to run a command that cannot be done as an ordinary user, and must be done as the “super user”</li>
+<li>To run the previous command as root, add <cite>sudo</cite> to the beginning of the command.
+* In this instance, type <cite>sudo ls -a /root</cite> instead.
+* The terminal will request your password (in this case, <cite>rosindustrial</cite>) in order to proceed.
+* Once you enter the password, you should see the contents of the <cite>/root</cite> directory.</li>
+</ol>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><code class="code docutils literal notranslate"><span class="pre">sudo</span></code> is a powerful tool which doesn’t provide any sanity checks on what you ask it to do, so be <strong>VERY</strong> careful in using it._</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ros_intro.html" class="btn btn-neutral float-right" title="ROS: Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ubuntu_gui.html" class="btn btn-neutral float-left" title="Introduction to Ubuntu 16.04 GUI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, License CC BY-ND-NC, Karl Kruusamäe, Veiko Vunder, Robert Valner, Madis Kaspar Nigol, Renno Raudmäe
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

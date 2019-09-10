@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mapping in simulated environment &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../template/template.html">Training Style Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/index.html">Day 2</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Day 4</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day5/index.html">Day 5</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Mapping in simulated environment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day4/mappinginsim.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mapping-in-simulated-environment">
+<h1>Mapping in simulated environment<a class="headerlink" href="#mapping-in-simulated-environment" title="Permalink to this headline">¶</a></h1>
+<p>Before going in the real world, many tasks are first done in a simulation
+to prevent unwanted damage to the robot and it’s surroundings.
+In this section, we will use different ROS packages to map a simulated environment.</p>
+<div class="section" id="launching-the-simulation">
+<h2>Launching the simulation<a class="headerlink" href="#launching-the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>In separate terminals, run:</p>
+<ol class="arabic">
+<li><div class="first highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description gazebo_teleop_keyboard.launch world:<span class="o">=</span><span class="k">$(</span>rospack find turtlebot3_gazebo<span class="k">)</span>/worlds/turtlebot3_world.world
+</pre></div>
+</div>
+<p>This will launch the simulation environment. Also, from this terminal, you can use keyboard teleop.</p>
+</li>
+<li><div class="first highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description display_2dmapping.launch
+</pre></div>
+</div>
+<p>This will launch RViz, that shows the generated map.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="gmapping">
+<h2>gmapping<a class="headerlink" href="#gmapping" title="Permalink to this headline">¶</a></h2>
+<p>gmapping is a popular 2D SLAM software in ROS. It uses laserscans to build a 2D map.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun gmapping slam_gmapping
+</pre></div>
+</div>
+<p>This will launch the gmapping mapping software.</p>
+<p>Drive around, using your keyboard, and map the world.</p>
+<p>To configure gmapping, refer to <a class="reference external" href="http://wiki.ros.org/gmapping">http://wiki.ros.org/gmapping</a> .</p>
+<p>To use your own parameters, add them to rosrun command like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun gmapping slam_gmapping _map_update_interval:<span class="o">=</span>1.0
+</pre></div>
+</div>
+<p>Notice the underscore before the parameter. This example will change map update interval to 1 second (default is 5 seconds).</p>
+</div>
+<div class="section" id="google-cartographer">
+<h2>Google Cartographer<a class="headerlink" href="#google-cartographer" title="Permalink to this headline">¶</a></h2>
+<p>Kill the gmapping process.</p>
+<p>Google Cartographer also uses odometry data.</p>
+<p>Find out what topic has odometry data,
+using ROS tools e.g. rostopic list, rostopic echo etc.</p>
+<p>If you have determined the correct topic, launch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_sim_cartographer_2d.launch odom_topic:<span class="o">=</span>&lt;YOUR ODOMETRY TOPIC&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, License CC BY-ND-NC, Karl Kruusamäe, Veiko Vunder, Robert Valner, Madis Kaspar Nigol, Renno Raudmäe
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
