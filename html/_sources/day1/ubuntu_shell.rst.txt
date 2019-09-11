@@ -212,6 +212,7 @@ Stopping "Out of Control" Jobs
 
    * You will notice that only a few lines are returned.
    * This is useful if you want to find a particular process
+
    .. note:: This is an advanced technique called "piping", where the output of one program is passed into the input of the next. This is beyond the scope of this class, but is useful to learn if you intend to use the terminal extensively.
 
 #. Type :code:`kill <id>`, where :code:`<id>` is the job number you found with the :code:`ps ax`.

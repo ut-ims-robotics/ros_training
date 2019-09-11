@@ -208,39 +208,41 @@
 <div class="section" id="starting-the-terminal">
 <h2>Starting the Terminal<a class="headerlink" href="#starting-the-terminal" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p>To open the terminal, click on the terminal icon:</p>
+<li><p class="first">To open the terminal, click on the terminal icon:</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/ubuntu_terminal_icon.png"><img alt="../_images/ubuntu_terminal_icon.png" src="../_images/ubuntu_terminal_icon.png" style="width: 56.0px; height: 56.0px;" /></a>
 </div>
 </div></blockquote>
 </li>
-<li><p>Create a second terminal window, either by:</p>
+<li><p class="first">Create a second terminal window, either by:</p>
 <ul class="simple">
-<li><p>Right-clicking on the terminal and selecting the “Open Terminal” or</p></li>
-<li><p>Selecting “Open Terminal” from the “File” menu</p></li>
+<li>Right-clicking on the terminal and selecting the “Open Terminal” or</li>
+<li>Selecting “Open Terminal” from the “File” menu</li>
 </ul>
 </li>
-<li><p>Create a second terminal within the same window by pressing <kbd class="kbd docutils literal notranslate">Ctrl+Shift+T</kbd> while the terminal window is selected.</p></li>
-<li><p>Close the 2nd terminal tab, either by:</p>
+<li><p class="first">Create a second terminal within the same window by pressing <kbd class="kbd docutils literal notranslate">Ctrl+Shift+T</kbd> while the terminal window is selected.</p>
+</li>
+<li><p class="first">Close the 2nd terminal tab, either by:</p>
 <ul class="simple">
-<li><p>clicking the small ‘x’ in the terminal tab (not the main terminal window)</p></li>
-<li><p>typing <code class="code docutils literal notranslate"><span class="pre">exit</span></code> and hitting enter.</p></li>
+<li>clicking the small ‘x’ in the terminal tab (not the main terminal window)</li>
+<li>typing <code class="code docutils literal notranslate"><span class="pre">exit</span></code> and hitting enter.</li>
 </ul>
 </li>
-<li><p>The window will have a single line, which looks like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>academy@laptop-0:~$
+<li><p class="first">The window will have a single line, which looks like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>academy@laptop-0:~$
 </pre></div>
 </div>
 </li>
-<li><p>This is called the prompt, where you enter commands. The prompt, by default, provides three pieces of information:</p>
+<li><p class="first">This is called the prompt, where you enter commands. The prompt, by default, provides three pieces of information:</p>
 <ol class="arabic simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">academy</span></code> is the login name of the user you are running as.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">laptop-0</span></code> is the host name of the computer.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">~</span></code> is the directory in which the terminal is currently in. (More on this later).</p></li>
+<li><code class="code docutils literal notranslate"><span class="pre">academy</span></code> is the login name of the user you are running as.</li>
+<li><code class="code docutils literal notranslate"><span class="pre">laptop-0</span></code> is the host name of the computer.</li>
+<li><code class="code docutils literal notranslate"><span class="pre">~</span></code> is the directory in which the terminal is currently in. (More on this later).</li>
 </ol>
 </li>
-<li><p>Close the terminal window by typing <code class="code docutils literal notranslate"><span class="pre">exit</span></code> or clicking on the red ‘x’ in the window’s titlebar.</p></li>
+<li><p class="first">Close the terminal window by typing <code class="code docutils literal notranslate"><span class="pre">exit</span></code> or clicking on the red ‘x’ in the window’s titlebar.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="navigating-directories-and-listing-files">
@@ -248,20 +250,22 @@
 <div class="section" id="prepare-your-environment">
 <h3>Prepare your environment<a class="headerlink" href="#prepare-your-environment" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p>Open the file browser, by clicking on the following icon:</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/ubuntu_file_browser_icon.png"><img alt="../_images/ubuntu_file_browser_icon.png" src="../_images/ubuntu_file_browser_icon.png" style="width: 44.099999999999994px; height: 42.699999999999996px;" /></a>
+<li><p class="first">Open the file browser, by clicking on the following icon:</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/ubuntu_file_browser_icon.png"><img alt="../_images/ubuntu_file_browser_icon.png" src="../_images/ubuntu_file_browser_icon.png" style="width: 44.1px; height: 42.7px;" /></a>
 </div>
 </li>
-<li><p>Navigate to the home directory.</p></li>
-<li><p>Double-click on the <code class="code docutils literal notranslate"><span class="pre">linux_intro</span></code> folder we created in the previous step.</p>
+<li><p class="first">Navigate to the home directory.</p>
+</li>
+<li><p class="first">Double-click on the <code class="code docutils literal notranslate"><span class="pre">linux_intro</span></code> folder we created in the previous step.</p>
 <ul class="simple">
-<li><p>We’ll use this to illustrate various file operations in the terminal.</p></li>
+<li>We’ll use this to illustrate various file operations in the terminal.</li>
 </ul>
 </li>
-<li><p>Right click in the main file-browser window and select “Open in Terminal” to create a terminal window at that location.</p></li>
-<li><p>In the terminal window, type the following command to copy some sample files that we can study later:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp -a ~/ros_training/resources/linux_intro/. .
+<li><p class="first">Right click in the main file-browser window and select “Open in Terminal” to create a terminal window at that location.</p>
+</li>
+<li><p class="first">In the terminal window, type the following command to copy some sample files that we can study later:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>cp -a ~/ros_training/resources/linux_intro/. .
 </pre></div>
 </div>
 </li>
@@ -270,37 +274,38 @@
 <div class="section" id="ls-command">
 <h3>ls Command<a class="headerlink" href="#ls-command" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p>Enter <code class="code docutils literal notranslate"><span class="pre">ls</span></code> into the terminal.</p>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">ls</span></code> into the terminal.</p>
 <ul class="simple">
-<li><p>You should see <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code>, and <code class="code docutils literal notranslate"><span class="pre">new</span></code> listed. (If you don’t see ‘new’, go back and complete the <a class="reference internal" href="ubuntu_gui.html"><span class="doc">previous exercise</span></a>.</p></li>
-<li><p>Directories, like <code class="code docutils literal notranslate"><span class="pre">new</span></code>, are colored in blue.</p></li>
-<li><p>The file <code class="code docutils literal notranslate"><span class="pre">sample_job</span></code> is in green; this indicates it has its “execute” bit set, which means it can be executed as a command.</p></li>
+<li>You should see <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code>, and <code class="code docutils literal notranslate"><span class="pre">new</span></code> listed. (If you don’t see ‘new’, go back and complete the <a class="reference internal" href="ubuntu_gui.html"><span class="doc">previous exercise</span></a>.</li>
+<li>Directories, like <code class="code docutils literal notranslate"><span class="pre">new</span></code>, are colored in blue.</li>
+<li>The file <code class="code docutils literal notranslate"><span class="pre">sample_job</span></code> is in green; this indicates it has its “execute” bit set, which means it can be executed as a command.</li>
 </ul>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.txt</span></code>. This lists all the files ending with “.txt”. Only the file <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code> will be displayed.</p></li>
-<li><p>Enter <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> into the terminal.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.txt</span></code>. This lists all the files ending with “.txt”. Only the file <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code> will be displayed.</p>
+</li>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> into the terminal.</p>
 <ul class="simple">
-<li><p>Adding the <code class="code docutils literal notranslate"><span class="pre">-l</span></code> option shows one entry per line, with additional information about each entry in the directory.</p></li>
-<li><p>The first 10 characters indicate the file type and permissions</p></li>
-<li><p>The first character is <code class="code docutils literal notranslate"><span class="pre">d</span></code> if the entry is a directory.</p></li>
-<li><p>The next 9 characters are the permissions bits for the file</p></li>
-<li><p>The third and fourth fields are the owning user and group, respectively.</p></li>
-<li><p>The second-to-last field is the time the file was last modified.</p></li>
-<li><p>If the file is a symbolic link, the link’s target file is listed after the link’s file name.</p></li>
+<li>Adding the <code class="code docutils literal notranslate"><span class="pre">-l</span></code> option shows one entry per line, with additional information about each entry in the directory.</li>
+<li>The first 10 characters indicate the file type and permissions</li>
+<li>The first character is <code class="code docutils literal notranslate"><span class="pre">d</span></code> if the entry is a directory.</li>
+<li>The next 9 characters are the permissions bits for the file</li>
+<li>The third and fourth fields are the owning user and group, respectively.</li>
+<li>The second-to-last field is the time the file was last modified.</li>
+<li>If the file is a symbolic link, the link’s target file is listed after the link’s file name.</li>
 </ul>
 </li>
-<li><p>Enter <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code> in the terminal.</p>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code> in the terminal.</p>
 <ul class="simple">
-<li><p>You will now see one additional file, which is hidden (i.e. its name begins with a dot).</p></li>
+<li>You will now see one additional file, which is hidden (i.e. its name begins with a dot).</li>
 </ul>
 </li>
-<li><p>Enter <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span> <span class="pre">-l</span></code> (or <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-al</span></code>) in the command.</p>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span> <span class="pre">-l</span></code> (or <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-al</span></code>) in the command.</p>
 <ul class="simple">
-<li><p>You’ll now see that the file <code class="code docutils literal notranslate"><span class="pre">hidden_link.txt</span></code> points to <code class="code docutils literal notranslate"><span class="pre">.hidden_text_file.txt</span></code>.</p></li>
+<li>You’ll now see that the file <code class="code docutils literal notranslate"><span class="pre">hidden_link.txt</span></code> points to <code class="code docutils literal notranslate"><span class="pre">.hidden_text_file.txt</span></code>.</li>
 </ul>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you check the contents of <code class="code docutils literal notranslate"><span class="pre">.bashrc</span></code> in your home folder, you will find that several aliases (<code class="code docutils literal notranslate"><span class="pre">l</span></code>, <code class="code docutils literal notranslate"><span class="pre">ll</span></code>, and <code class="code docutils literal notranslate"><span class="pre">la</span></code>) have been defined. These are real time savers when using <code class="code docutils literal notranslate"><span class="pre">ls</span></code> with arguments often.</p>
+<p class="first admonition-title">Tip</p>
+<p class="last">If you check the contents of <code class="code docutils literal notranslate"><span class="pre">.bashrc</span></code> in your home folder, you will find that several aliases (<code class="code docutils literal notranslate"><span class="pre">l</span></code>, <code class="code docutils literal notranslate"><span class="pre">ll</span></code>, and <code class="code docutils literal notranslate"><span class="pre">la</span></code>) have been defined. These are real time savers when using <code class="code docutils literal notranslate"><span class="pre">ls</span></code> with arguments often.</p>
 </div>
 </li>
 </ol>
@@ -308,42 +313,42 @@
 <div class="section" id="pwd-and-cd-commands">
 <h3>pwd and cd Commands<a class="headerlink" href="#pwd-and-cd-commands" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p>Enter <code class="code docutils literal notranslate"><span class="pre">pwd</span></code> into the terminal.</p>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">pwd</span></code> into the terminal.</p>
 <ul class="simple">
-<li><p>This will show you the full path of the directory you are working in.</p></li>
+<li>This will show you the full path of the directory you are working in.</li>
 </ul>
 </li>
-<li><p>Enter <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">new</span></code> into the terminal.</p>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">new</span></code> into the terminal.</p>
 <ul class="simple">
-<li><p>The prompt should change to <code class="code docutils literal notranslate"><span class="pre">academy&#64;laptop-0:~/linux_intro/new$</span></code>.</p></li>
-<li><p>Typing <code class="code docutils literal notranslate"><span class="pre">pwd</span></code> will show you now in the directory <code class="code docutils literal notranslate"><span class="pre">/home/academy/linux_intro/new</span></code>.</p></li>
+<li>The prompt should change to <code class="code docutils literal notranslate"><span class="pre">academy&#64;laptop-0:~/linux_intro/new$</span></code>.</li>
+<li>Typing <code class="code docutils literal notranslate"><span class="pre">pwd</span></code> will show you now in the directory <code class="code docutils literal notranslate"><span class="pre">/home/academy/linux_intro/new</span></code>.</li>
 </ul>
 </li>
-<li><p>Enter <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code> into the terminal.</p>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code> into the terminal.</p>
 <ul class="simple">
-<li><p>In the <a class="reference internal" href="ubuntu_gui.html"><span class="doc">previous exercise</span></a>, we noted that <code class="code docutils literal notranslate"><span class="pre">..</span></code> is the parent folder.</p></li>
-<li><p>The prompt should therefore indicate that the current working directory is <code class="code docutils literal notranslate"><span class="pre">/home/academy/linux_intro</span></code>.</p></li>
+<li>In the <a class="reference internal" href="ubuntu_gui.html"><span class="doc">previous exercise</span></a>, we noted that <code class="code docutils literal notranslate"><span class="pre">..</span></code> is the parent folder.</li>
+<li>The prompt should therefore indicate that the current working directory is <code class="code docutils literal notranslate"><span class="pre">/home/academy/linux_intro</span></code>.</li>
 </ul>
 </li>
-<li><p>Enter <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/bin</span></code>, followed by <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/bin</span></code>, followed by <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <ul>
-<li><div class="line-block">
+<li><div class="first line-block">
 <div class="line">This folder contains a list of the most basic Linux commands.</div>
 <div class="line">Note that the programs <code class="code docutils literal notranslate"><span class="pre">pwd</span></code> and <code class="code docutils literal notranslate"><span class="pre">ls</span></code> are both in this folder.</div>
 </div>
 </li>
 </ul>
 </li>
-<li><p>Enter <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/linux_intro</span></code> to return to our working directory.</p>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/linux_intro</span></code> to return to our working directory.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Linux uses the <code class="code docutils literal notranslate"><span class="pre">~</span></code> character as a shorthand representation for your home directory.</p></li>
-<li><p>It’s a convenient way to reference files and paths in command-line commands.</p></li>
-<li><p>You’ll be typing it a lot in this class… remember it!</p></li>
+<li>Linux uses the <code class="code docutils literal notranslate"><span class="pre">~</span></code> character as a shorthand representation for your home directory.</li>
+<li>It’s a convenient way to reference files and paths in command-line commands.</li>
+<li>You’ll be typing it a lot in this class… remember it!</li>
 </ul>
 <div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>If you want a full list of options available for any of the commands given in this section, type <code class="code docutils literal notranslate"><span class="pre">man</span> <span class="pre">&lt;command&gt;</span></code> (where <cite>&lt;command&gt;</cite> is the command you want information on) in the command line. This will provide you with built-in documentation for the command. Use the arrow and page up/down keys to scroll, and <code class="code docutils literal notranslate"><span class="pre">q</span></code> to exit.</p>
+<p class="first admonition-title">Hint</p>
+<p class="last">If you want a full list of options available for any of the commands given in this section, type <code class="code docutils literal notranslate"><span class="pre">man</span> <span class="pre">&lt;command&gt;</span></code> (where <cite>&lt;command&gt;</cite> is the command you want information on) in the command line. This will provide you with built-in documentation for the command. Use the arrow and page up/down keys to scroll, and <code class="code docutils literal notranslate"><span class="pre">q</span></code> to exit.</p>
 </div>
 </div></blockquote>
 </li>
@@ -356,27 +361,27 @@
 <h3>mv Command<a class="headerlink" href="#mv-command" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="code docutils literal notranslate"><span class="pre">mv</span></code> command can be used to move and rename files.</p>
 <ol class="arabic">
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">mv</span> <span class="pre">test.txt</span> <span class="pre">test2.txt</span></code>, followed by <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">mv</span> <span class="pre">test.txt</span> <span class="pre">test2.txt</span></code>, followed by <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <ul class="simple">
-<li><p>You will notice that the file has been renamed to <code class="code docutils literal notranslate"><span class="pre">test2.txt</span></code>.</p></li>
+<li>You will notice that the file has been renamed to <code class="code docutils literal notranslate"><span class="pre">test2.txt</span></code>.</li>
 </ul>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">mv</span> <span class="pre">test2.txt</span> <span class="pre">new</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">mv</span> <span class="pre">test2.txt</span> <span class="pre">new</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <ul class="simple">
-<li><p>The file will no longer be present in the folder.</p></li>
+<li>The file will no longer be present in the folder.</li>
 </ul>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">new</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">new</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <ul class="simple">
-<li><p>You will see that <code class="code docutils literal notranslate"><span class="pre">test2.txt</span></code> has been moved into the <code class="code docutils literal notranslate"><span class="pre">new</span></code> folder.</p></li>
+<li>You will see that <code class="code docutils literal notranslate"><span class="pre">test2.txt</span></code> has been moved into the <code class="code docutils literal notranslate"><span class="pre">new</span></code> folder.</li>
 </ul>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">mv</span> <span class="pre">test2.txt</span> <span class="pre">../test.txt</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">mv</span> <span class="pre">test2.txt</span> <span class="pre">../test.txt</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">test2.txt</span></code> will no longer be there.</p></li>
+<li><code class="code docutils literal notranslate"><span class="pre">test2.txt</span></code> will no longer be there.</li>
 </ul>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <p>This shows how <code class="code docutils literal notranslate"><span class="pre">mv</span></code> can move and rename files in one step. The file <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code> is present again in our working directory.</p>
 </li>
 </ol>
@@ -384,18 +389,18 @@
 <div class="section" id="cp-command">
 <h3>cp Command<a class="headerlink" href="#cp-command" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test.txt</span> <span class="pre">new/test2.txt</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">new</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test.txt</span> <span class="pre">new/test2.txt</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">new</span></code>.</p>
 <ul class="simple">
-<li><p>You will see <code class="code docutils literal notranslate"><span class="pre">test2.txt</span></code> is now in the <code class="code docutils literal notranslate"><span class="pre">new</span></code> folder.</p></li>
+<li>You will see <code class="code docutils literal notranslate"><span class="pre">test2.txt</span></code> is now in the <code class="code docutils literal notranslate"><span class="pre">new</span></code> folder.</li>
 </ul>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test.txt</span> <span class="pre">&quot;test</span> <span class="pre">copy.txt&quot;</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test.txt</span> <span class="pre">&quot;test</span> <span class="pre">copy.txt&quot;</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>.</p>
 <ul class="simple">
-<li><p>You will see that <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code> has been copied to <code class="code docutils literal notranslate"><span class="pre">test</span> <span class="pre">copy.txt</span></code>.</p></li>
+<li>You will see that <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code> has been copied to <code class="code docutils literal notranslate"><span class="pre">test</span> <span class="pre">copy.txt</span></code>.</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The quotation marks are necessary when spaces or other special characters are included in the file name.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">The quotation marks are necessary when spaces or other special characters are included in the file name.</p>
 </div>
 </li>
 </ol>
@@ -403,9 +408,8 @@
 <div class="section" id="rm-command">
 <h3>rm Command<a class="headerlink" href="#rm-command" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">rm</span> <span class="pre">&quot;test</span> <span class="pre">copy.txt&quot;</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>.</p>
-<ul class="simple">
-<li><p>You will notice that <code class="code docutils literal notranslate"><span class="pre">test</span> <span class="pre">copy.txt</span></code> is no longer there.</p></li>
+<li>Type <code class="code docutils literal notranslate"><span class="pre">rm</span> <span class="pre">&quot;test</span> <span class="pre">copy.txt&quot;</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>.<ul>
+<li>You will notice that <code class="code docutils literal notranslate"><span class="pre">test</span> <span class="pre">copy.txt</span></code> is no longer there.</li>
 </ul>
 </li>
 </ol>
@@ -413,13 +417,13 @@
 <div class="section" id="mkdir-command">
 <h3>mkdir Command<a class="headerlink" href="#mkdir-command" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">new2</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">new2</span></code>, then <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <ul class="simple">
-<li><p>You will see there is a new folder <code class="code docutils literal notranslate"><span class="pre">new2</span></code>.</p></li>
+<li>You will see there is a new folder <code class="code docutils literal notranslate"><span class="pre">new2</span></code>.</li>
 </ul>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can use the  <code class="code docutils literal notranslate"><span class="pre">-i</span></code> flag with <code class="code docutils literal notranslate"><span class="pre">cp</span></code>, <code class="code docutils literal notranslate"><span class="pre">mv</span></code>, and <code class="code docutils literal notranslate"><span class="pre">rm</span></code> commands to prompt you when a file will be overwritten or removed.</p>
+<p class="first admonition-title">Tip</p>
+<p class="last">You can use the  <code class="code docutils literal notranslate"><span class="pre">-i</span></code> flag with <code class="code docutils literal notranslate"><span class="pre">cp</span></code>, <code class="code docutils literal notranslate"><span class="pre">mv</span></code>, and <code class="code docutils literal notranslate"><span class="pre">rm</span></code> commands to prompt you when a file will be overwritten or removed.</p>
 </div>
 </li>
 </ol>
@@ -430,24 +434,20 @@
 <div class="section" id="stopping-jobs">
 <h3>Stopping Jobs<a class="headerlink" href="#stopping-jobs" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">./sample_job</span></code>.</p>
-<ul class="simple">
-<li><p>The program will start running.</p></li>
+<li>Type <code class="code docutils literal notranslate"><span class="pre">./sample_job</span></code>.<ul>
+<li>The program will start running.</li>
 </ul>
 </li>
-<li><p>Press <kbd class="kbd docutils literal notranslate">Ctrl+C</kbd>.</p>
-<ul class="simple">
-<li><p>The program should exit.</p></li>
+<li>Press <kbd class="kbd docutils literal notranslate">Ctrl+C</kbd>.<ul>
+<li>The program should exit.</li>
 </ul>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">./sample_job</span> <span class="pre">sigterm</span></code>.</p>
-<ul class="simple">
-<li><p>The program will start running.</p></li>
+<li>Type <code class="code docutils literal notranslate"><span class="pre">./sample_job</span> <span class="pre">sigterm</span></code>.<ul>
+<li>The program will start running.</li>
 </ul>
 </li>
-<li><p>Press <kbd class="kbd docutils literal notranslate">Ctrl+C</kbd>.</p>
-<ul class="simple">
-<li><p>This time the program will not die.</p></li>
+<li>Press <kbd class="kbd docutils literal notranslate">Ctrl+C</kbd>.<ul>
+<li>This time the program will not die.</li>
 </ul>
 </li>
 </ol>
@@ -455,39 +455,43 @@
 <div class="section" id="stopping-out-of-control-jobs">
 <h3>Stopping “Out of Control” Jobs<a class="headerlink" href="#stopping-out-of-control-jobs" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p>Open a new terminal window.</p></li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">ps</span> <span class="pre">ax</span></code>.</p></li>
-<li><p>Scroll up until you find <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">./sample_job</span> <span class="pre">sigterm</span></code>.</p>
+<li><p class="first">Open a new terminal window.</p>
+</li>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">ps</span> <span class="pre">ax</span></code>.</p>
+</li>
+<li><p class="first">Scroll up until you find <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">./sample_job</span> <span class="pre">sigterm</span></code>.</p>
 <ul class="simple">
-<li><p>This is the job that is running in the first window.</p></li>
-<li><p>The first field in the table is the ID of the process (use <code class="code docutils literal notranslate"><span class="pre">man</span> <span class="pre">ps</span></code> to learn more about the other fields).</p></li>
+<li>This is the job that is running in the first window.</li>
+<li>The first field in the table is the ID of the process (use <code class="code docutils literal notranslate"><span class="pre">man</span> <span class="pre">ps</span></code> to learn more about the other fields).</li>
 </ul>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">ps</span> <span class="pre">ax</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">sample</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">ps</span> <span class="pre">ax</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">sample</span></code>.</p>
 <ul class="simple">
-<li><p>You will notice that only a few lines are returned.</p></li>
-<li><p>This is useful if you want to find a particular process</p></li>
+<li>You will notice that only a few lines are returned.</li>
+<li>This is useful if you want to find a particular process</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is an advanced technique called “piping”, where the output of one program is passed into the input of the next. This is beyond the scope of this class, but is useful to learn if you intend to use the terminal extensively.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">This is an advanced technique called “piping”, where the output of one program is passed into the input of the next. This is beyond the scope of this class, but is useful to learn if you intend to use the terminal extensively.</p>
 </div>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">kill</span> <span class="pre">&lt;id&gt;</span></code>, where <code class="code docutils literal notranslate"><span class="pre">&lt;id&gt;</span></code> is the job number you found with the <code class="code docutils literal notranslate"><span class="pre">ps</span> <span class="pre">ax</span></code>.</p></li>
-<li><p>In the first window, type <code class="code docutils literal notranslate"><span class="pre">./sample_job</span> <span class="pre">sigterm</span> <span class="pre">sigkill</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">kill</span> <span class="pre">&lt;id&gt;</span></code>, where <code class="code docutils literal notranslate"><span class="pre">&lt;id&gt;</span></code> is the job number you found with the <code class="code docutils literal notranslate"><span class="pre">ps</span> <span class="pre">ax</span></code>.</p>
+</li>
+<li><p class="first">In the first window, type <code class="code docutils literal notranslate"><span class="pre">./sample_job</span> <span class="pre">sigterm</span> <span class="pre">sigkill</span></code>.</p>
 <ul class="simple">
-<li><p>The program will start running.</p></li>
+<li>The program will start running.</li>
 </ul>
 </li>
-<li><p>In the second window, type <code class="code docutils literal notranslate"><span class="pre">ps</span> <span class="pre">ax</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">sample</span></code> to get the id of the process.</p></li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">kill</span> <span class="pre">&lt;id&gt;</span></code>.</p>
+<li><p class="first">In the second window, type <code class="code docutils literal notranslate"><span class="pre">ps</span> <span class="pre">ax</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">sample</span></code> to get the id of the process.</p>
+</li>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">kill</span> <span class="pre">&lt;id&gt;</span></code>.</p>
 <ul class="simple">
-<li><p>This time, the process will not die.</p></li>
+<li>This time, the process will not die.</li>
 </ul>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-SIGKILL</span> <span class="pre">&lt;id&gt;</span></code>.</p>
+<li><p class="first">Type <code class="code docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-SIGKILL</span> <span class="pre">&lt;id&gt;</span></code>.</p>
 <ul class="simple">
-<li><p>This time the process will exit.</p></li>
+<li>This time the process will exit.</li>
 </ul>
 </li>
 </ol>
@@ -495,73 +499,60 @@
 <div class="section" id="showing-process-and-memory-usage">
 <h3>Showing Process and Memory usage<a class="headerlink" href="#showing-process-and-memory-usage" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>In a terminal, type <code class="code docutils literal notranslate"><span class="pre">top</span></code>.</p>
-<ul class="simple">
-<li><p>A table will be shown, updated once per second, showing all of the processes on the system, as well as the overall CPU and memory usage.</p></li>
+<li>In a terminal, type <code class="code docutils literal notranslate"><span class="pre">top</span></code>.<ul>
+<li>A table will be shown, updated once per second, showing all of the processes on the system, as well as the overall CPU and memory usage.</li>
 </ul>
 </li>
-<li><p>Press the <kbd class="kbd docutils literal notranslate">Shift+P</kbd> key.</p>
-<ul class="simple">
-<li><p>This will sort processes by CPU utilization and shows which processes are using too much CPU time.</p></li>
+<li>Press the <kbd class="kbd docutils literal notranslate">Shift+P</kbd> key.<ul>
+<li>This will sort processes by CPU utilization and shows which processes are using too much CPU time.</li>
 </ul>
 </li>
-<li><p>Press the Shift+M key.</p>
-<ul class="simple">
-<li><p>This will sort processes by memory utilization and shows which processes are using too much memory.</p></li>
+<li>Press the Shift+M key.<ul>
+<li>This will sort processes by memory utilization and shows which processes are using too much memory.</li>
 </ul>
 </li>
-<li><p>Press <kbd class="kbd docutils literal notranslate">q</kbd> or <kbd class="kbd docutils literal notranslate">Ctrl+C</kbd> to exit the program.</p></li>
+<li>Press <kbd class="kbd docutils literal notranslate">q</kbd> or <kbd class="kbd docutils literal notranslate">Ctrl+C</kbd> to exit the program.</li>
 </ol>
 </div>
 <div class="section" id="editing-text-and-other-gui-commands">
 <h3>Editing Text (and Other GUI Commands)<a class="headerlink" href="#editing-text-and-other-gui-commands" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">gedit</span> <span class="pre">test.txt</span></code>.</p>
-<ul class="simple">
-<li><p>You will notice that a new text editor window will open, and <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code> will be loaded.</p></li>
-<li><p>The terminal will not come back with a prompt until the window is closed.</p></li>
+<li>Type <code class="code docutils literal notranslate"><span class="pre">gedit</span> <span class="pre">test.txt</span></code>.<ul>
+<li>You will notice that a new text editor window will open, and <code class="code docutils literal notranslate"><span class="pre">test.txt</span></code> will be loaded.</li>
+<li>The terminal will not come back with a prompt until the window is closed.</li>
 </ul>
 </li>
-<li><p>There are two ways around this limitation.  Try both…</p></li>
-<li><p><strong>Starting the program and immediately returning a prompt:</strong></p>
-<ol class="arabic simple">
-<li><p>Type code:<cite>gedit test.txt &amp;</cite>.</p>
-<ul class="simple">
-<li><p>The <code class="code docutils literal notranslate"><span class="pre">&amp;</span></code> character tells the terminal to run this command in “the background”, meaning the prompt will return immediately.</p></li>
+<li>There are two ways around this limitation.  Try both…</li>
+<li><strong>Starting the program and immediately returning a prompt:</strong><ol class="arabic">
+<li>Type code:<cite>gedit test.txt &amp;</cite>.<ul>
+<li>The <code class="code docutils literal notranslate"><span class="pre">&amp;</span></code> character tells the terminal to run this command in “the background”, meaning the prompt will return immediately.</li>
 </ul>
 </li>
-<li><p>Close the window, then type <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.</p>
-<ul class="simple">
-<li><p>In addition to showing the files, the terminal will notify you that <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> has finished.</p></li>
+<li>Close the window, then type <code class="code docutils literal notranslate"><span class="pre">ls</span></code>.<ul>
+<li>In addition to showing the files, the terminal will notify you that <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> has finished.</li>
 </ul>
 </li>
 </ol>
 </li>
-<li><p><strong>Moving an already running program into the background:</strong></p>
-<ol class="arabic simple">
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">gedit</span> <span class="pre">test.txt</span></code>.</p>
-<ul class="simple">
-<li><p>The window should open, and the terminal should not have a prompt waiting.</p></li>
+<li><strong>Moving an already running program into the background:</strong><ol class="arabic">
+<li>Type <code class="code docutils literal notranslate"><span class="pre">gedit</span> <span class="pre">test.txt</span></code>.<ul>
+<li>The window should open, and the terminal should not have a prompt waiting.</li>
 </ul>
 </li>
-<li><p>In the terminal window, press <kbd class="kbd docutils literal notranslate">Ctrl+Z</kbd>.</p>
-<ul class="simple">
-<li><p>The terminal will indicate that <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> has stopped, and a prompt will appear.</p></li>
+<li>In the terminal window, press <kbd class="kbd docutils literal notranslate">Ctrl+Z</kbd>.<ul>
+<li>The terminal will indicate that <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> has stopped, and a prompt will appear.</li>
 </ul>
 </li>
-<li><p>Try to use the <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> window.</p>
-<ul class="simple">
-<li><p>Because it is paused, the window will not run.</p></li>
+<li>Try to use the <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> window.<ul>
+<li>Because it is paused, the window will not run.</li>
 </ul>
 </li>
-<li><p>Type <code class="code docutils literal notranslate"><span class="pre">bg</span></code> in the terminal.</p>
-<ul class="simple">
-<li><p>The <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> window can now run.</p></li>
+<li>Type <code class="code docutils literal notranslate"><span class="pre">bg</span></code> in the terminal.<ul>
+<li>The <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> window can now run.</li>
 </ul>
 </li>
-<li><p>Close the <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> window, and type <code class="code docutils literal notranslate"><span class="pre">ls</span></code> in the terminal window.</p>
-<ul class="simple">
-<li><p>As before, the terminal window will indicate that <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> is finished.</p></li>
+<li>Close the <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> window, and type <code class="code docutils literal notranslate"><span class="pre">ls</span></code> in the terminal window.<ul>
+<li>As before, the terminal window will indicate that <code class="code docutils literal notranslate"><span class="pre">gedit</span></code> is finished.</li>
 </ul>
 </li>
 </ol>
@@ -571,23 +562,21 @@
 <div class="section" id="running-commands-as-root">
 <h3>Running Commands as Root<a class="headerlink" href="#running-commands-as-root" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>In a terminal, type <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span> <span class="pre">/root</span></code>.</p>
-<ul class="simple">
-<li><p>The terminal will indicate that you cannot read the folder <code class="code docutils literal notranslate"><span class="pre">/root</span></code>.</p></li>
-<li><p>Many times you will need to run a command that cannot be done as an ordinary user, and must be done as the “super user”</p></li>
+<li>In a terminal, type <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span> <span class="pre">/root</span></code>.<ul>
+<li>The terminal will indicate that you cannot read the folder <code class="code docutils literal notranslate"><span class="pre">/root</span></code>.</li>
+<li>Many times you will need to run a command that cannot be done as an ordinary user, and must be done as the “super user”</li>
 </ul>
 </li>
-<li><p>To run the previous command as root, add <code class="code docutils literal notranslate"><span class="pre">sudo</span></code> to the beginning of the command.</p>
-<ul class="simple">
-<li><p>In this instance, type <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ls</span> <span class="pre">-a</span> <span class="pre">/root</span></code> instead.</p></li>
-<li><p>The terminal will request your password (in this case, <code class="code docutils literal notranslate"><span class="pre">academy</span></code>) in order to proceed.</p></li>
-<li><p>Once you enter the password, you should see the contents of the <code class="code docutils literal notranslate"><span class="pre">/root</span></code> directory.</p></li>
+<li>To run the previous command as root, add <code class="code docutils literal notranslate"><span class="pre">sudo</span></code> to the beginning of the command.<ul>
+<li>In this instance, type <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ls</span> <span class="pre">-a</span> <span class="pre">/root</span></code> instead.</li>
+<li>The terminal will request your password (in this case, <code class="code docutils literal notranslate"><span class="pre">academy</span></code>) in order to proceed.</li>
+<li>Once you enter the password, you should see the contents of the <code class="code docutils literal notranslate"><span class="pre">/root</span></code> directory.</li>
 </ul>
 </li>
 </ol>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code class="code docutils literal notranslate"><span class="pre">sudo</span></code> is a powerful tool which doesn’t provide any sanity checks on what you ask it to do, so be <strong>VERY</strong> careful in using it.</p>
+<p class="first admonition-title">Warning</p>
+<p class="last"><code class="code docutils literal notranslate"><span class="pre">sudo</span></code> is a powerful tool which doesn’t provide any sanity checks on what you ask it to do, so be <strong>VERY</strong> careful in using it.</p>
 </div>
 </div>
 </div>
@@ -613,7 +602,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, License CC BY-ND-NC, Karl Kruusamäe, Veiko Vunder, Robert Valner, Madis Kaspar Nigol, Renno Raudmäe
+        &copy; Copyright 2019, University of Tartu, License CC BY-ND-NC
 
     </p>
   </div>

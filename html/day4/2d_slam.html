@@ -188,25 +188,29 @@ let’s try them out on a real robot - Clearbot. We will be using Google Cartogr
 <div class="section" id="copying-necessary-files-to-your-workspace">
 <h2>Copying necessary files to your workspace<a class="headerlink" href="#copying-necessary-files-to-your-workspace" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p>For starters, ssh to your robot and go to your workspace’s source folder.</p></li>
-<li><p>In your source folder, use</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin_create_pkg &lt;your_package_name&gt;
+<li><p class="first">For starters, ssh to your robot and go to your workspace’s source folder.</p>
+</li>
+<li><p class="first">In your source folder, use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin_create_pkg &lt;your_package_name&gt;
 </pre></div>
 </div>
 <p>where your package name could be something along the lines of <em>my_mapping</em>.
 You don’t need any build dependencies because this package will only hold launch and configuration files.</p>
 </li>
-<li><p>Create a folder named <em>launch</em> in your package.</p></li>
-<li><p>Create a folder named <em>configuration</em> in your package.</p></li>
-<li><p>Using <strong>roscp</strong> (<a class="reference external" href="http://wiki.ros.org/rosbash#roscp">http://wiki.ros.org/rosbash#roscp</a>),
+<li><p class="first">Create a folder named <em>launch</em> in your package.</p>
+</li>
+<li><p class="first">Create a folder named <em>configuration</em> in your package.</p>
+</li>
+<li><p class="first">Using <strong>roscp</strong> (<a class="reference external" href="http://wiki.ros.org/rosbash#roscp">http://wiki.ros.org/rosbash#roscp</a>),
 copy <em>teleop_cartographer_2d.launch</em>
 and <em>navstack.launch</em>
 and <em>teleop_carto_with_navstack.launch</em>
 from <em>robotont_teleop</em> package
-into your new package’s <em>launch</em> folder.</p></li>
-<li><p>Using <strong>roscp</strong>, copy the following files from <em>robotont_teleop</em>
+into your new package’s <em>launch</em> folder.</p>
+</li>
+<li><p class="first">Using <strong>roscp</strong>, copy the following files from <em>robotont_teleop</em>
 into your package’s configuration folder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>robotont_cartographer_2d.lua
+<div class="highlight-bash notranslate"><div class="highlight"><pre>robotont_cartographer_2d.lua
 robotont_cartographer_localization_2d.lua
 robotont_depth_camera_2d.lua
 costmap_common.yaml
@@ -219,7 +223,8 @@ planner.yaml
 </pre></div>
 </div>
 </li>
-<li><p>Do <strong>catkin build</strong> and source the workspace.</p></li>
+<li><p class="first">Do <strong>catkin build</strong> and source the workspace.</p>
+</li>
 </ol>
 <p>Now you have a package with launch and
 configuration files that you can safely modify.</p>
@@ -229,32 +234,34 @@ configuration files that you can safely modify.</p>
 <p>Next task is to modify your copied launch files
 to include the configuration files from your package.</p>
 <ol class="arabic simple">
-<li><p>Open <em>teleop_cartographer_2d.launch</em> from your package.</p></li>
-<li><p>Change the launch file so that it reads configuration files from your package.
-(NOTE: You have to change paths in 2 places.)</p></li>
+<li>Open <em>teleop_cartographer_2d.launch</em> from your package.</li>
+<li>Change the launch file so that it reads configuration files from your package.
+(NOTE: You have to change paths in 2 places.)</li>
 </ol>
 <p>Now that you have configured the launch files, let’s try running the SLAM package.</p>
 <ol class="arabic">
-<li><p>In robot’s terminal, run <strong>roscore</strong>.</p></li>
-<li><p>In another robot terminal, launch</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch &lt;your_package_name&gt; teleop_cartographer_2d.launch
+<li><p class="first">In robot’s terminal, run <strong>roscore</strong>.</p>
+</li>
+<li><p class="first">In another robot terminal, launch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch &lt;your_package_name&gt; teleop_cartographer_2d.launch
 </pre></div>
 </div>
 <p>This will run the mapping software.</p>
 </li>
-<li><p>In the PC, launch:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_description display_2dmapping.launch
+<li><p class="first">In the PC, launch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description display_2dmapping.launch
 </pre></div>
 </div>
 <p>This will launch preconfigured RViz environment.</p>
 </li>
-<li><p>In the PC, launch:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_pc_side.launch
+<li><p class="first">In the PC, launch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_pc_side.launch
 </pre></div>
 </div>
 <p>From this terminal, you can control the robot.</p>
 </li>
-<li><p>Now you should be able to map the world.</p></li>
+<li><p class="first">Now you should be able to map the world.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="tuning-google-cartographer">
@@ -288,7 +295,7 @@ and maybe get a better result.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, License CC BY-ND-NC, Karl Kruusamäe, Veiko Vunder, Robert Valner, Madis Kaspar Nigol, Renno Raudmäe
+        &copy; Copyright 2019, University of Tartu, License CC BY-ND-NC
 
     </p>
   </div>

@@ -64,7 +64,6 @@
     clear: both;
     cursor: pointer;
 }
-.toggle-header p {display: inline; }
 .toggle-header strong {color: #2980b9 }
 
 .toggle-header:after {

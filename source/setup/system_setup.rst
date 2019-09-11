@@ -15,13 +15,19 @@ Install ROS with dependencies
       sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
       sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
       sudo apt update
+
+#. Install a desktop version of ROS
+
+   .. code-block:: bash
+
+      sudo apt install ros-kinetic-desktop-full
        
 #. Get the dependency list from github and install.
 
    .. code-block:: bash
 
       PKG_LIST=$(wget -O- -q https://github.com/ut-ims-robotics/ros_training/raw/master/config/dependencies_apt.txt)
-      echo "$PKG_LIST" | egrep '^[^#;]' | xargs -r apt -q install
+      echo "$PKG_LIST" | egrep '^[^#;]' | xargs -r sudo apt -q -y install
       sudo rosdep init
       rosdep update
 
@@ -45,7 +51,6 @@ Install librealsense
      sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
      sudo udevadm control --reload-rules && udevadm trigger
      cd ~ && rm -fr $TMP_DIR
-..
 
 Install proto3 for cartographer
 -------------------------------
