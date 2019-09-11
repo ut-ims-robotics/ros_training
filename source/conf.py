@@ -21,7 +21,7 @@ def setup(app):
 # -- Project information -----------------------------------------------------
 
 project = 'ROS Training For Industry'
-copyright = u'2019, License CC BY-ND-NC, Karl Kruusamäe, Veiko Vunder, Robert Valner, Madis Kaspar Nigol, Renno Raudmäe'
+copyright = u'2019, University of Tartu, License CC BY-ND-NC'
 author = u'Karl Kruusamäe, Veiko Vunder, Robert Valner, Madis Kaspar Nigol, Renno Raudmäe'
 
 # The short X.Y version
