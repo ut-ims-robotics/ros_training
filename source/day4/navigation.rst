@@ -96,3 +96,9 @@ you tell the robot where it is
 
                 ..
 
+Configuring navstack
+^^^^^^^^^^^^^^^^^^^^^
+
+Now that you have the experience of how navigation works in ROS,
+let's try tuning some parameters to improve (or not) the navigation software.
+
