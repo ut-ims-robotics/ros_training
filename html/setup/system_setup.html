@@ -188,11 +188,6 @@ sudo apt update
 </pre></div>
 </div>
 </li>
-<li><p class="first">Install a desktop version of ROS</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>sudo apt install ros-kinetic-desktop-full
-</pre></div>
-</div>
-</li>
 <li><p class="first">Get the dependency list from github and install.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nv">PKG_LIST</span><span class="o">=</span><span class="k">$(</span>wget -O- -q https://github.com/ut-ims-robotics/ros_training/raw/master/config/dependencies_apt.txt<span class="k">)</span>
 <span class="nb">echo</span> <span class="s2">&quot;</span>$<span class="s2">PKG_LIST&quot;</span> <span class="p">|</span> egrep <span class="s1">&#39;^[^#;]&#39;</span> <span class="p">|</span> xargs -r sudo apt -q -y install
