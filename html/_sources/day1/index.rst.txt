@@ -12,3 +12,4 @@ Slides are available here: :download:`pdf <ros_intro_slides.pdf>`
    ubuntu_filesystem.rst
    ubuntu_shell.rst
    ros_intro.rst
+   clearbot_teleop.rst
