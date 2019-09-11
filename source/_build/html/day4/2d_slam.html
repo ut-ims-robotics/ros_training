@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
   <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Navigation" href="navigation.html" />
+    <link rel="prev" title="Mapping in simulated environment" href="mappinginsim.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,8 +98,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Day 4</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 4</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="transforms.html">Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mappinginsim.html">Mapping in simulated environment</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2D SLAM with a robot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#copying-necessary-files-to-your-workspace">Copying necessary files to your workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-and-launching-google-cartographer">Configuring and launching Google Cartographer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuning-google-cartographer">Tuning Google Cartographer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3dmap.html">3D mapping</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../day5/index.html">Day 5</a></li>
@@ -146,6 +160,8 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="index.html">Day 4</a> &raquo;</li>
+        
       <li>2D SLAM with a robot</li>
     
     
@@ -179,7 +195,7 @@ let’s try them out on a real robot - Clearbot. We will be using Google Cartogr
 </pre></div>
 </div>
 <p>where your package name could be something along the lines of <em>my_mapping</em>.
-You don’t need any dependencies because this package will only hold launch and configuration files.</p>
+You don’t need any build dependencies because this package will only hold launch and configuration files.</p>
 </li>
 <li><p class="first">Create a folder named <em>launch</em> in your package.</p>
 </li>
@@ -264,6 +280,15 @@ and maybe get a better result.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="navigation.html" class="btn btn-neutral float-right" title="Navigation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mappinginsim.html" class="btn btn-neutral float-left" title="Mapping in simulated environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

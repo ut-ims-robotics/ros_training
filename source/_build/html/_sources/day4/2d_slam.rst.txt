@@ -16,7 +16,7 @@ Copying necessary files to your workspace
         catkin_create_pkg <your_package_name>
 
     where your package name could be something along the lines of *my_mapping*.
-    You don't need any dependencies because this package will only hold launch and configuration files.
+    You don't need any build dependencies because this package will only hold launch and configuration files.
 
 3.  Create a folder named *launch* in your package.
 

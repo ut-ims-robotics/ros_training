@@ -44,10 +44,10 @@ Taskbar
 Task 2: Open and Inspect an Application
 ---------------------------------------
 
-Click on the filing-cabinet icon in the launcher.  A window should show up, and your desktop should look like something below: 
+Click on the filing-cabinet icon in the launcher. A window should show up, and your desktop should look like something below: 
 
-    .. figure:: ../_static/pics/ubuntu_folder_browser.png
-       :scale: 70%
+  .. figure:: ../_static/pics/ubuntu_folder_browser.png
+     :scale: 70%
 
 Things to notice:
 
@@ -55,11 +55,11 @@ Things to notice:
 #. The menu for windows are found on the menu bar at the top of the screen, much in the same way Macs do. The menus, however, only show up when you hover the mouse over the menu bar.
 #. Notice that there are triangles on the left and right of the folder icon. The triangles on the left show how many windows of this application are open, and the right shows which application is currently in the foreground, or "has focus". Clicking on these icons when the applications are open does one of two things:
 
- * If there is only one window open, this window gets focus.
- * If more than one are open, clicking a second time causes all of the windows to show up in the foreground, so that you can choose which window to go to (see below): 
+  * If there is only one window open, this window gets focus.
+  * If more than one are open, clicking a second time causes all of the windows to show up in the foreground, so that you can choose which window to go to (see below): 
 
-    .. figure:: ../_static/pics/ubuntu_inspect.png
-       :scale: 70%
+  .. figure:: ../_static/pics/ubuntu_inspect.png
+     :scale: 70%
 
 
 Task 3: Start an Application & Pin it to the Launcher Bar
@@ -70,15 +70,39 @@ Click on the launcher button (top left) and type gedit in the search box. The "T
   .. figure:: ../_static/pics/ubuntu_start_application.png
      :scale: 70%
 
-  ..
-
 Click on the application. The text editor window should show up on the screen, and the text editor icon should show up on the launcher bar on the left-hand side (see below):
 
   .. figure:: ../_static/pics/ubuntu_application_pin.png
      :scale: 70%
 
-  ..
-
 #. Right-click on the text editor launch icon, and select "Lock to Launcher".
 #. Close the gedit window. The launcher icon should remain after the window closes.
 #. Click on the gedit launcher icon. You should see a new gedit window appear.
+#. The gedit application can now be opened quickly by a single click.
+
+
+Task 4: Changing the IP
+-----------------------
+ When working with robots, we often have to configure the network manually and fix IP addresses for hosts. Let's have a look on how network profiles can be configured in Ubuntu via GUI. 
+
+#. Click on the radio button on the statusbar and choose "Edit Connections..."
+
+   .. figure:: ../_static/pics/ubuntu_wifi.png
+
+#. A window with all your network connection profiles opens. Select "clearbot-0" and click "edit".
+
+   .. figure:: ../_static/pics/ubuntu_wifi_conn.png
+
+#. Under the "IPv4 settings" tab, you can choose between manual or automatic (DHCP) mode. During this training we use the following manual network configuration:
+
+   * IP range for robots:  192.168.200.<1--99>
+   * IP range for laptops: 192.168.200.<101--199>
+   * Network mask: 255.255.255.0 (or shortly 24)
+   * Gateway: 192.168.200.250
+   * Nameserver: 8.8.8.8
+
+#. For example, laptop-1 should have the following settings:
+
+   .. figure:: ../_static/pics/ubuntu_wifi_ipv4.png
+
+#. Check the number marked on your USB stick and make sure your configuration matches with the above. 

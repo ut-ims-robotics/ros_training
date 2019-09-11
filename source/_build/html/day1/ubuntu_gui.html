@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The Linux Terminal" href="linux_shell.html" />
+    <link rel="next" title="Exploring the Linux File System" href="ubuntu_filesystem.html" />
     <link rel="prev" title="Welcome &amp; System Setup" href="welcome_system_setup.html" /> 
 </head>
 
@@ -100,11 +100,14 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#task-2-open-and-inspect-an-application">Task 2: Open and Inspect an Application</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#task-3-start-an-application-pin-it-to-the-launcher-bar">Task 3: Start an Application &amp; Pin it to the Launcher Bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-4-changing-the-ip">Task 4: Changing the IP</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="linux_shell.html">The Linux Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ros_intro.html">ROS: Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workshop.html">Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_filesystem.html">Exploring the Linux File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_shell.html">The Linux Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_intro.html">Introduction to ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_intro.html#navigating-the-ros-filesystem">Navigating the ROS Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_intro.html#running-your-first-ros-program">Running your first ROS program</a></li>
 </ul>
 </li>
 </ul>
@@ -227,7 +230,7 @@
 </div>
 <div class="section" id="task-2-open-and-inspect-an-application">
 <h2>Task 2: Open and Inspect an Application<a class="headerlink" href="#task-2-open-and-inspect-an-application" title="Permalink to this headline">¶</a></h2>
-<p>Click on the filing-cabinet icon in the launcher.  A window should show up, and your desktop should look like something below:</p>
+<p>Click on the filing-cabinet icon in the launcher. A window should show up, and your desktop should look like something below:</p>
 <blockquote>
 <div><div class="figure">
 <a class="reference internal image-reference" href="../_images/ubuntu_folder_browser.png"><img alt="../_images/ubuntu_folder_browser.png" src="../_images/ubuntu_folder_browser.png" style="width: 560.0px; height: 448.0px;" /></a>
@@ -240,17 +243,13 @@
 <li>Notice that there are triangles on the left and right of the folder icon. The triangles on the left show how many windows of this application are open, and the right shows which application is currently in the foreground, or “has focus”. Clicking on these icons when the applications are open does one of two things:</li>
 </ol>
 <blockquote>
-<div><ul>
-<li><p class="first">If there is only one window open, this window gets focus.</p>
-</li>
-<li><p class="first">If more than one are open, clicking a second time causes all of the windows to show up in the foreground, so that you can choose which window to go to (see below):</p>
-<blockquote>
-<div><div class="figure">
+<div><ul class="simple">
+<li>If there is only one window open, this window gets focus.</li>
+<li>If more than one are open, clicking a second time causes all of the windows to show up in the foreground, so that you can choose which window to go to (see below):</li>
+</ul>
+<div class="figure">
 <a class="reference internal image-reference" href="../_images/ubuntu_inspect.png"><img alt="../_images/ubuntu_inspect.png" src="../_images/ubuntu_inspect.png" style="width: 560.0px; height: 448.0px;" /></a>
 </div>
-</div></blockquote>
-</li>
-</ul>
 </div></blockquote>
 </div>
 <div class="section" id="task-3-start-an-application-pin-it-to-the-launcher-bar">
@@ -271,6 +270,40 @@
 <li>Right-click on the text editor launch icon, and select “Lock to Launcher”.</li>
 <li>Close the gedit window. The launcher icon should remain after the window closes.</li>
 <li>Click on the gedit launcher icon. You should see a new gedit window appear.</li>
+<li>The gedit application can now be opened quickly by a single click.</li>
+</ol>
+</div>
+<div class="section" id="task-4-changing-the-ip">
+<h2>Task 4: Changing the IP<a class="headerlink" href="#task-4-changing-the-ip" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>When working with robots, we often have to configure the network manually and fix IP addresses for hosts. Let’s have a look on how network profiles can be configured in Ubuntu via GUI.</div></blockquote>
+<ol class="arabic">
+<li><p class="first">Click on the radio button on the statusbar and choose “Edit Connections…”</p>
+<div class="figure">
+<img alt="../_images/ubuntu_wifi.png" src="../_images/ubuntu_wifi.png" />
+</div>
+</li>
+<li><p class="first">A window with all your network connection profiles opens. Select “clearbot-0” and click “edit”.</p>
+<div class="figure">
+<img alt="../_images/ubuntu_wifi_conn.png" src="../_images/ubuntu_wifi_conn.png" />
+</div>
+</li>
+<li><p class="first">Under the “IPv4 settings” tab, you can choose between manual or automatic (DHCP) mode. During this training we use the following manual network configuration:</p>
+<ul class="simple">
+<li>IP range for robots:  192.168.200.&lt;1–99&gt;</li>
+<li>IP range for laptops: 192.168.200.&lt;101–199&gt;</li>
+<li>Network mask: 255.255.255.0 (or shortly 24)</li>
+<li>Gateway: 192.168.200.250</li>
+<li>Nameserver: 8.8.8.8</li>
+</ul>
+</li>
+<li><p class="first">For example, laptop-1 should have the following settings:</p>
+<div class="figure">
+<img alt="../_images/ubuntu_wifi_ipv4.png" src="../_images/ubuntu_wifi_ipv4.png" />
+</div>
+</li>
+<li><p class="first">Check the number marked on your USB stick and make sure your configuration matches with the above.</p>
+</li>
 </ol>
 </div>
 </div>
@@ -283,7 +316,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="linux_shell.html" class="btn btn-neutral float-right" title="The Linux Terminal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ubuntu_filesystem.html" class="btn btn-neutral float-right" title="Exploring the Linux File System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="welcome_system_setup.html" class="btn btn-neutral float-left" title="Welcome &amp; System Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
