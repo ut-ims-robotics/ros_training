@@ -5,7 +5,7 @@ Day 5
 Slides are available here: :download:`pdf <day5_slides.pdf>`
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    moveit.rst
    urdf.rst

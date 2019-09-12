@@ -2,6 +2,9 @@ MoveIt Configuration package
 ============================
 Now that we have a urdf-file describing our robot, we can use MoveIt Setup Assistant to generate all the configuration files needed to make our robot work with MoveIt.
 
+Working with MoveIt Setup Assistant
+-----------------------------------
+
 In order to launch MoveIt Setup Assistant:
 
    :code:`$ roslaunch moveit_setup_assistant setup_assistant.launch`
@@ -52,7 +55,7 @@ The final view on the *Planning Groups* tab should look as follows.
       :width: 600pt
 
 On *Robot Poses* tab, click on *Add Pose* to create one predefined pose for your robot. Based on your preference, choose the joint values and name for the pose.
-The final view on the ** tab could look as follows.
+The final view on the *Robot Poses* tab could look as follows.
 
    .. figure:: ../_static/pics/moveit_setup_05-after2.png
       :width: 600pt
@@ -75,11 +78,14 @@ as the location of the configuration package.
 
 Click on *Generate Package* and exit the Setup Assistant.
 
-Among other files, the Setup Assistant generate a ``demo.launch`` for the robot.
+Testing the MoveIt configuration package
+----------------------------------------
+
+Among other files, the Setup Assistant generated the ``demo.launch`` for the robot.
 
    :code:`$ roslaunch my_robot_moveit_config demo.launch`
 
-On Planning tab, make a tic in *Allow Approx IK Solutions* checkbox. Verify that the interactive markers, planning, and executing is working for the robot.
+On *Planning* tab, make a tic in *Allow Approx IK Solutions* checkbox. Verify that the interactive markers, planning, and executing is working for the robot.
 
     .. figure:: ../_static/pics/moveit_setup_working.png
       :width: 600pt
