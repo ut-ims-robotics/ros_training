@@ -83,6 +83,9 @@ nmcli con mod $SSID ipv4.method "manual" ipv4.addresses $IP/24
 nmcli con mod $SSID ipv4.gateway "192.168.200.250" ipv4.dns "8.8.8.8"
 nmcli connection up $SSID
 
+# Add user to dialout group
+usermod -a -G dialout academy
+
 # Clear history
 rm ~/.bash_history
 history -c
