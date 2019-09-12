@@ -1,6 +1,6 @@
-MoveIt Configuration package
+MoveIt configuration package
 ============================
-Now that we have a urdf-file describing our robot, we can use MoveIt Setup Assistant to generate all the configuration files needed to make our robot work with MoveIt.
+Now that we have a URDF-file describing our robot, we can use MoveIt Setup Assistant to generate all the configuration files needed to make our robot work with MoveIt.
 
 Working with MoveIt Setup Assistant
 -----------------------------------
@@ -15,7 +15,7 @@ In order to launch MoveIt Setup Assistant:
 Next:
 
 1. click on *Create New MoveIt Configuration Package*,
-2. use *Browse* button to select the urdf-file created in previous task, and
+2. use *Browse* button to select the URDF-file created in previous task, and
 3. click on *Load Files* button.
 
    .. figure:: ../_static/pics/moveit_setup_01-after.png
@@ -69,7 +69,7 @@ No changes are required on *Passive Joints*, *ROS Control*, *Simulation*, and *3
 
 Fill in the *Author Information* tab with your name and e-mail.
 
-On *Configuration Files* tab, it is necessary to define a name for your MoveIt configuration package. It is a good practice to all always name these packages in the
+On *Configuration Files* tab, it is necessary to define a name for your MoveIt configuration package. It is a good practice to always name these packages in the
 form of ``robotname_moveit_config``. So in current case ``my_robot_moveit_config`` is the recommended name. Choose the ``src/`` folder in your catkin workspace
 as the location of the configuration package.
 

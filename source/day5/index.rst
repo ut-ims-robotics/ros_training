@@ -11,3 +11,4 @@ Slides are available here: :download:`pdf <day5_slides.pdf>`
    urdf.rst
    moveit_config.rst
    move_group_interface.rst
+   multirobot_mp.rst
