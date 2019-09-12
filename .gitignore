@@ -2,3 +2,5 @@ doctrees/*
 html/*
 .vscode/
 *.swp
+html/
+source/_build/
