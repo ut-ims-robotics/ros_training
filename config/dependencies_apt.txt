@@ -17,6 +17,10 @@ ros-kinetic-serial
 ros-kinetic-joy
 ros-kinetic-teleop-twist-keyboard
 ros-kinetic-ar-track-alvar
+ros-kinetic-rosdoc-lite
+
+arduino
+
 
 
 #For realsense depth camera
