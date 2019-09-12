@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding='utf-8'?>
+
+<robot name="dual_xarm7" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- load xarm7 robots -->
+  <xacro:include filename="$(find xarm_description)/urdf/xarm7_robot_macro.xacro" />
+
+  <xacro:xarm7_robot prefix="left_"/>
+
+  <material name="platform_color">
+    <color rgba="0.8 0.8 0.8 1"/>
+  </material>
+
+  <link name="platform">
+    <visual>
+      <geometry>
+        <box size="1 3 .1"/>
+      </geometry>
+      <material name = "platform_color"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="1 3 .1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_to_platform" type="fixed">
+    <parent link="platform"/>
+    <child link="left_link_base"/>
+    <origin xyz="0 -0.6 0.05"/>
+  </joint>
+
+
+</robot>
