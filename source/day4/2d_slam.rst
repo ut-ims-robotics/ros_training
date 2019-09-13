@@ -1,8 +1,9 @@
 2D SLAM with a robot
 ---------------------
 
-Now that we have tested some SLAM packages in a simulation, 
-let's try them out on a real robot - Clearbot. We will be using Google Cartographer.
+Now that we have tested some SLAM packages in a simulation,
+let's try them out on a real robot - Clearbot.
+We will be using Google Cartographer.
 
 Copying necessary files to your workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58,10 +59,12 @@ to include the configuration files from your package.
 
 1.  Open *teleop_cartographer_2d.launch* from your package.
 
-2.  Change the launch file so that it reads configuration files from your package.
+2.  Change the launch file so that
+    it reads configuration files from your package.
     (NOTE: You have to change paths in 2 places.)
 
-Now that you have configured the launch files, let's try running the SLAM package.
+Now that you have configured the launch files,
+let's try running the SLAM package.
 
 1.  In robot's terminal, run **roscore**.
 
@@ -98,9 +101,17 @@ Although last step will already produce a map, it could be better (or worse).
 Therefore, you have the chance to try tuning the algorithm
 and maybe get a better result.
 
-1.  
+1.  For tuning, you can try changing parameteres in 2 files:
+    *robotont_cartographer_2d.lua* and
+    *robotont_cartographer_localization_2d.lua*
 
+2.  For example, what if you changed translation and rotation weights
+    in *robotont_cartographer_2d.lua*?
 
+3.  To test your changes, relaunch *teleop_cartographer_2d.launch*
 
+4.  To tune your Cartographer, there is a guide at
+    https://google-cartographer-ros.readthedocs.io/en/latest/tuning.html
 
-.. Cartographer configuration files are located in robotont_teleop/configuration_files.
+    Follow this guide and see if you can improve the mapping to be more
+    stable and accurate.
