@@ -5,7 +5,8 @@ In the last workshop, you wrote a driver for an IMU and ultrasonic sensor
 and displayed it in RViz.
 
 In this workshop, you will define a transform between your sensors.
-The goal is to see your ultrasonic sensor moving in RViz when you move your IMU.
+The goal is to see your ultrasonic sensor
+moving in RViz when you move your IMU.
 
 Currently, there are no transforms in your system when you launch your driver.
 That means you can not visualize your data properly.
@@ -87,16 +88,7 @@ This is where transform programming comes in play.
     If it is and *Range* is not moving,
     go back and recheck the code and launch options.
 
-5.  If it is moving, then we can disable the IMU arrow from the left side menu
-    as it is not relevant anymore.
-
-6.  Now try turning the sensor and see if relates properly
+5.  Now try turning the sensor and see if relates properly
     to real world movements.
     If yes, congratulations, you have completed the task.
     If not, go double check the transforms.
-
-.. add tf2_ros to cmakelists
-
-.. add includes
-
-.. add source 

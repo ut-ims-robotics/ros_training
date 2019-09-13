@@ -1,9 +1,10 @@
 Mapping in simulated environment
 ----------------------------------
 
-Before going in the real world, many tasks are first done in a simulation 
+Before going in the real world, many tasks are first done in a simulation
 to prevent unwanted damage to the robot and it's surroundings.
-In this section, we will use different ROS packages to map a simulated environment. 
+In this section,
+we will use different ROS packages to map a simulated environment.
 
 Launching the simulation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -12,7 +13,7 @@ In separate terminals, run:
 
 1.
     .. code-block:: bash
-    
+
         roslaunch robotont_description gazebo_teleop_keyboard.launch world:=$(rospack find turtlebot3_gazebo)/worlds/turtlebot3_world.world
 
     This will launch the simulation environment. Also, from this terminal, you can use keyboard teleop.
@@ -22,19 +23,20 @@ In separate terminals, run:
     .. code-block:: bash
 
         roslaunch robotont_description display_2dmapping.launch
-    
+
     This will launch RViz, that shows the generated map.
 
 
 gmapping
 ^^^^^^^^^^
 
-gmapping is a popular 2D SLAM software in ROS. It uses laserscans to build a 2D map.
+gmapping is a popular 2D SLAM software in ROS.
+It uses laserscans to build a 2D map.
 
 .. code-block:: bash
 
-    rosrun gmapping slam_gmapping      
-    
+    rosrun gmapping slam_gmapping
+
 This will launch the gmapping mapping software.
 
 Drive around, using your keyboard, and map the world.
@@ -46,8 +48,10 @@ To use your own parameters, add them to rosrun command like this:
 .. code-block:: bash
 
     rosrun gmapping slam_gmapping _map_update_interval:=1.0
-    
-Notice the underscore before the parameter. This example will change map update interval to 1 second (default is 5 seconds).
+
+Notice the underscore before the parameter.
+This example will change map update interval to 1 second
+(default is 5 seconds).
 
 
 
@@ -58,14 +62,14 @@ Kill the gmapping process.
 
 Google Cartographer also uses odometry data.
 
-Find out what topic has odometry data, 
-using ROS tools e.g. rostopic list, rostopic echo etc.
+1.  Find out what topic has odometry data,
+    using ROS tools e.g. rostopic list, rostopic echo etc.
 
-If you have determined the correct topic, launch
+2.  If you have determined the correct topic, launch
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    roslaunch robotont_teleop teleop_sim_cartographer_2d.launch odom_topic:=<YOUR ODOMETRY TOPIC>      
-        
+        roslaunch robotont_teleop teleop_sim_cartographer_2d.launch odom_topic:=<YOUR ODOMETRY TOPIC>
 
-        
+3.   Try mapping.
+
