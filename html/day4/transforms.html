@@ -100,7 +100,11 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 4</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Transforms</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#static-transform">Static transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-transform">Dynamic transform</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="mappinginsim.html">Mapping in simulated environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2d_slam.html">2D SLAM with a robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="navigation.html">Navigation</a></li>
@@ -178,9 +182,92 @@
             
   <div class="section" id="transforms">
 <h1>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h1>
-<p>In the last workshop, you wrote a driver for an IMU and ultrasonic sensor.</p>
+<p>In the last workshop, you wrote a driver for an IMU and ultrasonic sensor
+and displayed it in RViz.</p>
 <p>In this workshop, you will define a transform between your sensors.
-The goal is to see your sensor moving in RViz when you move your IMU.</p>
+The goal is to see your ultrasonic sensor
+moving in RViz when you move your IMU.</p>
+<p>Currently, there are no transforms in your system when you launch your driver.
+That means you can not visualize your data properly.
+Transforms are necessary to tell the system
+from which location the data is coming from.</p>
+<p>Currently when you visualize your sensor, it is by default tied to the <strong>map</strong>
+frame which is not right because sensor and map are not the same thing.</p>
+<div class="section" id="static-transform">
+<h2>Static transform<a class="headerlink" href="#static-transform" title="Permalink to this headline">¶</a></h2>
+<p>First, let’s try adding a static transform.</p>
+<p>Static transform is broadcasted and latched to <em>/tf_static</em> topic and will not
+change unless ordered.</p>
+<p>For this case,
+we need to create a transform between <strong>map</strong> frame (parent)
+and <strong>imu_link</strong> frame (child).
+This is necessary because the system wants to know where in the world
+your sensor is located. <strong>map</strong> frame serves as the world
+and is set as a fixed frame so that everything else is
+taken relative to <strong>map</strong> origin.
+<strong>imu_link</strong> serves as the frame for your sensor.</p>
+<ol class="arabic">
+<li><p class="first">Run <strong>roscore</strong>.</p>
+</li>
+<li><p class="first">Using <em>static_transform_publisher</em>, create a transform between
+<strong>map</strong> and <strong>imu_link</strong>. Use <a class="reference external" href="http://wiki.ros.org/tf2_ros#static_transform_publisher">http://wiki.ros.org/tf2_ros#static_transform_publisher</a>
+as a reference as well as the presentation slides.
+You can keep the rotation zero for now but change the translation
+so that <strong>imu_link</strong> would be 1 meter higher than the <strong>map</strong> frame.</p>
+</li>
+<li><p class="first">Launch <strong>rqt</strong> from terminal.
+On the top bar, go to
+Plugins -&gt; Visualization -&gt; TF Tree.
+This will show you the current transforms in the system.
+And should look like this:</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/tftreestatic.png"><img alt="../_images/tftreestatic.png" src="../_images/tftreestatic.png" style="width: 420.0px; height: 334.6px;" /></a>
+</div>
+</li>
+<li><p class="first">If you see this result, continue to step 5, if not, go back to 2.</p>
+</li>
+<li><p class="first">Now launch <em>sonar_driver_visualize.launch</em>
+with argument <strong>imu_frame:=imu_link</strong>.</p>
+</li>
+<li><p class="first">In the RViz windows,
+you should see the origin of IMU pose and range be set to
+1 meter above ground.</p>
+</li>
+<li><p class="first">If everything works, shut down all ROS programs and continue to next task.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="dynamic-transform">
+<h2>Dynamic transform<a class="headerlink" href="#dynamic-transform" title="Permalink to this headline">¶</a></h2>
+<p>As our goal was to see the ultrasonic range be rotated as we rotate the IMU,
+we need a transform that moves according to IMU readings.</p>
+<p>This is where transform programming comes in play.</p>
+<ol class="arabic">
+<li><p class="first">First, add <em>tf2_ros</em> in your CMakeLists.txt under <em>find_package</em>.</p>
+</li>
+<li><p class="first">Use this <a class="reference external" href="http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20broadcaster%20%28C%2B%2B%29">this</a>
+tutorial to publish <strong>map</strong> to <strong>imu_link</strong> transform
+according to IMU data.
+You can write your code under <em>processSonarDataframe()</em> function.
+Keep the translation the same as in the previous task but now change
+rotation to IMU data.</p>
+<p>Don’t forget to include necessary headers.</p>
+</li>
+<li><p class="first">To test your code, build, source and launch <em>sonar_driver_visualize.launch</em>
+like in the previous task.</p>
+</li>
+<li><p class="first">Now you should see your <em>Range</em> moving.
+If not, first check if your <em>Fixed Frame</em> is set to <strong>map</strong>.
+If it is and <em>Range</em> is not moving,
+go back and recheck the code and launch options.</p>
+</li>
+<li><p class="first">Now try turning the sensor and see if relates properly
+to real world movements.
+If yes, congratulations, you have completed the task.
+If not, go double check the transforms.</p>
+</li>
+</ol>
+</div>
 </div>
 
 

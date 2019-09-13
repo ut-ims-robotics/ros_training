@@ -184,7 +184,8 @@
   <div class="section" id="d-slam-with-a-robot">
 <h1>2D SLAM with a robot<a class="headerlink" href="#d-slam-with-a-robot" title="Permalink to this headline">¶</a></h1>
 <p>Now that we have tested some SLAM packages in a simulation,
-let’s try them out on a real robot - Clearbot. We will be using Google Cartographer.</p>
+let’s try them out on a real robot - Clearbot.
+We will be using Google Cartographer.</p>
 <div class="section" id="copying-necessary-files-to-your-workspace">
 <h2>Copying necessary files to your workspace<a class="headerlink" href="#copying-necessary-files-to-your-workspace" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
@@ -235,10 +236,12 @@ configuration files that you can safely modify.</p>
 to include the configuration files from your package.</p>
 <ol class="arabic simple">
 <li>Open <em>teleop_cartographer_2d.launch</em> from your package.</li>
-<li>Change the launch file so that it reads configuration files from your package.
+<li>Change the launch file so that
+it reads configuration files from your package.
 (NOTE: You have to change paths in 2 places.)</li>
 </ol>
-<p>Now that you have configured the launch files, let’s try running the SLAM package.</p>
+<p>Now that you have configured the launch files,
+let’s try running the SLAM package.</p>
 <ol class="arabic">
 <li><p class="first">In robot’s terminal, run <strong>roscore</strong>.</p>
 </li>
@@ -269,8 +272,21 @@ to include the configuration files from your package.</p>
 <p>Although last step will already produce a map, it could be better (or worse).
 Therefore, you have the chance to try tuning the algorithm
 and maybe get a better result.</p>
-<ol class="arabic simple">
-<li></li>
+<ol class="arabic">
+<li><p class="first">For tuning, you can try changing parameteres in 2 files:
+<em>robotont_cartographer_2d.lua</em> and
+<em>robotont_cartographer_localization_2d.lua</em></p>
+</li>
+<li><p class="first">For example, what if you changed translation and rotation weights
+in <em>robotont_cartographer_2d.lua</em>?</p>
+</li>
+<li><p class="first">To test your changes, relaunch <em>teleop_cartographer_2d.launch</em></p>
+</li>
+<li><p class="first">To tune your Cartographer, there is a guide at
+<a class="reference external" href="https://google-cartographer-ros.readthedocs.io/en/latest/tuning.html">https://google-cartographer-ros.readthedocs.io/en/latest/tuning.html</a></p>
+<p>Follow this guide and see if you can improve the mapping to be more
+stable and accurate.</p>
+</li>
 </ol>
 </div>
 </div>
