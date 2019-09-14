@@ -14,6 +14,8 @@ read MY_ID
 echo -ne "Password for clearbot WiFi network: "
 read -s MY_PASSWORD
 
+MY_HOSTNAME="laptop-$MY_ID"
+
 # Distribute computers between the two routers based on their ID.
 if [ $MY_ID -le 5 ]
 then
@@ -27,11 +29,14 @@ fi
 INTERFACE=$(iw dev | awk '$1=="Interface"{print $2}')
 IP=192.168.200.$(($MY_ID + 100))
 
+# Set hostname
+echo "$MY_HOSTNAME" >> /etc/hostname
+
 # Overwrite the hosts file.
 HOSTS_FILE=/etc/hosts
 
 echo "127.0.0.1 localhost" > $HOSTS_FILE
-echo "127.0.1.1 laptop-$MY_ID" >> $HOSTS_FILE
+echo "127.0.1.1 $MY_HOSTNAME" >> $HOSTS_FILE
 
 # The following lines are desirable for IPv6 capable hosts
 cat >> $HOSTS_FILE <<- EOM
