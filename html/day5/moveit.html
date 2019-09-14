@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using MoveIt GUI &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Creating a URDF for a robot" href="urdf.html" />
+    <link rel="prev" title="Day 5" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../template/template.html">Training Style Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/index.html">Day 2</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/index.html">Day 4</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 5</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using MoveIt GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urdf.html">Creating a URDF for a robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_config.html">MoveIt configuration package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="move_group_interface.html">MoveGroup C++ Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multirobot_mp.html">Motion planning with a multi robot system</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Day 5</a> &raquo;</li>
+        
+      <li>Using MoveIt GUI</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day5/moveit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-moveit-gui">
+<h1>Using MoveIt GUI<a class="headerlink" href="#using-moveit-gui" title="Permalink to this headline">¶</a></h1>
+<p>ROS MoveIt is a powerful collection of capabilities that make it very easy to start working with robot manipulators. First we are going to look at some core capabilties that MoveIt provides by using its GUI within RViz.</p>
+<p>In order to start working with MoveIt, we’ll download ROS and MoveIt support packages for an existing robot manipulator. Today we’ll work with UFACTORY xArm7.</p>
+<p>Clone the xArm ROS support into the <code class="docutils literal notranslate"><span class="pre">src/</span></code> folder of your catkin workspace.</p>
+<blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/ut-ims-robotics/xarm_ros.git</span></code></div></blockquote>
+<p>Next build the workspace:</p>
+<blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">catkin</span> <span class="pre">build</span></code></div></blockquote>
+<p>The xArm7 already has everything set up for MoveIt, so we can simply launch their demo.</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">roslaunch</span> <span class="pre">xarm7_moveit_config</span> <span class="pre">demo.launch</span></code></p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_gui_xarm7.png"><img alt="../_images/moveit_gui_xarm7.png" src="../_images/moveit_gui_xarm7.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>If everything worked out, you should now have an RViz window with xArm7 robot model as depicted above.</p>
+<p>On the bottom left of the RViz window, you will see MoveIt controls and on the right-hand side there is the robot model with interactive marker in red, green, and blue.
+In the MoveIt controls (the <em>MotionPlanning</em> panel), switch to <em>Planning</em> tab. Feel free to drag the interactive markers to choose a target pose (visualized in orange) for the manipulator. Then click on the <em>Plan</em> button. After you have visually verified
+the plan, click on <em>Execute</em>. And that is it. That is how easy it is to make a manipulator plan and execute a collision-free path using MoveIt GUI.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_gui_xarm7_target.png"><img alt="../_images/moveit_gui_xarm7_target.png" src="../_images/moveit_gui_xarm7_target.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>Try restoring the inital pose of the robot by choosing <code class="docutils literal notranslate"><span class="pre">home_pose</span></code> from the drop-down menu under <em>Select Goal State</em>.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="urdf.html" class="btn btn-neutral float-right" title="Creating a URDF for a robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Day 5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, University of Tartu, License CC BY-ND-NC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MoveGroup C++ Interface &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Motion planning with a multi robot system" href="multirobot_mp.html" />
+    <link rel="prev" title="MoveIt configuration package" href="moveit_config.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../template/template.html">Training Style Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/index.html">Day 2</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/index.html">Day 4</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 5</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="moveit.html">Using MoveIt GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urdf.html">Creating a URDF for a robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_config.html">MoveIt configuration package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MoveGroup C++ Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#planning-to-a-pose-goal">Planning to a Pose Goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#planning-to-a-named-goal">Planning to a Named Goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#planning-to-a-joint-value-goal">Planning to a Joint Value Goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computing-a-cartesian-path">Computing a Cartesian Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#individual-task">Individual task</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multirobot_mp.html">Motion planning with a multi robot system</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Day 5</a> &raquo;</li>
+        
+      <li>MoveGroup C++ Interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day5/move_group_interface.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="movegroup-c-interface">
+<h1>MoveGroup C++ Interface<a class="headerlink" href="#movegroup-c-interface" title="Permalink to this headline">¶</a></h1>
+<p>This excercise introduces how to program robot manipulators uing MoveIt MoveGroup C++ Interface. The API for MoveGroup C++ interface can be found <a class="reference external" href="http://docs.ros.org/kinetic/api/moveit_ros_planning_interface/html/classmoveit_1_1planning__interface_1_1MoveGroupInterface.html">here</a>.
+To illustrate some of the capabilities of the interface, we’ll be using <code class="docutils literal notranslate"><span class="pre">movegroup_interface_demo</span></code> package in collaboration with xArm7 ROS support.</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/ut-ims-robotics/movegroup_interface_demo.git</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">catkin</span> <span class="pre">build</span></code></p>
+</div></blockquote>
+<p>The general workflow for using MoveIt MoveGroup interface in your program code can be summarized in the following steps:</p>
+<ol class="arabic simple">
+<li>Initialize ROS.</li>
+<li>Create an instance of MoveGroup that corresponds to the <em>robot</em> you program for.</li>
+<li>Use an appropriate MoveGroup interface method to set target pose for the manipulator.</li>
+<li>Trigger motion-planning from current pose to the target pose by using a method from the MoveGroup API.</li>
+<li>If motion plan was successfully generated, execute the motion on the robot.</li>
+</ol>
+<p>In order to demonstrate and investigate the capabilites of MoveGroup interface, first start xArm7 with MoveIt. Keep the RViz window visible as you
+run different nodes from the <code class="docutils literal notranslate"><span class="pre">movegroup_interface_demo</span></code> package.</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">roslaunch</span> <span class="pre">xarm7_moveit_config</span> <span class="pre">demo.launch</span></code></p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_gui_xarm7.png"><img alt="../_images/moveit_gui_xarm7.png" src="../_images/moveit_gui_xarm7.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<div class="section" id="planning-to-a-pose-goal">
+<h2>Planning to a Pose Goal<a class="headerlink" href="#planning-to-a-pose-goal" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">pose_goal</span></code></div></blockquote>
+<p>Look into the source code <code class="docutils literal notranslate"><span class="pre">src/pose_goal.cpp</span></code> to understand how MoveGroup Interface is being used. All the explanations are provided within the
+source file. Feel free to tinker with the contents of the source code to see the effects. Remember to <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> after every time you change something in the source code.</p>
+</div>
+<div class="section" id="planning-to-a-named-goal">
+<h2>Planning to a Named Goal<a class="headerlink" href="#planning-to-a-named-goal" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">named_goal</span></code></div></blockquote>
+<p>Look into the source code <code class="docutils literal notranslate"><span class="pre">src/named_goal.cpp</span></code> to understand how MoveGroup Interface is being used. All the explanations are provided within the
+source file. Feel free to tinker with the contents of the source code to see the effects. Remember to <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> after every time you change something in the source code.</p>
+</div>
+<div class="section" id="planning-to-a-joint-value-goal">
+<h2>Planning to a Joint Value Goal<a class="headerlink" href="#planning-to-a-joint-value-goal" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">joint_value_goal</span></code></div></blockquote>
+<p>Look into the source code <code class="docutils literal notranslate"><span class="pre">src/joint_value_goal.cpp</span></code> to understand how MoveGroup Interface is being used. All the explanations are provided within the
+source file. Feel free to tinker with the contents of the source code to see the effects. Remember to <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> after every time you change something in the source code.</p>
+</div>
+<div class="section" id="computing-a-cartesian-path">
+<h2>Computing a Cartesian Path<a class="headerlink" href="#computing-a-cartesian-path" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">cartesian_path</span></code></div></blockquote>
+<p>Look into the source code <code class="docutils literal notranslate"><span class="pre">src/cartesian_path.cpp</span></code> to understand how MoveGroup Interface is being used. All the explanations are provided within the
+source file. Feel free to tinker with the contents of the source code to see the effects. Remember to <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> after every time you change something in the source code.</p>
+</div>
+<div class="section" id="individual-task">
+<h2>Individual task<a class="headerlink" href="#individual-task" title="Permalink to this headline">¶</a></h2>
+<p>Create a program (it can be a new node within <code class="docutils literal notranslate"><span class="pre">movegroup_interface_demo</span></code> or in a standalone package) that makes the robot end-effector travel through
+4 consecutive points. Feel free to use any of the methods illustrated above.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="multirobot_mp.html" class="btn btn-neutral float-right" title="Motion planning with a multi robot system" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="moveit_config.html" class="btn btn-neutral float-left" title="MoveIt configuration package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, University of Tartu, License CC BY-ND-NC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

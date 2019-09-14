@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MoveIt configuration package &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MoveGroup C++ Interface" href="move_group_interface.html" />
+    <link rel="prev" title="Creating a URDF for a robot" href="urdf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../template/template.html">Training Style Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/index.html">Day 2</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/index.html">Day 4</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 5</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="moveit.html">Using MoveIt GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urdf.html">Creating a URDF for a robot</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MoveIt configuration package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-moveit-setup-assistant">Working with MoveIt Setup Assistant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-the-moveit-configuration-package">Testing the MoveIt configuration package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="move_group_interface.html">MoveGroup C++ Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multirobot_mp.html">Motion planning with a multi robot system</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Day 5</a> &raquo;</li>
+        
+      <li>MoveIt configuration package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day5/moveit_config.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="moveit-configuration-package">
+<h1>MoveIt configuration package<a class="headerlink" href="#moveit-configuration-package" title="Permalink to this headline">¶</a></h1>
+<p>Now that we have a URDF-file describing our robot, we can use MoveIt Setup Assistant to generate all the configuration files needed to make our robot work with MoveIt.</p>
+<div class="section" id="working-with-moveit-setup-assistant">
+<h2>Working with MoveIt Setup Assistant<a class="headerlink" href="#working-with-moveit-setup-assistant" title="Permalink to this headline">¶</a></h2>
+<p>In order to launch MoveIt Setup Assistant:</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">roslaunch</span> <span class="pre">moveit_setup_assistant</span> <span class="pre">setup_assistant.launch</span></code></p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_01.png"><img alt="../_images/moveit_setup_01.png" src="../_images/moveit_setup_01.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>Next:</p>
+<ol class="arabic">
+<li><p class="first">click on <em>Create New MoveIt Configuration Package</em>,</p>
+</li>
+<li><p class="first">use <em>Browse</em> button to select the URDF-file created in previous task, and</p>
+</li>
+<li><p class="first">click on <em>Load Files</em> button.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_01-after.png"><img alt="../_images/moveit_setup_01-after.png" src="../_images/moveit_setup_01-after.png" style="width: 600pt;" /></a>
+</div>
+</li>
+</ol>
+<p>On <em>Self-Collisions</em> tab:</p>
+<ol class="arabic">
+<li><p class="first">slide <em>Sampling Density</em> to the highest possible level and</p>
+</li>
+<li><p class="first">click on <em>Generate Collision Matrix</em>.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_02-after.png"><img alt="../_images/moveit_setup_02-after.png" src="../_images/moveit_setup_02-after.png" style="width: 600pt;" /></a>
+</div>
+</li>
+</ol>
+<p>On <em>Virtual Joints</em> tab click on <em>Add Virtual Joint</em>, fill it with the following information, and save it.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_03-after.png"><img alt="../_images/moveit_setup_03-after.png" src="../_images/moveit_setup_03-after.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>The final look on <em>Virtual Joints</em> tab should appear as follows.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_03-after2.png"><img alt="../_images/moveit_setup_03-after2.png" src="../_images/moveit_setup_03-after2.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>On <em>Planning Groups</em> tab, click on <em>Add Group</em> and fill it as follows.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_04-after.png"><img alt="../_images/moveit_setup_04-after.png" src="../_images/moveit_setup_04-after.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>Next we will define the planning group by adding a kinematic chain. Use <code class="docutils literal notranslate"><span class="pre">base_link</span></code> as <em>Base Link</em> and <code class="docutils literal notranslate"><span class="pre">tool0</span></code> as <em>Tip Link</em>.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_04-after2.png"><img alt="../_images/moveit_setup_04-after2.png" src="../_images/moveit_setup_04-after2.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>The final view on the <em>Planning Groups</em> tab should look as follows.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_04-after3.png"><img alt="../_images/moveit_setup_04-after3.png" src="../_images/moveit_setup_04-after3.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>On <em>Robot Poses</em> tab, click on <em>Add Pose</em> to create one predefined pose for your robot. Based on your preference, choose the joint values and name for the pose.
+The final view on the <em>Robot Poses</em> tab could look as follows.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_05-after2.png"><img alt="../_images/moveit_setup_05-after2.png" src="../_images/moveit_setup_05-after2.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>On <em>End Effectors</em> tab, click on <em>Add Effector</em>. It is important to make <code class="docutils literal notranslate"><span class="pre">tool0</span></code> your parent link for the end effector.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_06-after.png"><img alt="../_images/moveit_setup_06-after.png" src="../_images/moveit_setup_06-after.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>No changes are required on <em>Passive Joints</em>, <em>ROS Control</em>, <em>Simulation</em>, and <em>3D Perception</em> tabs.</p>
+<p>Fill in the <em>Author Information</em> tab with your name and e-mail.</p>
+<p>On <em>Configuration Files</em> tab, it is necessary to define a name for your MoveIt configuration package. It is a good practice to always name these packages in the
+form of <code class="docutils literal notranslate"><span class="pre">robotname_moveit_config</span></code>. So in current case <code class="docutils literal notranslate"><span class="pre">my_robot_moveit_config</span></code> is the recommended name. Choose the <code class="docutils literal notranslate"><span class="pre">src/</span></code> folder in your catkin workspace
+as the location of the configuration package.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_12-after.png"><img alt="../_images/moveit_setup_12-after.png" src="../_images/moveit_setup_12-after.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+<p>Click on <em>Generate Package</em> and exit the Setup Assistant.</p>
+</div>
+<div class="section" id="testing-the-moveit-configuration-package">
+<h2>Testing the MoveIt configuration package<a class="headerlink" href="#testing-the-moveit-configuration-package" title="Permalink to this headline">¶</a></h2>
+<p>Among other files, the Setup Assistant generated the <code class="docutils literal notranslate"><span class="pre">demo.launch</span></code> for the robot.</p>
+<blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">roslaunch</span> <span class="pre">my_robot_moveit_config</span> <span class="pre">demo.launch</span></code></div></blockquote>
+<p>On <em>Planning</em> tab, make a tic in <em>Allow Approx IK Solutions</em> checkbox. Verify that the interactive markers, planning, and executing is working for the robot.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/moveit_setup_working.png"><img alt="../_images/moveit_setup_working.png" src="../_images/moveit_setup_working.png" style="width: 600pt;" /></a>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="move_group_interface.html" class="btn btn-neutral float-right" title="MoveGroup C++ Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="urdf.html" class="btn btn-neutral float-left" title="Creating a URDF for a robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, University of Tartu, License CC BY-ND-NC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

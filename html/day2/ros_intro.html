@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to ROS &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../template/template.html">Training Style Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Day 2</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/index.html">Day 4</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day5/index.html">Day 5</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction to ROS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day2/ros_intro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-ros">
+<h1>Introduction to ROS<a class="headerlink" href="#introduction-to-ros" title="Permalink to this headline">¶</a></h1>
+<p>Slides are available here: <code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></p>
+<p>In this exercise, we will setup ROS to be used from the terminal, and start roscore.</p>
+<p>In order to start programming in ROS, you should know how to install ROS on a new machine as well and check that the installation worked properly. This module will walk you through a few simple checks of your installed ROS system.</p>
+<div class="section" id="ros-installation">
+<h2>ROS Installation<a class="headerlink" href="#ros-installation" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>As ROS is already preinstalled to your system, this section can be fast forwarded. Nevertheless, You are still encouredged to have a look on the <a class="reference external" href="http://wiki.ros.org/kinetic/Installation/Ubuntu">installation instructions</a> needed to get ROS going on a freshly installed Ubuntu Linux.</div></blockquote>
+</div>
+<div class="section" id="testing-the-environment">
+<h2>Testing the environment<a class="headerlink" href="#testing-the-environment" title="Permalink to this headline">¶</a></h2>
+<p>We believe we have a good installation of ROS but let’s test it to make sure.</p>
+<ol class="arabic">
+<li><p class="first">A good way to start is to ensure that environment variables like ROS_ROOT and ROS_PACKAGE_PATH are set:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>printenv <span class="p">|</span> grep ROS
+</pre></div>
+</div>
+</li>
+<li><p class="first">If the variables are empty or do not contain paths to ROS workspaces you would like to work with, it is most likely that you might need to ‘source’ some setup.*sh files.</p>
+</li>
+<li><p class="first">Let’s do that by entering:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">source</span> /opt/ros/kinetic/setup.bash
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now we have sourced the default workspace for ROS kinetic.</p>
+</li>
+<li><p class="first">Run the <code class="code docutils literal notranslate"><span class="pre">printenv</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">ROS</span></code> command again and verify that the variables have been set.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you are ever having problems finding or using your ROS packages make sure that you have your environment properly setup.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In a “bare” ROS install, you will need to run this command on every new shell you open to have access to the ROS commands. One of the setup steps in a <em>typical</em> ROS install is to add that command to the end of your <code class="code docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file, which is run automatically in every new terminal window.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">To check that your <code class="code docutils literal notranslate"><span class="pre">.bashrc</span></code> file has already been configured to source the ROS-kinetic <cite>setup.bash</cite> script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>tail ~/.bashrc
+</pre></div>
+</div>
+</li>
+<li><p class="first">For ease of this workshop, use the following oneliner to add automatic sourcing to the <code class="code docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/kinetic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">As one can observe, we sourced the ROS environment for a specific ROS distribution (kinetic). Using this sourcing process allows you to install several ROS distributions (e.g. indigo and kinetic) on the same computer and switch between them by sourcing the distribution-specific <cite>setup.bash</cite> file.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">More information on configuring the environment can be found from:
+<a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment">ROS Wiki – Installing and Configuring Your ROS Environment</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="navigating-the-ros-filesystem">
+<h1>Navigating the ROS Filesystem<a class="headerlink" href="#navigating-the-ros-filesystem" title="Permalink to this headline">¶</a></h1>
+<p>Once you have learned the basic commands for navigating Linux filesystem, it is a matter of adding a prefix <code class="code docutils literal notranslate"><span class="pre">ros</span></code> and you are able to easily navigate between ROS packages in your sourced sourced workspaces.</p>
+<p>In this section we will explore the following ROS commands:</p>
+<ul class="simple">
+<li>rospack = ros + pack(age)</li>
+<li>roscd = ros + cd</li>
+<li>rosls = ros + ls</li>
+</ul>
+<p>This naming pattern holds for many other ROS tools.</p>
+<div class="section" id="rospack-command">
+<h2>rospack Command<a class="headerlink" href="#rospack-command" title="Permalink to this headline">¶</a></h2>
+<p>rospack allows you to get information about packages. In the following, we are only going to cover the find option, which returns the path to package. The command is used as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rospack find <span class="o">[</span>package_name<span class="o">]</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p class="first">In the terminal configured for ROS, type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rospack find roscpp
+</pre></div>
+</div>
+</li>
+<li><p class="first">rospack should return <code class="code docutils literal notranslate"><span class="pre">/opt/ros/kinetic/share/roscpp</span></code> for the package location.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="roscd-command">
+<h2>roscd Command<a class="headerlink" href="#roscd-command" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Type: <code class="code docutils literal notranslate"><span class="pre">roscd</span> <span class="pre">roscpp</span></code>, then type <code class="code docutils literal notranslate"><span class="pre">pwd</span></code>.</li>
+<li>You will notice that the working directory was changed to where the <code class="code docutils literal notranslate"><span class="pre">roscpp</span></code> package is located.</li>
+</ol>
+</div>
+<div class="section" id="rosls-command">
+<h2>rosls Command<a class="headerlink" href="#rosls-command" title="Permalink to this headline">¶</a></h2>
+<p>With <code class="code docutils literal notranslate"><span class="pre">rosls</span></code>, you can directly get the file listing of a given package.</p>
+<ol class="arabic">
+<li><p class="first">Try it out with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosls laser_geometry
+</pre></div>
+</div>
+</li>
+<li><p class="first">Files and folders from the <code class="code docutils literal notranslate"><span class="pre">laser_geometry</span></code> package should be displayed.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Keep in mind that all ROS tools will only find ROS packages that are within the directories listed in your ROS_PACKAGE_PATH. To see what is in your ROS_PACKAGE_PATH, type: <code class="code docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$ROS_PACKAGE_PATH</span></code>. A colon separated list of paths appears.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">More information on navigating the ROS filesystem can be found from: <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/NavigatingTheFilesystem">ROS Wiki – Navigating the ROS Filesystem</a>.</p>
+</div>
+</div>
+<div class="section" id="starting-roscore">
+<h2>Starting roscore<a class="headerlink" href="#starting-roscore" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first"><code class="code docutils literal notranslate"><span class="pre">roscore</span></code> is a collection of programs that are pre-requisites of a ROS-based system. You must have a roscore running in order for ROS nodes to communicate. It is launched using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roscore
+</pre></div>
+</div>
+</li>
+</ol>
+<p>There are several components that are started with <code class="code docutils literal notranslate"><span class="pre">roscore</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>a ROS Master</li>
+<li>a ROS Parameter Server</li>
+<li>a rosout logging node</li>
+</ul>
+<blockquote>
+<div>You will see ending with <cite>started core service [/rosout]</cite>. If you see <cite>roscore: command not found</cite> then you have not sourced your environment, please refer to the previous section to resource the environment.</div></blockquote>
+</div></blockquote>
+<ol class="arabic">
+<li><p class="first">Verify that the <code class="code docutils literal notranslate"><span class="pre">roscore</span></code> is running. Open a new terminal window and enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosnode list
+</pre></div>
+</div>
+</li>
+</ol>
+<p>You should see the logging node named <code class="code docutils literal notranslate"><span class="pre">/rosout</span></code></p>
+<ol class="arabic">
+<li><p class="first">Press <kbd class="kbd docutils literal notranslate">Ctrl+C</kbd> in the first terminal window to stop <code class="code docutils literal notranslate"><span class="pre">roscore</span></code>.</p>
+</li>
+<li><p class="first">Try to obtain the node list again in the second terminal. Was the command sucessful this time?</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last"><kbd class="kbd docutils literal notranslate">Ctrl-C</kbd> is the typical method used to stop most ROS commands.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="running-your-first-ros-program">
+<h1>Running your first ROS program<a class="headerlink" href="#running-your-first-ros-program" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, University of Tartu, License CC BY-ND-NC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
