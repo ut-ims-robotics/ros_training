@@ -30,7 +30,7 @@ INTERFACE=$(iw dev | awk '$1=="Interface"{print $2}')
 IP=192.168.200.$(($MY_ID + 100))
 
 # Set hostname
-echo "$MY_HOSTNAME" >> /etc/hostname
+echo "$MY_HOSTNAME" > /etc/hostname
 
 # Overwrite the hosts file.
 HOSTS_FILE=/etc/hosts
