@@ -5,9 +5,6 @@
     local-name: robotont
     uri: https://github.com/ut-ims-robotics/robotont.git
 - git:
-    local-name: rtabmap
-    uri: https://github.com/introlab/rtabmap.git
-- git:
     local-name: usb_cam
     uri: https://github.com/ros-drivers/usb_cam
 - git:

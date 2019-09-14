@@ -37,3 +37,8 @@ libpcl-dev
 libopencv-dev
 libproj-dev
 libqt5svg5-dev
+
+#Cartographer
+libgoogle-glog-dev
+liblua5.3-dev
+
