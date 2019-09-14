@@ -35,6 +35,9 @@ echo "$MY_HOSTNAME" > /etc/hostname
 # Overwrite the hosts file.
 HOSTS_FILE=/etc/hosts
 
+# Copy Aliases
+cp ~/ros_training/config/.bash_aliases ~/.bash_aliases
+
 echo "127.0.0.1 localhost" > $HOSTS_FILE
 echo "127.0.1.1 $MY_HOSTNAME" >> $HOSTS_FILE
 
