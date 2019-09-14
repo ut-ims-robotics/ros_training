@@ -20,6 +20,7 @@ ros-kinetic-teleop-twist-keyboard
 ros-kinetic-ar-track-alvar
 ros-kinetic-rosdoc-lite
 ros-kinetic-turtlebot3-gazebo
+ros-kinentic-gmapping
 
 #For realsense depth camera
 libglfw3
