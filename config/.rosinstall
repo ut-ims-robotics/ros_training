@@ -5,9 +5,6 @@
     local-name: robotont
     uri: https://github.com/ut-ims-robotics/robotont.git
 - git:
-    local-name: ros_training
-    uri: https://github.com/ut-ims-robotics/ros_training.git
-- git:
     local-name: rtabmap
     uri: https://github.com/introlab/rtabmap.git
 - git:
