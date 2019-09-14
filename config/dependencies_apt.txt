@@ -19,10 +19,6 @@ ros-kinetic-teleop-twist-keyboard
 ros-kinetic-ar-track-alvar
 ros-kinetic-rosdoc-lite
 
-arduino
-
-
-
 #For realsense depth camera
 libglfw3
 libglfw3-dev
