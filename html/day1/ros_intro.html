@@ -107,7 +107,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#starting-roscore">Starting roscore</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#running-your-first-ros-program">Running your first ROS program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-and-running-your-first-ros-node">Installing and Running your first ROS node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clearbot_teleop.html">Teleoperation</a></li>
 </ul>
 </li>
@@ -344,8 +344,31 @@
 </ol>
 </div>
 </div>
-<div class="section" id="running-your-first-ros-program">
-<h1>Running your first ROS program<a class="headerlink" href="#running-your-first-ros-program" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-and-running-your-first-ros-node">
+<h1>Installing and Running your first ROS node<a class="headerlink" href="#installing-and-running-your-first-ros-node" title="Permalink to this headline">¶</a></h1>
+<p>Many of the coolest and most useful capabilities of ROS already exist somewhere in its community. Often, stable resources exist as easily downloadable debian packages. Alternatively, you can download the “cutting edge” versions (usually hosted on Github), but then you would need to set up a catkin workspace and build the packages yourself. This is a topic of day 2. Today, we use <code class="docutils literal notranslate"><span class="pre">apt</span></code> to install a precompiled ROS packages from the ROS repository.</p>
+<ol class="arabic">
+<li><p class="first">Install the package <code class="docutils literal notranslate"><span class="pre">roscpp_tutorials</span></code>, which can be found under metapackage <code class="docutils literal notranslate"><span class="pre">ros_tutorials</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>sudo apt install ros-kinetic-ros-tutorials
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pay attention to the distribution <code class="docutils literal notranslate"><span class="pre">kinetic</span></code> in the command.</p>
+</div>
+</li>
+<li><p class="first">Use the commands you learned in section <a class="reference internal" href="#navigating-the-ros-filesystem">Navigating the ROS Filesystem</a> to explore the location and content of the <code class="docutils literal notranslate"><span class="pre">roscpp_tutorials</span></code> package.</p>
+</li>
+<li><p class="first">Let’s run a <code class="docutils literal notranslate"><span class="pre">talker</span></code> node from this package. For that, we use the following <code class="docutils literal notranslate"><span class="pre">rosrun</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun roscpp_tutorials talker
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now, open another terminal and from the same package run the node <code class="docutils literal notranslate"><span class="pre">listener</span></code>.</p>
+</li>
+<li><p class="first">If you receive <cite>hello world</cite> messages with the listener node then congratulations! You are successfully running two nodes in the ROS system with one sending text messages to another.</p>
+</li>
+</ol>
 </div>
 
 

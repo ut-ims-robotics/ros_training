@@ -145,7 +145,29 @@ You should see the logging node named :code:`/rosout`
    .. tip:: :kbd:`Ctrl-C` is the typical method used to stop most ROS commands.
 
 
-Running your first ROS program
-==============================
+Installing and Running your first ROS node
+==========================================
 
+Many of the coolest and most useful capabilities of ROS already exist somewhere in its community. Often, stable resources exist as easily downloadable debian packages. Alternatively, you can download the "cutting edge" versions (usually hosted on Github), but then you would need to set up a catkin workspace and build the packages yourself. This is a topic of day 2. Today, we use ``apt`` to install a precompiled ROS packages from the ROS repository.
+
+#. Install the package ``roscpp_tutorials``, which can be found under metapackage ``ros_tutorials``:
+
+   .. code-block:: bash
+
+      sudo apt install ros-kinetic-ros-tutorials
+
+   .. note:: Pay attention to the distribution ``kinetic`` in the command.
+   
+#. Use the commands you learned in section `Navigating the ROS Filesystem`_ to explore the location and content of the ``roscpp_tutorials`` package.
+
+#. Let's run a ``talker`` node from this package. For that, we use the following ``rosrun`` command:
+
+   .. code-block:: bash
+
+      rosrun roscpp_tutorials talker
+
+
+#. Now, open another terminal and from the same package run the node ``listener``.
+
+#. If you receive `hello world` messages with the listener node then congratulations! You are successfully running two nodes in the ROS system with one sending text messages to another. 
 
