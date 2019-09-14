@@ -8,6 +8,7 @@ git
 vim
 nano
 cmake
+gparted
 
 python-catkin-tools
 python-wstool
@@ -24,9 +25,11 @@ libglfw3
 libglfw3-dev
 libgtk-3-dev
 ros-kinetic-rgbd-launch
+ros-kinetic-ddynamic-reconfigure
 
 
-#RTAB-Map dependencies
+#RTAB-Map
+ros-kinetic-rtabmap-ros
 libsqlite3-dev
 libpcl-dev
 libopencv-dev
