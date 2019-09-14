@@ -16,6 +16,10 @@ from which location the data is coming from.
 Currently when you visualize your sensor, it is by default tied to the **map**
 frame which is not right because sensor and map are not the same thing.
 
+**NB! Before running your ros nodes, make sure you have sourced your workspace!**
+**To make your life easier, you can add sourcing to your .bashrc file.**
+
+
 Static transform
 ^^^^^^^^^^^^^^^^^
 
@@ -41,7 +45,8 @@ taken relative to **map** origin.
     You can keep the rotation zero for now but change the translation
     so that **imu_link** would be 1 meter higher than the **map** frame.
 
-3.  Launch **rqt** from terminal.
+3.  Launch **rqt** from terminal
+
     On the top bar, go to
     Plugins -> Visualization -> TF Tree.
     This will show you the current transforms in the system.
@@ -53,13 +58,13 @@ taken relative to **map** origin.
 4.  If you see this result, continue to step 5, if not, go back to 2.
 
 5.  Now launch *sonar_driver_visualize.launch*
-    with argument **imu_frame:=imu_link**.
+    with argument **frame_id:=imu_link**.
 
 6.  In the RViz windows,
-    you should see the origin of IMU pose and range be set to
+    you should see the origin of IMU acceleration vector and range be set to
     1 meter above ground.
 
-7. If everything works, shut down all ROS programs and continue to next task.
+7. If everything works, shut down all ROS programs except roscore and continue to next task.
 
 Dynamic transform
 ^^^^^^^^^^^^^^^^^
@@ -74,7 +79,7 @@ This is where transform programming comes in play.
 2.  Use this `this <http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20broadcaster%20%28C%2B%2B%29>`_
     tutorial to publish **map** to **imu_link** transform
     according to IMU data.
-    You can write your code under *processSonarDataframe()* function.
+    You can write your code in *sonar_hardware_client_node.cpp* under *processSonarDataframe()* function.
     Keep the translation the same as in the previous task but now change
     rotation to IMU data.
 
@@ -84,6 +89,9 @@ This is where transform programming comes in play.
     like in the previous task.
 
 4.  Now you should see your *Range* moving.
+    You can disable IMU from the left side bar because it is
+    not relevant anymore.
+    
     If not, first check if your *Fixed Frame* is set to **map**.
     If it is and *Range* is not moving,
     go back and recheck the code and launch options.
