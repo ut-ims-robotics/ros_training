@@ -178,37 +178,81 @@
             
   <div class="section" id="service-server-service-client">
 <h1>Service Server &amp; Service Client<a class="headerlink" href="#service-server-service-client" title="Permalink to this headline">¶</a></h1>
-<p>In this exercise, we will explore the concept of ROS messages and topics. The first type of ROS communication that we will explore is a one-way communication called messages which are sent over channels called topics. Typically one node publishes messages on a topic and another node subscribes to messages on that same topic.</p>
-<p>In the following we first complete couple of ROS tutorials to get familiar with how subscribers and publishers are implemented in ROS. After practicing, we add a publisher to our <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code>.</p>
-<ol class="arabic simple">
-<li>First, create a new package into your <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code>. Name it <code class="docutils literal notranslate"><span class="pre">beginner_tutorials</span></code> and make it depend on <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code>, <code class="docutils literal notranslate"><span class="pre">rospy</span></code>, and <code class="docutils literal notranslate"><span class="pre">roscpp</span></code> packages.</li>
-<li>Complete the <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">Writing a Simple Publisher and Subscriber (C++)</a> tutorial.</li>
-<li>Now that you got the nodes communicating, it is time to add a publisher to our <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package. Check out the documentation of the <a class="reference external" href="http://docs.ros.org/melodic/api/sensor_msgs/html/msg/Range.html">sensor_msgs/Range</a> message. This message is being used for devices that measure distance to an object while having a specific field of view (for example, ultrasonic, infrared, etc sensors).</li>
-<li>Navigate back to the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package and open the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node.cpp</span></code> for editing.</li>
-<li>Add the following functionality to our fake sonar node:</li>
-</ol>
-<blockquote>
-<div><ul class="simple">
-<li>the node publishes messages on a topic <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code></li>
-<li>the type of messages is <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Range</span></code></li>
-<li>the <code class="docutils literal notranslate"><span class="pre">range</span></code> field in the messages is set to 1.5</li>
+<p>The first type of ROS communication that we explored was a one-way interaction called messages which are sent over channels called topics. Now we are going to explore a different communication type, which is a two-way interaction via a request from one node to another and a response from that node to the first.</p>
+<dl class="docutils">
+<dt>After completing this exercise, you will have the answers to the following questions:</dt>
+<dd><ul class="first last simple">
+<li>How to create a custom messages/services?</li>
+<li>Wow to use <code class="docutils literal notranslate"><span class="pre">message_genetation</span></code>?</li>
+<li>How to implement a simple service server?</li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <ol class="arabic">
-<li><p class="first">Test the publisher with <code class="code docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">echo</span> <span class="pre">/sonar_distance</span></code> and show the result to the instructor.</p>
+<li><p class="first">First, read through the ROS tutorials section on <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrvhow">Creating a ROS msg and srv</a>.</p>
 </li>
-<li><p class="first">Improve the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code> to make it outputing oscilating signal in range [0-2] meters. For that you can use a <code class="docutils literal notranslate"><span class="pre">count</span></code> variable as was in the <code class="docutils literal notranslate"><span class="pre">beginners_tutorials</span></code>. Simply scale it down a bit and use it as an argument of a sine() function:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">sine</span><span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="mf">100.0f</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<li><p class="first">Next, navigate to the root of your <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package and create a subdirectory named <code class="docutils literal notranslate"><span class="pre">srv</span></code> for our custom service. Our service will enable changing the sonar’s field of view (FOV), which is published as part of the <code class="docutils literal notranslate"><span class="pre">Range</span></code> message.</p>
+</li>
+<li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">srv</span></code> directory, create a service file named <code class="docutils literal notranslate"><span class="pre">SetSonarFOV.srv</span></code> with the following request and response parts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># Sets .</span>
+<span class="n">float64</span> <span class="n">fov_to_set</span>
+<span class="o">---</span>
+<span class="n">float64</span> <span class="n">set_fov</span>
 </pre></div>
 </div>
 </li>
-</ol>
-<blockquote>
-<div><div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">Don’t forget the <code class="code docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;math.h&gt;</span></code> to bring in the trigonometry functions to your project.</p>
+<li><p class="first">Make changes in your <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> and <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> to include <code class="docutils literal notranslate"><span class="pre">message_generation</span></code> for this service.</p>
+</li>
+<li><p class="first">Test it out:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rossrv show fake_sonar_driver SetSonarFOV
+</pre></div>
 </div>
-</div></blockquote>
+</li>
+<li><p class="first">Good Job! It’s now time to learn the steps needed to create a service server (waits for request and comes up with response) and client (makes request for info then waits for response).</p>
+</li>
+<li><p class="first">Complete the <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">Writing a Simple Service and Client (C++)</a> tutorial.</p>
+</li>
+<li><p class="first">Now that you know how service server and client are implemented in nodes, let’s add a service server to <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code>.</p>
+</li>
+<li><p class="first">Add the following functionality to our fake sonar node:</p>
+<ul class="simple">
+<li>the node advertises a service on topic <code class="docutils literal notranslate"><span class="pre">/set_sonar_fov</span></code></li>
+<li>the service type is <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver/SetSonarFOV</span></code></li>
+<li>the server will check <code class="docutils literal notranslate"><span class="pre">fov_to_set</span></code> field and responds back with the same value in <code class="docutils literal notranslate"><span class="pre">set_fov</span></code> field.</li>
+</ul>
+</li>
+<li><p class="first">Test the server with <code class="code docutils literal notranslate"><span class="pre">rossrv</span> <span class="pre">call</span> <span class="pre">/sonar_distance</span> <span class="pre">1.4</span></code> and show the result to the instructor.</p>
+</li>
+<li><p class="first">Improve the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code> such that the <code class="docutils literal notranslate"><span class="pre">fov_to_set</span></code> value would be updated into the <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code> topic. The easies way to do this is by defining <code class="docutils literal notranslate"><span class="pre">field_of_view</span></code> as a global variable:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;...&gt;</span><span class="cp"></span>
+
+<span class="kt">double</span> <span class="n">field_of_view</span><span class="p">;</span>
+
+<span class="kt">bool</span> <span class="nf">callback_function_for_server</span><span class="p">(...)</span>
+<span class="p">{</span>
+  <span class="c1">// set field_of_view here</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(...)</span>
+<span class="p">{</span>
+  <span class="c1">// use field_of_view here</span>
+<span class="p">}</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Would it be awesome to visualize the sonar range and its field of view graphically? In ROS, this is peace of cake:</p>
+<ul class="simple">
+<li>Open a new terminal and type: <code class="code docutils literal notranslate"><span class="pre">rviz</span></code></li>
+<li>In RViz, click the <code class="docutils literal notranslate"><span class="pre">add</span></code> button on the Displays panel (the one on the left side).</li>
+<li>Select the <code class="docutils literal notranslate"><span class="pre">By</span> <span class="pre">topic</span></code> tab and double-click on the <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code> topic.</li>
+</ul>
+</li>
+<li><p class="first">Open another terminal and change the field of view with the <code class="code docutils literal notranslate"><span class="pre">rossrv</span> <span class="pre">call</span></code> command. See if you notice any changes in RViz.</p>
+</li>
+<li><p class="first">Present your solution to the instructor. Congratulations, you are now ready to face the challenges in day 3!</p>
+</li>
+</ol>
 </div>
 
 

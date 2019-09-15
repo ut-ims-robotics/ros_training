@@ -1,32 +1,76 @@
 Service Server & Service Client
 ===============================
 
-In this exercise, we will explore the concept of ROS messages and topics. The first type of ROS communication that we will explore is a one-way communication called messages which are sent over channels called topics. Typically one node publishes messages on a topic and another node subscribes to messages on that same topic. 
+The first type of ROS communication that we explored was a one-way interaction called messages which are sent over channels called topics. Now we are going to explore a different communication type, which is a two-way interaction via a request from one node to another and a response from that node to the first.
 
-In the following we first complete couple of ROS tutorials to get familiar with how subscribers and publishers are implemented in ROS. After practicing, we add a publisher to our ``fake_sonar_driver_node``.
-
-#. First, create a new package into your ``catkin_ws``. Name it ``beginner_tutorials`` and make it depend on ``std_msgs``, ``rospy``, and ``roscpp`` packages. 
-
-#. Complete the `Writing a Simple Publisher and Subscriber (C++) <http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29>`_ tutorial.
-
-#. Now that you got the nodes communicating, it is time to add a publisher to our ``sonar_driver`` package. Check out the documentation of the `sensor_msgs/Range <http://docs.ros.org/melodic/api/sensor_msgs/html/msg/Range.html>`_ message. This message is being used for devices that measure distance to an object while having a specific field of view (for example, ultrasonic, infrared, etc sensors).
-
-#. Navigate back to the ``fake_sonar_driver`` package and open the ``fake_sonar_driver_node.cpp`` for editing. 
+After completing this exercise, you will have the answers to the following questions:
+  * How to create a custom messages/services?
+  * Wow to use ``message_genetation``?
+  * How to implement a simple service server?
    
+    
+#. First, read through the ROS tutorials section on `Creating a ROS msg and srv <http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrvhow>`_.
+
+#. Next, navigate to the root of your ``fake_sonar_driver`` package and create a subdirectory named ``srv`` for our custom service. Our service will enable changing the sonar's field of view (FOV), which is published as part of the ``Range`` message.
+
+#. In the ``srv`` directory, create a service file named ``SetSonarFOV.srv`` with the following request and response parts:
+
+   .. code-block:: python
+
+      # Sets .
+      float64 fov_to_set
+      ---
+      float64 set_fov
+
+#. Make changes in your ``package.xml`` and ``CMakeLists.txt`` to include ``message_generation`` for this service.
+
+#. Test it out:
+
+   .. code-block:: bash
+
+      rossrv show fake_sonar_driver SetSonarFOV
+   
+
+#. Good Job! It's now time to learn the steps needed to create a service server (waits for request and comes up with response) and client (makes request for info then waits for response).
+
+#. Complete the `Writing a Simple Service and Client (C++) <http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29>`_ tutorial.
+
+#. Now that you know how service server and client are implemented in nodes, let's add a service server to ``fake_sonar_driver_node``.
+
 #. Add the following functionality to our fake sonar node:
 
-  * the node publishes messages on a topic ``/sonar_distance`` 
-  * the type of messages is ``sensor_msgs/Range``
-  * the ``range`` field in the messages is set to 1.5
+   * the node advertises a service on topic ``/set_sonar_fov`` 
+   * the service type is ``fake_sonar_driver/SetSonarFOV``
+   * the server will check ``fov_to_set`` field and responds back with the same value in ``set_fov`` field.
 
+#. Test the server with :code:`rossrv call /sonar_distance 1.4` and show the result to the instructor.
 
-#. Test the publisher with :code:`rostopic echo /sonar_distance` and show the result to the instructor.
-
-#. Improve the ``fake_sonar_driver_node`` to make it outputing oscilating signal in range [0-2] meters. For that you can use a ``count`` variable as was in the ``beginners_tutorials``. Simply scale it down a bit and use it as an argument of a sine() function:
+#. Improve the ``fake_sonar_driver_node`` such that the ``fov_to_set`` value would be updated into the ``/sonar_distance`` topic. The easies way to do this is by defining ``field_of_view`` as a global variable:
 
    .. code-block:: c++
 
-      x = sine(count / 100.0f) + 1; 
+     #include <...>
 
-  .. tip:: Don't forget the :code:`#include <math.h>` to bring in the trigonometry functions to your project.
+     double field_of_view;
 
+     bool callback_function_for_server(...)
+     {
+       // set field_of_view here
+     }
+
+     int main(...)
+     {
+       // use field_of_view here
+     }
+     ...
+      
+
+#. Would it be awesome to visualize the sonar range and its field of view graphically? In ROS, this is peace of cake:
+
+   * Open a new terminal and type: :code:`rviz` 
+   * In RViz, click the ``add`` button on the Displays panel (the one on the left side).
+   * Select the ``By topic`` tab and double-click on the ``/sonar_distance`` topic.
+
+#. Open another terminal and change the field of view with the :code:`rossrv call` command. See if you notice any changes in RViz.
+
+#. Present your solution to the instructor. Congratulations, you are now ready to face the challenges in day 3!
