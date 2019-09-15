@@ -2,12 +2,8 @@
 Table of Content
 #################
 
-Nice to see you in ROS training.
-Here is a table of content:
-
-
-A sample template
------------------
+Welcome to the ROS training at University of Tartu.
+On this page, you will find the instructions for the workshops.
 
 
 .. toctree::
