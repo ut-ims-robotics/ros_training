@@ -1,6 +1,14 @@
 Teleoperation
 =============
 
+Clearbot
+--------
+
+Clearbot is an omnidirectionally moving platform meant for educational purposes. The platform is grown out from the Tartu University's football robot at ROBOTEX robot competition, which was customized for teaching. Clearbot combines an Intel Realsense 3D depth camera and Intel NUC on-board computer to perform computationally expensive tasks (e.g. 3D mapping) locally on the robot. More information on Clearbot is available `here <http://clearbot.eu>`_.
+
+.. figure:: ../_static/pics/clearbot.png
+   :scale: 50%
+
 Start Clearbot drivers
 ----------------------
 
@@ -10,9 +18,9 @@ In order to start ROS programs on Clearbot, we need to log into the robot.
 
    .. code-block:: bash
 
-      ssh kasutaja@robotont-X
+      ssh kasutaja@clearbot-X
 
-   where X has to be replaced with the ID written on the robot. For example: :code:`robotont-3`.
+   where X has to be replaced with the ID written on the robot. For example: :code:`clearbot-3`.
 
 #. Enter the password given to you by the instructor.
 
@@ -31,8 +39,8 @@ In order to start ROS programs on Clearbot, we need to log into the robot.
       roslaunch robotont_teleop teleop_bare.launch
 
 
-Teleop with remote ROS Master
------------------------------
+Teleoperation using a remote ROS Master
+---------------------------------------
 
 #. The robot driver subscribes to a specific type of messages called *velocity commands*. The standard name for this topic is :code:`/cmd_vel` or :code:`/robotont/cmd_vel` when in robot namespace. 
 
