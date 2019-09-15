@@ -4,7 +4,7 @@ Day 4
 
 
 
-Slides are available here: :download:`pdf <day4_slides.pdf>`
+.. .. Slides are available here: :download:`pdf <day4_slides.pdf>`
 
 .. toctree::
     :maxdepth: 2

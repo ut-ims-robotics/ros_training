@@ -1,7 +1,14 @@
 Introduction to Ubuntu 16.04 GUI
 ================================
 
-Slides are available here: :download:`pdf <linux_shell_intro_slides.pdf>`
+.. .. Slides are available here: :download:`pdf <linux_shell_intro_slides.pdf>`
+
+Task 0: Boot from the USB
+-------------------------
+
+#. While powering on the laptops, rapidly hit F9 to display the list of boot devices.
+
+#. Select your Samsung USB stick from the menu.
 
 
 Task 1: Familiarize Yourself with the Ubuntu Desktop
@@ -105,4 +112,4 @@ Task 4: Changing the IP
 
    .. figure:: ../_static/pics/ubuntu_wifi_ipv4.png
 
-#. Check the number marked on your USB stick and make sure your configuration matches with the above. 
+#. Check the number in your hostname matches with the configuratioin above. 

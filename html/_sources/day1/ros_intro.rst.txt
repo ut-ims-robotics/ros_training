@@ -1,7 +1,7 @@
 Introduction to ROS
 ===================
 
-Slides are available here: :download:`pdf <ros_intro_slides.pdf>`
+.. .. Slides are available here: :download:`pdf <ros_intro_slides.pdf>`
 
 In this exercise, we will setup ROS to be used from the terminal, and start roscore. 
 
