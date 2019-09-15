@@ -9,10 +9,6 @@ Here is a table of content:
 A sample template
 -----------------
 
-.. toctree::
-   :maxdepth: 1
-
-   template/template.rst
 
 .. toctree::
    :maxdepth: 1
