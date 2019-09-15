@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating Nodes &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Day 3" href="../day3/index.html" />
+    <link rel="prev" title="Creating Packages" href="catkin_package.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../template/template.html">Training Style Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="catkin_workspace.html">Create Catkin Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catkin_package.html">Creating Packages</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating Nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-a-node">Run a Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#challenge">Challenge</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/index.html">Day 4</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day5/index.html">Day 5</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Day 2</a> &raquo;</li>
+        
+      <li>Creating Nodes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day2/node.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-nodes">
+<h1>Creating Nodes<a class="headerlink" href="#creating-nodes" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise, you will create a simple ROS node into your new <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package.</p>
+<ol class="arabic">
+<li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package folder, edit the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file using <code class="docutils literal notranslate"><span class="pre">gedit</span></code>. Browse through the example rules, and add an executable(<code class="docutils literal notranslate"><span class="pre">add_executable</span></code>), node named <code class="docutils literal notranslate"><span class="pre">sonar_driver_node</span></code>, source file named <code class="docutils literal notranslate"><span class="pre">sonar_driver.cpp</span></code>. Also within the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>, make sure your new sonar_driver_node gets linked (‘target_link_libraries’) to the catkin libraries.</p>
+<p>For reference, take a look at <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes">Understanding Nodes</a>.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span class="nb">add_compile_options</span><span class="p">(</span><span class="s">-std=c++11</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">sonar_driver_node</span> <span class="s">src/sonar_driver_node.cpp</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">sonar_driver_node</span> <span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These lines can be placed anywhere in <cite>CMakeLists.txt</cite>, but a good approach is:</p>
+<ul class="simple">
+<li>Uncomment existing template examples for <cite>add_compile_options</cite> near the top (just below <cite>project()</cite>)</li>
+<li>Uncomment and edit existing template examples for <cite>add_executable</cite> and <cite>target_link_libraries</cite> near the bottom</li>
+<li>This helps make sure these rules are defined in the correct order, and makes it easy to remember the proper syntax.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You’re also allowed to spread most of the CMakeLists rules across multiple lines, as shown in the <code class="docutils literal notranslate"><span class="pre">target_link_libraries</span></code> template code.</p>
+</div>
+</li>
+<li><p class="first">In the package folder, create the file <code class="docutils literal notranslate"><span class="pre">src/sonar_driver_node.cpp</span></code> and open it in a text editor.</p>
+</li>
+<li><p class="first">Add the ros header (include ros.h).</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">**  Simple ROS Node</span>
+<span class="cm">**/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add a main function (typical in c++ programs).</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">**  Simple ROS Node</span>
+<span class="cm">**/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Initialize your ROS node (within the main).</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">**  Simple ROS Node</span>
+<span class="cm">**/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// This must be called before anything else ROS-related</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;sonar_driver_node&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a ROS node handle.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">**  Simple ROS Node</span>
+<span class="cm">**/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// This must be called before anything else ROS-related</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;sonar_driver_node&quot;</span><span class="p">);</span>
+
+  <span class="c1">// Create a ROS node handle</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Print a “Hello World” message using ROS print tools.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">**  Simple ROS Node</span>
+<span class="cm">**/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// This must be called before anything else ROS-related</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;sonar_driver_node&quot;</span><span class="p">);</span>
+
+  <span class="c1">// Create a ROS node handle</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
+
+  <span class="n">ROS_INFO</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Do not exit the program automatically - keep the node alive.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">**  Simple ROS Node</span>
+<span class="cm">**/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// This must be called before anything else ROS-related</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;sonar_driver_node&quot;</span><span class="p">);</span>
+
+  <span class="c1">// Create a ROS node handle</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
+
+  <span class="n">ROS_INFO</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+
+  <span class="c1">// Don&#39;t exit the program.</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">spin</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ROS_INFO</span></code> is one of the many <a class="reference external" href="http://wiki.ros.org/roscpp/Overview/Logging">logging methods</a>.</p>
+<ul class="simple">
+<li>It will print the message to the terminal output, and send it to the <code class="docutils literal notranslate"><span class="pre">/rosout</span></code> topic for other nodes to monitor.</li>
+<li>There are 5 levels of logging: <code class="docutils literal notranslate"><span class="pre">DEBUG,</span> <span class="pre">INFO,</span> <span class="pre">WARNING,</span> <span class="pre">ERROR,</span> <span class="pre">&amp;</span> <span class="pre">FATAL</span></code>.</li>
+<li>To use a different logging level, replace INFO in <code class="docutils literal notranslate"><span class="pre">ROS_INFO</span></code> or <code class="docutils literal notranslate"><span class="pre">ROS_INFO_STREAM</span></code> with the appropriate level.</li>
+<li>Use <code class="docutils literal notranslate"><span class="pre">ROS_INFO</span></code> for printf-style logging, and <code class="docutils literal notranslate"><span class="pre">ROS_INFO_STREAM</span></code> for cout-style logging.</li>
+</ul>
+</li>
+<li><p class="first">Build your program (node), by running <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> in a terminal window</p>
+<ul class="simple">
+<li>Remember that you must run <cite>catkin build</cite> from within your <cite>catkin_ws</cite> (or any subdirectory)</li>
+<li>This will build all of the programs, libraries, etc. in <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package.</li>
+<li>In this case, it’s just a single ROS node <code class="docutils literal notranslate"><span class="pre">sonar_driver_node</span></code></li>
+</ul>
+</li>
+</ol>
+<div class="section" id="run-a-node">
+<h2>Run a Node<a class="headerlink" href="#run-a-node" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Open a terminal and start the ROS master.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roscore
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The ROS Master must be running before any ROS nodes can function.</p>
+</div>
+</li>
+<li><p class="first">Open a second terminal to run your node.</p>
+<ul>
+<li><p class="first">In a previous exercise, we added a line to our <cite>.bashrc</cite> to automatically source <cite>devel/setup.bash</cite> in new terminal windows</p>
+</li>
+<li><p class="first">This will automatically export the results of the build into your new terminal session.</p>
+</li>
+<li><p class="first">If you’re reusing an existing terminal, you’ll need to manually source the setup files (since we added a new node):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">source</span> ~/catkin_ws/devel/setup.bash
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Run your node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun sonar_driver sonar_driver_node
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">This runs the program we just created. Remember to use TAB to help speed-up typing and reduce errors.</p>
+</div>
+</li>
+<li><p class="first">In a third terminal, check what nodes are running.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosnode list
+</pre></div>
+</div>
+<p>In addition to the /rosout node, you should now see a new /sonar_driver_node listed.</p>
+</li>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">rosnode</span> <span class="pre">kill</span> <span class="pre">/sonar_driver_node</span></code>. This will stop the node.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is more common to use <kbd class="kbd docutils literal notranslate">Ctrl+C</kbd> to stop a running node in the current terminal window.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="challenge">
+<h2>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Modify the node so that it prints your name. This will require you to run through the build process again.</li>
+<li>Demonstrate the working node to the instructor.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../day3/index.html" class="btn btn-neutral float-right" title="Day 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="catkin_package.html" class="btn btn-neutral float-left" title="Creating Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, University of Tartu, License CC BY-ND-NC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

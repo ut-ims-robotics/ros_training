@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; ROS Training For Industry 0.1 documentation</title>
+  <title>Creating Packages &mdash; ROS Training For Industry 0.1 documentation</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
   <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Creating Nodes" href="node.html" />
+    <link rel="prev" title="Create Catkin Workspace" href="catkin_workspace.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,8 +92,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Day 2</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="catkin_workspace.html">Create Catkin Workspace</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">Creating Nodes</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../day3/index.html">Day 3</a></li>
@@ -146,7 +153,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+          <li><a href="index.html">Day 2</a> &raquo;</li>
+        
+      <li>Creating Packages</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -165,226 +174,68 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># Creating Packages and Nodes
-&gt;In this exercise, we will create our own ROS package and node.</p>
-<p>## Motivation
-The basis of ROS communication is that multiple executables called nodes are running in an environment and communicating with each other in various ways. These nodes exist within a structure called a package. In this module we will create a node inside a newly created package.</p>
-<p>## Reference Example
-[Create a Package](<a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/CreatingPackage">http://wiki.ros.org/ROS/Tutorials/CreatingPackage</a>)</p>
-<p>## Further Information and Resources
-[Building Packages](<a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/BuildingPackages">http://wiki.ros.org/ROS/Tutorials/BuildingPackages</a>)</p>
-<p>[Understanding Nodes](<a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes">http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes</a>)</p>
-<p>## Scan-N-Plan Application: Problem Statement
-We’ve installed ROS, created a workspace, and even built a few times. Now we want to create our own package and our own node to do what we want to do.</p>
-<p>Your goal is to create your first ROS node:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li>First you need to create a package inside your catkin workspace.</li>
-<li>Then you can write your own node</li>
-</ol>
-</div></blockquote>
-<p>## Scan-N-Plan Application: Guidance</p>
-<p>### Create a Package
-1. cd into the catkin workspace src directory</p>
-<blockquote>
-<div><p>_Note: Remember that all packages should be created inside a workspace src directory._</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">cd</span> <span class="pre">~/catkin_ws/src</span>
-<span class="pre">`</span></code></p>
-</div></blockquote>
+  <div class="section" id="creating-packages">
+<h1>Creating Packages<a class="headerlink" href="#creating-packages" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise, we will create our own ROS package which we continuously improve during this training. Eventually it will become a driver package for a sonar device.</p>
+<p>We’ve verified ROS installation, created a workspace, and even built a few times. Now we want to create our own package and our own node some custom code.</p>
 <ol class="arabic">
-<li><p class="first">Use the ROS command to create a package called _myworkcell_core_ with a dependency on _roscpp_</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">catkin</span> <span class="pre">create</span> <span class="pre">pkg</span> <span class="pre">myworkcell_core</span> <span class="pre">--catkin-deps</span> <span class="pre">roscpp</span>
-<span class="pre">`</span></code></p>
-<p>See the [catkin_tools](<a class="reference external" href="https://catkin-tools.readthedocs.io/en/latest/verbs/catkin_create.html">https://catkin-tools.readthedocs.io/en/latest/verbs/catkin_create.html</a>) documentation for more details on this command.</p>
-<ul class="simple">
-<li>_This command creates a directory and required files for a new ROS package._</li>
-<li>_The first argument is the name of the new ROS package._</li>
-<li>_Use <cite>–catkin-deps</cite> to specify packages which the newly created package depends on._</li>
-</ul>
+<li><p class="first">Visit the ROS Wiki: <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/CreatingPackage">Create a Package</a> section and <a class="reference external" href="https://catkin-tools.readthedocs.io/en/latest/verbs/catkin_create.html">catkin_tools</a>  documentation to find out how to create a catkin package.</p>
 </li>
-</ol>
-<ol class="arabic">
-<li><p class="first">There will now be a folder named _myworkcell_core_. Change into that folder and edit the _package.xml_ file. Edit the file and change the description, author, etc., as desired.</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">cd</span> <span class="pre">myworkcell_core</span>
-<span class="pre">gedit</span> <span class="pre">package.xml</span>
-<span class="pre">`</span></code></p>
-<p>_If you forget to add a dependency when creating a package, you can add additional dependencies in the _package.xml_ file._</p>
-</li>
-</ol>
-<p>### STOP!  We’ll go through a few more lecture slides before continuing this exercise.</p>
-<p>### Create a Node
-1. In the package folder, edit the _CMakeLists.txt_ file using _gedit_. Browse through the example rules, and add an executable(_add_executable_), node named vision_node, source file named vision_node.cpp. Also within the _CMakeLists.txt_, make sure your new vision_node gets linked (‘target_link_libraries’) to the catkin libraries.</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">cmake</span>
-<span class="pre">add_compile_options(-std=c++11)</span>
-<span class="pre">add_executable(vision_node</span> <span class="pre">src/vision_node.cpp)</span>
-<span class="pre">target_link_libraries(vision_node</span> <span class="pre">${catkin_LIBRARIES})</span>
-<span class="pre">`</span></code></p>
-<p>These lines can be placed anywhere in <cite>CMakeLists.txt</cite>, but I typically:</p>
-<ul class="simple">
-<li>Uncomment existing template examples for <cite>add_compile_options</cite> near the top (just below <cite>project()</cite>)</li>
-<li>Uncomment and edit existing template examples for <cite>add_executable</cite> and <cite>target_link_libraries</cite> near the bottom</li>
-<li>This helps make sure these rules are defined in the correct order, and makes it easy to remember the proper syntax.</li>
-</ul>
-<p>_Note: You’re also allowed to spread most of the CMakeLists rules across multiple lines, as shown in the <cite>target_link_libraries</cite> template <a href="#id21"><span class="problematic" id="id22">code_</span></a></p>
-</div></blockquote>
-<ol class="arabic simple">
-<li>In the package folder, create the file _src/<a href="#id23"><span class="problematic" id="id24">vision_node.cpp_</span></a> (using _gedit_).</li>
-</ol>
-<ol class="arabic">
-<li><p class="first">Add the ros header (include ros.h).</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">c++</span>
-<span class="pre">/**</span>
-<span class="pre">**</span>&#160; <span class="pre">Simple</span> <span class="pre">ROS</span> <span class="pre">Node</span>
-<span class="pre">**/</span>
-<span class="pre">#include</span> <span class="pre">&lt;ros/ros.h&gt;</span>
-<span class="pre">`</span></code></p>
-</li>
-</ol>
-<ol class="arabic">
-<li><p class="first">Add a main function (typical in c++ programs).</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>` c++
-/**
-**  Simple ROS Node
-<a href="#id3"><span class="problematic" id="id4">**</span></a>/
-#include &lt;ros/ros.h&gt;</p>
-<p>int main(int argc, char* argv[])
-{</p>
-</li>
-</ol>
-<ol class="arabic">
-<li><p class="first">Initialize your ROS node (within the main).</p>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a>` c++
-/**
-**  Simple ROS Node
-<a href="#id7"><span class="problematic" id="id8">**</span></a>/
-#include &lt;ros/ros.h&gt;</p>
-<p>int main(int argc, char* argv[])
-{</p>
-<blockquote>
-<div><p>// This must be called before anything else ROS-related
-ros::init(argc, argv, “vision_node”);</p>
-</div></blockquote>
-</li>
-</ol>
-<ol class="arabic">
-<li><p class="first">Create a ROS node handle.</p>
-<p><a href="#id9"><span class="problematic" id="id10">``</span></a>` c++
-/**
-**  Simple ROS Node
-<a href="#id11"><span class="problematic" id="id12">**</span></a>/
-#include &lt;ros/ros.h&gt;</p>
-<p>int main(int argc, char* argv[])
-{</p>
-<blockquote>
-<div><p>// This must be called before anything else ROS-related
-ros::init(argc, argv, “vision_node”);</p>
-<p>// Create a ROS node handle
-ros::NodeHandle nh;</p>
-</div></blockquote>
-</li>
-</ol>
-<ol class="arabic">
-<li><p class="first">Print a “Hello World” message using ROS print tools.</p>
-<p><a href="#id13"><span class="problematic" id="id14">``</span></a>` c++
-/**
-**  Simple ROS Node
-<a href="#id15"><span class="problematic" id="id16">**</span></a>/
-#include &lt;ros/ros.h&gt;</p>
-<p>int main(int argc, char* argv[])
-{</p>
-<blockquote>
-<div><p>// This must be called before anything else ROS-related
-ros::init(argc, argv, “vision_node”);</p>
-<p>// Create a ROS node handle
-ros::NodeHandle nh;</p>
-<p>ROS_INFO(“Hello, World!”);</p>
-</div></blockquote>
-</li>
-</ol>
-<ol class="arabic">
-<li><p class="first">Do not exit the program automatically - keep the node alive.</p>
-<p><a href="#id17"><span class="problematic" id="id18">``</span></a>` c++
-/**
-**  Simple ROS Node
-<a href="#id19"><span class="problematic" id="id20">**</span></a>/
-#include &lt;ros/ros.h&gt;</p>
-<p>int main(int argc, char* argv[])
-{</p>
-<blockquote>
-<div><p>// This must be called before anything else ROS-related
-ros::init(argc, argv, “vision_node”);</p>
-<p>// Create a ROS node handle
-ros::NodeHandle nh;</p>
-<p>ROS_INFO(“Hello, World!”);</p>
-<p>// Don’t exit the program.
-ros::spin();</p>
-</div></blockquote>
-<p>_ROS_INFO_ is one of the many [logging methods](<a class="reference external" href="http://wiki.ros.org/roscpp/Overview/Logging">http://wiki.ros.org/roscpp/Overview/Logging</a>).</p>
-<ul class="simple">
-<li>It will print the message to the terminal output, and send it to the _/<a href="#id25"><span class="problematic" id="id26">rosout_</span></a> topic for other nodes to monitor.</li>
-<li>There are 5 levels of logging: _DEBUG, INFO, WARNING, ERROR, &amp; FATAL._</li>
-<li>To use a different logging level, replace INFO in _ROS_INFO_ or _ROS_INFO_STREAM_ with the appropriate level.</li>
-<li>Use _ROS_INFO_ for printf-style logging, and _ROS_INFO_STREAM_ for cout-style logging.</li>
-</ul>
-</li>
-</ol>
-<ol class="arabic simple">
-<li>Build your program (node), by running <cite>catkin build</cite> in a terminal window<ul>
-<li>_Remember that you must run <cite>catkin build</cite> from within your <cite>catkin_ws</cite> (or any subdirectory)_</li>
-<li>This will build all of the programs, libraries, etc. in _myworkcell_core_</li>
-<li>In this case, it’s just a single ROS node _vision_node_</li>
-</ul>
-</li>
-</ol>
-<p>### Run a Node</p>
-<ol class="arabic">
-<li><p class="first">Open a terminal and start the ROS master.</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">roscore</span>
-<span class="pre">`</span></code></p>
-<p>_The ROS Master must be running before any ROS nodes can function._</p>
-</li>
-<li><p class="first">Open a second terminal to run your node.</p>
+<li><p class="first">Your goal is to create a catkin package that:</p>
 <ul>
-<li><p class="first">In a previous exercise, we added a line to our <cite>.bashrc</cite> to automatically source <cite>devel/setup.bash</cite> in new terminal windows</p>
+<li><p class="first">has a name: <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code></p>
 </li>
-<li><p class="first">This will automatically export the results of the build into your new terminal session.</p>
-</li>
-<li><p class="first">If you’re reusing an existing terminal, you’ll need to manually source the setup files (since we added a new node):</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">source</span> <span class="pre">~/catkin_ws/devel/setup.bash</span>
-<span class="pre">`</span></code></p>
+<li><p class="first">has the following dependencies:</p>
+<blockquote>
+<div><ul class="simple">
+<li>roscpp</li>
+<li>sensor_msgs</li>
+<li>geometry_msgs</li>
+</ul>
+</div></blockquote>
 </li>
 </ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Remember that all packages should be created inside a workspace src directory.</p>
+</div>
 </li>
-<li><p class="first">Run your node.</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">rosrun</span> <span class="pre">myworkcell_core</span> <span class="pre">vision_node</span>
-<span class="pre">`</span></code></p>
-<p>_This runs the program we just created. Remember to use TAB to help speed-up typing and reduce errors._</p>
+<li><p class="first">If you succeeded there will be a folder named <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code>. Change into that folder and open the <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> file for editing.</p>
 </li>
-<li><p class="first">In a third terminal, check what nodes are running.</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">rosnode</span> <span class="pre">list</span>
-<span class="pre">`</span></code></p>
-<p>_In addition to the /rosout node, you should now see a new /vision_node listed._</p>
+<li><p class="first">Change the description, version, author, etc., as you like.</p>
 </li>
-<li><p class="first">Enter _rosnode kill /<a href="#id27"><span class="problematic" id="id28">vision_node_</span></a>. This will stop the node.</p>
-<p>_Note: It is more common to use Ctrl+C to stop a running node in the current terminal window._</p>
+<li><p class="first">Finally, build the package with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin build
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Further reading on building packages is available here: <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/BuildingPackages">Building Packages</a>.</p>
+</div>
+</li>
+<li><p class="first">Show your successes to the instructor.</p>
 </li>
 </ol>
-<p>### Challenge</p>
-<p>Goal: Modify the node so that it prints your name. This will require you to run through the build process again.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">If you forget to add a dependency when creating a package, you can add additional dependencies in the <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> file.</p>
+</div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="node.html" class="btn btn-neutral float-right" title="Creating Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="catkin_workspace.html" class="btn btn-neutral float-left" title="Create Catkin Workspace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

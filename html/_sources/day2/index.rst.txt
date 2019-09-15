@@ -8,8 +8,8 @@ Slides are available here: :download:`pdf <day2_slides.pdf>`
    :maxdepth: 2
  
    catkin_workspace.rst
-.. .. catkin_package.rst
-.. .. node.rst
+   catkin_package.rst
+   node.rst
 .. .. messages.rst
 .. .. services.rst
 
