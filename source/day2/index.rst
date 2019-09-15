@@ -10,6 +10,8 @@ Slides are available here: :download:`pdf <day2_slides.pdf>`
    catkin_workspace.rst
    catkin_package.rst
    node.rst
+   messages.rst
+   services.rst
 .. .. messages.rst
 .. .. services.rst
 

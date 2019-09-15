@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Creating Packages &mdash; ROS Training For Industry 0.1 documentation</title>
+  <title>Publisher &amp; Subscriber &mdash; ROS Training For Industry 0.1 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Creating Nodes" href="node.html" />
-    <link rel="prev" title="Create Catkin Workspace" href="catkin_workspace.html" /> 
+    <link rel="next" title="Service Server &amp; Service Client" href="services.html" />
+    <link rel="prev" title="Creating Nodes" href="node.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,9 +95,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 2</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="catkin_workspace.html">Create Catkin Workspace</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catkin_package.html">Creating Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node.html">Creating Nodes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="messages.html">Publisher &amp; Subscriber</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Publisher &amp; Subscriber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">Service Server &amp; Service Client</a></li>
 </ul>
 </li>
@@ -157,13 +157,13 @@
         
           <li><a href="index.html">Day 2</a> &raquo;</li>
         
-      <li>Creating Packages</li>
+      <li>Publisher &amp; Subscriber</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/day2/catkin_package.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/day2/messages.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -176,52 +176,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="creating-packages">
-<h1>Creating Packages<a class="headerlink" href="#creating-packages" title="Permalink to this headline">¶</a></h1>
-<p>In this exercise, we will create our own ROS package which we continuously improve during this training. Eventually it will become a driver package for a sonar device.</p>
-<p>We’ve verified ROS installation, created a workspace, and even built a few times. Now we want to create our own package and our own node some custom code.</p>
-<ol class="arabic">
-<li><p class="first">Visit the ROS Wiki: <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/CreatingPackage">Create a Package</a> section and <a class="reference external" href="https://catkin-tools.readthedocs.io/en/latest/verbs/catkin_create.html">catkin_tools</a>  documentation to find out how to create a catkin package.</p>
-</li>
-<li><p class="first">Your goal is to create a catkin package that:</p>
-<ul>
-<li><p class="first">has a name: <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code></p>
-</li>
-<li><p class="first">has the following dependencies:</p>
+  <div class="section" id="publisher-subscriber">
+<h1>Publisher &amp; Subscriber<a class="headerlink" href="#publisher-subscriber" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise, we will explore the concept of ROS messages and topics. The first type of ROS communication that we will explore is a one-way communication called messages which are sent over channels called topics. Typically one node publishes messages on a topic and another node subscribes to messages on that same topic.</p>
+<p>In the following we first complete couple of ROS tutorials to get familiar with how subscribers and publishers are implemented in ROS. After practicing, we add a publisher to our <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code>.</p>
+<ol class="arabic simple">
+<li>First, create a new package into your <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code>. Name it <code class="docutils literal notranslate"><span class="pre">beginner_tutorials</span></code> and make it depend on <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code>, <code class="docutils literal notranslate"><span class="pre">rospy</span></code>, and <code class="docutils literal notranslate"><span class="pre">roscpp</span></code> packages.</li>
+<li>Complete the <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">Writing a Simple Publisher and Subscriber (C++)</a> tutorial.</li>
+<li>Now that you got the nodes communicating, it is time to add a publisher to our <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package. Check out the documentation of the <a class="reference external" href="http://docs.ros.org/melodic/api/sensor_msgs/html/msg/Range.html">sensor_msgs/Range</a> message. This message is being used for devices that measure distance to an object while having a specific field of view (for example, ultrasonic, infrared, etc sensors).</li>
+<li>Navigate back to the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package and open the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node.cpp</span></code> for editing.</li>
+<li>Add the following functionality to our fake sonar node:</li>
+</ol>
 <blockquote>
 <div><ul class="simple">
-<li>roscpp</li>
-<li>sensor_msgs</li>
-<li>geometry_msgs</li>
+<li>the node publishes messages on a topic <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code></li>
+<li>the type of messages is <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Range</span></code></li>
+<li>the <code class="docutils literal notranslate"><span class="pre">range</span></code> field in the messages is set to 1.5</li>
 </ul>
 </div></blockquote>
+<ol class="arabic">
+<li><p class="first">Test the publisher with <code class="code docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">echo</span> <span class="pre">/sonar_distance</span></code> and show the result to the instructor.</p>
 </li>
-</ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Remember that all packages should be created inside a workspace src directory.</p>
-</div>
-</li>
-<li><p class="first">If you succeeded there will be a folder named <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code>. Change into that folder and open the <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> file for editing.</p>
-</li>
-<li><p class="first">Change the description, version, author, etc., as you like.</p>
-</li>
-<li><p class="first">Finally, build the package with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin build
+<li><p class="first">Improve the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code> to make it outputing oscilating signal in range [0-2] meters. For that you can use a <code class="docutils literal notranslate"><span class="pre">count</span></code> variable as was in the <code class="docutils literal notranslate"><span class="pre">beginners_tutorials</span></code>. Simply scale it down a bit and use it as an argument of a sine() function:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">sine</span><span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="mf">100.0f</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Further reading on building packages is available here: <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/BuildingPackages">Building Packages</a>.</p>
-</div>
-</li>
-<li><p class="first">Show your successes to the instructor.</p>
 </li>
 </ol>
-<div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">If you forget to add a dependency when creating a package, you can add additional dependencies in the <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> file.</p>
+<blockquote>
+<div><div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Don’t forget the <code class="code docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;math.h&gt;</span></code> to bring in the trigonometry functions to your project.</p>
 </div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Visualise the range using rqt_graph.</p>
+</div>
+</div></blockquote>
 </div>
 
 
@@ -232,10 +223,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="node.html" class="btn btn-neutral float-right" title="Creating Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="services.html" class="btn btn-neutral float-right" title="Service Server &amp; Service Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="catkin_workspace.html" class="btn btn-neutral float-left" title="Create Catkin Workspace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="node.html" class="btn btn-neutral float-left" title="Creating Nodes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
