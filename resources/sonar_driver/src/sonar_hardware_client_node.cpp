@@ -2,7 +2,6 @@
 #include <serial/serial.h>
 #include "sensor_msgs/Range.h"
 #include "sensor_msgs/Imu.h"
-#include "geometry_msgs/PoseStamped.h"
 #include <tf2/LinearMath/Quaternion.h>
 
 #include "sonar_driver/RangeImu.h"
@@ -12,7 +11,7 @@
 
 /**
  * @brief Object that handles communication with an IMU + sonar hardware via serial port.
- * Publishes the processed IMU data as geometry_msgs::Pose and sonar data as sensor_msgs::Range.
+ * Publishes the processed IMU data as sensor_msgs::Imu and sonar data as sensor_msgs::Range.
  * 
  */
 class SonarHardwareClient
@@ -232,7 +231,7 @@ public:
   }
 
   /**
-   * @brief Converts the contents of Dataframe to PoseStamped, Range and RangeImu messages
+   * @brief Converts the contents of Dataframe to Imu, Range and RangeImu messages
    * 
    */
   void processSonarDataframe()
@@ -300,7 +299,7 @@ private:
   ros::NodeHandle nh_;                        ///< Handles ROS communication
   ros::Publisher imu_publisher_;              ///< Publisher for IMU data
   // TODO: Publisher for sonar data
-  // TODO: Publisher for combined range + pose message 
+  // TODO: Publisher for combined range + imu message 
   ros::ServiceServer set_sonar_range_server_; ///< Handles requests for setting the sonar range
 
   serial::Serial serial_;                     ///< Object that handles low level serial communication
