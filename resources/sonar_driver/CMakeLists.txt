@@ -41,13 +41,10 @@ include_directories(
 )
 
 # Compile the tests
-if(CATKIN_ENABLE_TESTING)
-  find_package(rostest REQUIRED)
-  add_rostest_gtest(packet_parser_test_node test/test_packet_parser.test 
-    src/test/packet_parser_test.cpp
-    src/packet_parser.cpp)
-  target_link_libraries(packet_parser_test_node ${catkin_LIBRARIES})
-endif()
+
+##############################
+# TODO: Add test targets
+##############################
 
 # Create a sonar hardware client node
 add_executable(sonar_hardware_client_node
