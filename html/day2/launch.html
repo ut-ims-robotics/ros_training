@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Day 2 &mdash; ROS Training For Industry 0.1 documentation</title>
+  <title>Launch file &mdash; ROS Training For Industry 0.1 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Create Catkin Workspace" href="catkin_workspace.html" />
-    <link rel="prev" title="Teleoperation" href="../day1/clearbot_teleop.html" /> 
+    <link rel="next" title="Tracking AR tags with USB camera" href="ar_tracker.html" />
+    <link rel="prev" title="Using parameters in your node" href="parameters.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,13 +90,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Day 2</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 2</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="catkin_workspace.html">Create Catkin Workspace</a></li>
 <li class="toctree-l2"><a class="reference internal" href="catkin_package.html">Creating Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node.html">Creating Nodes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="messages.html">Publisher &amp; Subscriber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parameters.html">Using parameters in your node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="launch.html">Launch file</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Launch file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bonus-task">Bonus task</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="ar_tracker.html">Tracking AR tags with USB camera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">Service Server &amp; Service Client</a></li>
 </ul>
@@ -155,13 +158,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Day 2</li>
+          <li><a href="index.html">Day 2</a> &raquo;</li>
+        
+      <li>Launch file</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/day2/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/day2/launch.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -174,33 +179,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="day-2">
-<h1>Day 2<a class="headerlink" href="#day-2" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="catkin_workspace.html">Create Catkin Workspace</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="catkin_workspace.html#further-information">Further information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="catkin_workspace.html#create-a-catkin-workspace">Create a Catkin Workspace</a></li>
+  <div class="section" id="launch-file">
+<h1>Launch file<a class="headerlink" href="#launch-file" title="Permalink to this headline">¶</a></h1>
+<p>Launch files are useful for running multiple nodes simultaneously with a single <code class="docutils literal notranslate"><span class="pre">roslaunch</span></code> command. It can also be used to read parameters into the parameter server.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The roslaunch automatically starts rosmaster if it isn’t already running.</p>
+</div>
+<ol class="arabic simple">
+<li>Go through the <a class="reference external" href="http://wiki.ros.org/roslaunch/XML/param">roslaunch wiki</a> and get familiar with its syntax.</li>
+<li>From the wiki, find the information on:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>how to pass and use command line arguments in the launch file;</li>
+<li>how to use the <code class="docutils literal notranslate"><span class="pre">&lt;param</span> <span class="pre">/&gt;</span></code> tag and read parameters to the server;</li>
+<li>how to use the <code class="docutils literal notranslate"><span class="pre">&lt;node</span> <span class="pre">/&gt;</span></code> tag to run nodes within roslaunch file.</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="catkin_package.html">Creating Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="node.html">Creating Nodes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="node.html#run-a-node">Run a Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#challenge">Challenge</a></li>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Your task is to create a launch file into the <code class="docutils literal notranslate"><span class="pre">fake</span> <span class="pre">sonar</span> <span class="pre">driver</span></code> package. Implement the following functionality in the launch file:</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Read the the frequency argument from the command line and pass it to the parameter server.</li>
+<li>Start the fake sonar driver node.</li>
+</ol>
+</div></blockquote>
+<div class="section" id="bonus-task">
+<h2>Bonus task<a class="headerlink" href="#bonus-task" title="Permalink to this headline">¶</a></h2>
+<p>Add two more fake sonar driver nodes to the launch file:</p>
+<blockquote>
+<div><ul class="simple">
+<li>For the first node, assign an anonymous name</li>
+<li>Define the second node to be executed in a <code class="docutils literal notranslate"><span class="pre">fake_ns</span></code> namespace.</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="messages.html">Publisher &amp; Subscriber</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parameters.html">Using parameters in your node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="launch.html">Launch file</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="launch.html#bonus-task">Bonus task</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ar_tracker.html">Tracking AR tags with USB camera</a></li>
-<li class="toctree-l1"><a class="reference internal" href="services.html">Service Server &amp; Service Client</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="services.html#bonus-task">Bonus task</a></li>
-</ul>
-</li>
-</ul>
+</div></blockquote>
 </div>
 </div>
 
@@ -212,10 +226,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="catkin_workspace.html" class="btn btn-neutral float-right" title="Create Catkin Workspace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ar_tracker.html" class="btn btn-neutral float-right" title="Tracking AR tags with USB camera" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../day1/clearbot_teleop.html" class="btn btn-neutral float-left" title="Teleoperation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="parameters.html" class="btn btn-neutral float-left" title="Using parameters in your node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

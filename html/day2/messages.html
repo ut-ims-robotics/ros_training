@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Service Server &amp; Service Client" href="services.html" />
+    <link rel="next" title="Using parameters in your node" href="parameters.html" />
     <link rel="prev" title="Creating Nodes" href="node.html" /> 
 </head>
 
@@ -95,6 +95,9 @@
 <li class="toctree-l2"><a class="reference internal" href="catkin_package.html">Creating Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node.html">Creating Nodes</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Publisher &amp; Subscriber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">Using parameters in your node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launch.html">Launch file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ar_tracker.html">Tracking AR tags with USB camera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">Service Server &amp; Service Client</a></li>
 </ul>
 </li>
@@ -206,16 +209,11 @@
 <p class="last">Don’t forget the <code class="code docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;math.h&gt;</span></code> to bring in the trigonometry functions to your project.</p>
 </div>
 </div></blockquote>
-<ol class="arabic">
-<li><p class="first">Let’s visualize the distance value on a graph. For that, ROS has a visualization toolkit called <code class="docutils literal notranslate"><span class="pre">rqt</span></code>.  Enter this as a command in a new terminal window.</p>
-<ul class="simple">
+<ol class="arabic simple">
+<li>Let’s visualize the distance value on a graph. For that, ROS has a visualization toolkit called <code class="docutils literal notranslate"><span class="pre">rqt</span></code>.  Enter this as a command in a new terminal window.<ul>
 <li>In the upper menu bar, click <code class="docutils literal notranslate"><span class="pre">Plugins</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">Visualization</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">Plot</span></code></li>
-<li>Specify the topic as <code class="docutils literal notranslate"><span class="pre">/sonar_distance.range</span></code> and you should see the range field plotted.</li>
+<li>Specify the topic as <code class="docutils literal notranslate"><span class="pre">/sonar_distance/range</span></code> and you should see the range field plotted.</li>
 </ul>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last">Check the topic/field syntax!</p>
-</div>
 </li>
 </ol>
 </div>
@@ -228,7 +226,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="services.html" class="btn btn-neutral float-right" title="Service Server &amp; Service Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="parameters.html" class="btn btn-neutral float-right" title="Using parameters in your node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="node.html" class="btn btn-neutral float-left" title="Creating Nodes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

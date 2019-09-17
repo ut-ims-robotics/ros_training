@@ -74,3 +74,12 @@ After completing this exercise, you will have the answers to the following quest
 #. Open another terminal and change the field of view with the :code:`rossrv call` command. See if you notice any changes in RViz.
 
 #. Present your solution to the instructor. Congratulations, you are now ready to face the challenges in day 3!
+
+Bonus task
+----------
+
+Currently our fake sonar node has publishers and subscribers laying next to main(). However, to make our code modular, we should restructure it and place the publisher, service server, and callback functions into a separate ``FakeSonarDriver`` class.
+
+#. Create the ``src/fake_sonar_driver.cpp`` and ``include/fake_sonar_driver/fake_sonar_driver.h`` files.  
+#. Replace the existing while loop with a `timer <http://wiki.ros.org/roscpp/Overview/Timers>`_ that would update the sine() value in the class.
+#. The :code:`main()` function should now simply create the ``FakeSonarDriver`` object and spin forever using ``ros::spin()``.

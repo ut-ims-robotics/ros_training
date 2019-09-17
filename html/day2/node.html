@@ -99,6 +99,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="messages.html">Publisher &amp; Subscriber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">Using parameters in your node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launch.html">Launch file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ar_tracker.html">Tracking AR tags with USB camera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">Service Server &amp; Service Client</a></li>
 </ul>
 </li>
@@ -179,13 +182,13 @@
             
   <div class="section" id="creating-nodes">
 <h1>Creating Nodes<a class="headerlink" href="#creating-nodes" title="Permalink to this headline">¶</a></h1>
-<p>In this exercise, you will create a simple ROS node into your new <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package.</p>
+<p>In this exercise, you will create a simple ROS node into your new <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package.</p>
 <ol class="arabic">
-<li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package folder, edit the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file using <code class="docutils literal notranslate"><span class="pre">gedit</span></code>. Browse through the example rules, and add an executable(<code class="docutils literal notranslate"><span class="pre">add_executable</span></code>), node named <code class="docutils literal notranslate"><span class="pre">sonar_driver_node</span></code>, source file named <code class="docutils literal notranslate"><span class="pre">sonar_driver.cpp</span></code>. Also within the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>, make sure your new sonar_driver_node gets linked (‘target_link_libraries’) to the catkin libraries.</p>
+<li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package folder, edit the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file using <code class="docutils literal notranslate"><span class="pre">gedit</span></code>. Browse through the example rules, and add an executable(<code class="docutils literal notranslate"><span class="pre">add_executable</span></code>), node named <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code>, source file named <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver.cpp</span></code>. Also within the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>, make sure your new fake_sonar_driver_node gets linked (‘target_link_libraries’) to the catkin libraries.</p>
 <p>For reference, take a look at <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes">Understanding Nodes</a>.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span class="nb">add_compile_options</span><span class="p">(</span><span class="s">-std=c++11</span><span class="p">)</span>
-<span class="nb">add_executable</span><span class="p">(</span><span class="s">sonar_driver_node</span> <span class="s">src/sonar_driver_node.cpp</span><span class="p">)</span>
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">sonar_driver_node</span> <span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">fake_sonar_driver_node</span> <span class="s">src/sonar_driver_node.cpp</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">fake_sonar_driver_node</span> <span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>These lines can be placed anywhere in <cite>CMakeLists.txt</cite>, but a good approach is:</p>
@@ -199,7 +202,7 @@
 <p class="last">You’re also allowed to spread most of the CMakeLists rules across multiple lines, as shown in the <code class="docutils literal notranslate"><span class="pre">target_link_libraries</span></code> template code.</p>
 </div>
 </li>
-<li><p class="first">In the package folder, create the file <code class="docutils literal notranslate"><span class="pre">src/sonar_driver_node.cpp</span></code> and open it in a text editor.</p>
+<li><p class="first">In the package folder, create the file <code class="docutils literal notranslate"><span class="pre">src/fake_sonar_driver_node.cpp</span></code> and open it in a text editor.</p>
 </li>
 <li><p class="first">Add the ros header (include ros.h).</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
@@ -231,7 +234,7 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>
   <span class="c1">// This must be called before anything else ROS-related</span>
-  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;sonar_driver_node&quot;</span><span class="p">);</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;fake_sonar_driver_node&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -245,7 +248,7 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>
   <span class="c1">// This must be called before anything else ROS-related</span>
-  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;sonar_driver_node&quot;</span><span class="p">);</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;fake_sonar_driver_node&quot;</span><span class="p">);</span>
 
   <span class="c1">// Create a ROS node handle</span>
   <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
@@ -262,7 +265,7 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>
   <span class="c1">// This must be called before anything else ROS-related</span>
-  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;sonar_driver_node&quot;</span><span class="p">);</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;fake_sonar_driver_node&quot;</span><span class="p">);</span>
 
   <span class="c1">// Create a ROS node handle</span>
   <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
@@ -281,7 +284,7 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>
   <span class="c1">// This must be called before anything else ROS-related</span>
-  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;sonar_driver_node&quot;</span><span class="p">);</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;fake_sonar_driver_node&quot;</span><span class="p">);</span>
 
   <span class="c1">// Create a ROS node handle</span>
   <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
@@ -304,8 +307,8 @@
 <li><p class="first">Build your program (node), by running <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> in a terminal window</p>
 <ul class="simple">
 <li>Remember that you must run <cite>catkin build</cite> from within your <cite>catkin_ws</cite> (or any subdirectory)</li>
-<li>This will build all of the programs, libraries, etc. in <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package.</li>
-<li>In this case, it’s just a single ROS node <code class="docutils literal notranslate"><span class="pre">sonar_driver_node</span></code></li>
+<li>This will build all of the programs, libraries, etc. in <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package.</li>
+<li>In this case, it’s just a single ROS node <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code></li>
 </ul>
 </li>
 </ol>
@@ -335,7 +338,7 @@
 </ul>
 </li>
 <li><p class="first">Run your node.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun sonar_driver sonar_driver_node
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun fake_sonar_driver fake_sonar_driver_node
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -347,9 +350,9 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre>rosnode list
 </pre></div>
 </div>
-<p>In addition to the /rosout node, you should now see a new /sonar_driver_node listed.</p>
+<p>In addition to the /rosout node, you should now see a new /fake_sonar_driver_node listed.</p>
 </li>
-<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">rosnode</span> <span class="pre">kill</span> <span class="pre">/sonar_driver_node</span></code>. This will stop the node.</p>
+<li><p class="first">Enter <code class="code docutils literal notranslate"><span class="pre">rosnode</span> <span class="pre">kill</span> <span class="pre">/fake_sonar_driver_node</span></code>. This will stop the node.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">It is more common to use <kbd class="kbd docutils literal notranslate">Ctrl+C</kbd> to stop a running node in the current terminal window.</p>

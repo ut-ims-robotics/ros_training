@@ -33,6 +33,6 @@ In the following we first complete couple of ROS tutorials to get familiar with 
 #. Let's visualize the distance value on a graph. For that, ROS has a visualization toolkit called ``rqt``.  Enter this as a command in a new terminal window.
 
    * In the upper menu bar, click ``Plugins`` --> ``Visualization`` --> ``Plot``
-   * Specify the topic as ``/sonar_distance.range`` and you should see the range field plotted.
+   * Specify the topic as ``/sonar_distance/range`` and you should see the range field plotted.
 
-   .. todo:: Check the topic/field syntax!
+

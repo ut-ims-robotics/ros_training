@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Day 2 &mdash; ROS Training For Industry 0.1 documentation</title>
+  <title>Using parameters in your node &mdash; ROS Training For Industry 0.1 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Create Catkin Workspace" href="catkin_workspace.html" />
-    <link rel="prev" title="Teleoperation" href="../day1/clearbot_teleop.html" /> 
+    <link rel="next" title="Launch file" href="launch.html" />
+    <link rel="prev" title="Publisher &amp; Subscriber" href="messages.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,12 +90,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Day 2</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 2</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="catkin_workspace.html">Create Catkin Workspace</a></li>
 <li class="toctree-l2"><a class="reference internal" href="catkin_package.html">Creating Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node.html">Creating Nodes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="messages.html">Publisher &amp; Subscriber</a></li>
-<li class="toctree-l2"><a class="reference internal" href="parameters.html">Using parameters in your node</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using parameters in your node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="launch.html">Launch file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ar_tracker.html">Tracking AR tags with USB camera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">Service Server &amp; Service Client</a></li>
@@ -155,13 +155,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Day 2</li>
+          <li><a href="index.html">Day 2</a> &raquo;</li>
+        
+      <li>Using parameters in your node</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/day2/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/day2/parameters.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -174,34 +176,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="day-2">
-<h1>Day 2<a class="headerlink" href="#day-2" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="catkin_workspace.html">Create Catkin Workspace</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="catkin_workspace.html#further-information">Further information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="catkin_workspace.html#create-a-catkin-workspace">Create a Catkin Workspace</a></li>
+  <div class="section" id="using-parameters-in-your-node">
+<h1>Using parameters in your node<a class="headerlink" href="#using-parameters-in-your-node" title="Permalink to this headline">¶</a></h1>
+<p>Next, we’re going to implement parameters into the fake sonar driver. Parameters are stored at ROS Master and can be accessed through node handles. Please see <a class="reference external" href="http://wiki.ros.org/roscpp_tutorials/Tutorials/Parameters">Parameters tutorial</a> for reference.</p>
+<ol class="arabic simple">
+<li>Use the default value version of the <code class="docutils literal notranslate"><span class="pre">param()</span></code> function to gain the following features to the fake sonar driver:<ul>
+<li>if the parameter <code class="docutils literal notranslate"><span class="pre">frequency</span></code> exists on the parameter server, use its value in the sine function.</li>
+<li>if the parameter is not specified, fallback to a default value.</li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="catkin_package.html">Creating Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="node.html">Creating Nodes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="node.html#run-a-node">Run a Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#challenge">Challenge</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="messages.html">Publisher &amp; Subscriber</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parameters.html">Using parameters in your node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="launch.html">Launch file</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="launch.html#bonus-task">Bonus task</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ar_tracker.html">Tracking AR tags with USB camera</a></li>
-<li class="toctree-l1"><a class="reference internal" href="services.html">Service Server &amp; Service Client</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="services.html#bonus-task">Bonus task</a></li>
-</ul>
-</li>
-</ul>
-</div>
+</ol>
 </div>
 
 
@@ -212,10 +196,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="catkin_workspace.html" class="btn btn-neutral float-right" title="Create Catkin Workspace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="launch.html" class="btn btn-neutral float-right" title="Launch file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../day1/clearbot_teleop.html" class="btn btn-neutral float-left" title="Teleoperation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="messages.html" class="btn btn-neutral float-left" title="Publisher &amp; Subscriber" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

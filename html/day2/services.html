@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Day 3" href="../day3/index.html" />
-    <link rel="prev" title="Publisher &amp; Subscriber" href="messages.html" /> 
+    <link rel="prev" title="Tracking AR tags with USB camera" href="ar_tracker.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,7 +95,13 @@
 <li class="toctree-l2"><a class="reference internal" href="catkin_package.html">Creating Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="node.html">Creating Nodes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="messages.html">Publisher &amp; Subscriber</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Service Server &amp; Service Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">Using parameters in your node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launch.html">Launch file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ar_tracker.html">Tracking AR tags with USB camera</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Service Server &amp; Service Client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bonus-task">Bonus task</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -250,6 +256,15 @@
 <li><p class="first">Present your solution to the instructor. Congratulations, you are now ready to face the challenges in day 3!</p>
 </li>
 </ol>
+<div class="section" id="bonus-task">
+<h2>Bonus task<a class="headerlink" href="#bonus-task" title="Permalink to this headline">¶</a></h2>
+<p>Currently our fake sonar node has publishers and subscribers laying next to main(). However, to make our code modular, we should restructure it and place the publisher, service server, and callback functions into a separate <code class="docutils literal notranslate"><span class="pre">FakeSonarDriver</span></code> class.</p>
+<ol class="arabic simple">
+<li>Create the <code class="docutils literal notranslate"><span class="pre">src/fake_sonar_driver.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">include/fake_sonar_driver/fake_sonar_driver.h</span></code> files.</li>
+<li>Replace the existing while loop with a <a class="reference external" href="http://wiki.ros.org/roscpp/Overview/Timers">timer</a> that would update the sine() value in the class.</li>
+<li>The <code class="code docutils literal notranslate"><span class="pre">main()</span></code> function should now simply create the <code class="docutils literal notranslate"><span class="pre">FakeSonarDriver</span></code> object and spin forever using <code class="docutils literal notranslate"><span class="pre">ros::spin()</span></code>.</li>
+</ol>
+</div>
 </div>
 
 
@@ -263,7 +278,7 @@
         <a href="../day3/index.html" class="btn btn-neutral float-right" title="Day 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="messages.html" class="btn btn-neutral float-left" title="Publisher &amp; Subscriber" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ar_tracker.html" class="btn btn-neutral float-left" title="Tracking AR tags with USB camera" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

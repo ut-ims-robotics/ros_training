@@ -9,7 +9,7 @@ We've verified ROS installation, created a workspace, and even built a few times
 
 #. Your goal is to create a catkin package that:
 
-   * has a name: ``sonar_driver``
+   * has a name: ``fake_sonar_driver``
    * has the following dependencies:
 
        - roscpp
@@ -18,7 +18,7 @@ We've verified ROS installation, created a workspace, and even built a few times
 
    .. note:: Remember that all packages should be created inside a workspace src directory.
   
-#. If you succeeded there will be a folder named ``sonar_driver``. Change into that folder and open the ``package.xml`` file for editing.
+#. If you succeeded there will be a folder named ``fake_sonar_driver``. Change into that folder and open the ``package.xml`` file for editing.
    
 #. Change the description, version, author, etc., as you like.
 

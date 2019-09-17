@@ -11,6 +11,10 @@ Day 2
    catkin_package.rst
    node.rst
    messages.rst
+   parameters.rst
+   launch.rst
+   ar_tracker.rst
+
    services.rst
 .. .. messages.rst
 .. .. services.rst
