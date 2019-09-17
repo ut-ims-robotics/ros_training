@@ -13,9 +13,9 @@ Day 2
    messages.rst
    parameters.rst
    launch.rst
-   ar_tracker.rst
 
    services.rst
+   ar_tracker.rst
 .. .. messages.rst
 .. .. services.rst
 
