@@ -1,0 +1,4 @@
+# Allowed range is from 0 m to 2 m. Values bigger or smaller than that are clipped to closest max/min
+float64 range_to_set
+---
+float64 set_range

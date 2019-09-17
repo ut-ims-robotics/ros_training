@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <test test-name="packet_parser_test_node" pkg="sonar_driver" type="packet_parser_test_node"/>
+</launch>

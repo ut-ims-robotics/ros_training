@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Define launch arguments -->
+  <arg name="serial_port" default="/dev/ttyUSB0"/>
+  <arg name="baudrate" default="115200"/>
+  <arg name="frame_id" default="map"/>
+
+  <!-- Upload parameters to parameter server -->
+  <param name="serial/port" type="string" value="$(arg serial_port)" />
+  <param name="serial/baudrate" type="int" value="$(arg baudrate)" />
+  <param name="imu/frame_id" type="string" value="$(arg frame_id)" />
+
+  <!-- Run the nodes -->
+  <node name="sonar_hardware_client_node" pkg="sonar_driver" type="sonar_hardware_client_node" output="screen" />
+
+</launch>
