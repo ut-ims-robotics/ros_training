@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Custom Hardware Driver &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Day 4" href="../day4/index.html" />
+    <link rel="prev" title="Day 3" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/index.html">Day 2</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 3</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Custom Hardware Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preparing-the-sonar-driver">Preparing the sonar_driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implement-the-driver">Implement the driver</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/index.html">Day 4</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day5/index.html">Day 5</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Day 3</a> &raquo;</li>
+        
+      <li>Custom Hardware Driver</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day3/hardware_driver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="custom-hardware-driver">
+<h1>Custom Hardware Driver<a class="headerlink" href="#custom-hardware-driver" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise, we are going to replace our <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package with the real hardware. To get started, you are provided with a <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> template that implements core communication between the driver node and the hardware. Your task is to complete the given base code with the missing pieces and integrate the driver with ROS.</p>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>Our device consists of:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Arduino Nano v3</li>
+<li>Pololu AltIMU-10v4</li>
+<li>Ultrasound sensor HC-SR04</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="preparing-the-sonar-driver">
+<h2>Preparing the sonar_driver<a class="headerlink" href="#preparing-the-sonar-driver" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Update the <code class="docutils literal notranslate"><span class="pre">ros_training</span></code> repository located in your home folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">cd</span> ~/ros_training
+git pull
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy the <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package to your <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code> workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>cp -r ~/ros_training/resources/sonar_driver ~/catkin_ws/src/
+</pre></div>
+</div>
+</li>
+<li><p class="first">Find and fix the bug deliberately left in the package.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="implement-the-driver">
+<h2>Implement the driver<a class="headerlink" href="#implement-the-driver" title="Permalink to this headline">¶</a></h2>
+<p>Once you got the package compiling, open the <code class="docutils literal notranslate"><span class="pre">sonar_hardware_client_node.cpp</span></code>. Follow the <code class="code docutils literal notranslate"><span class="pre">TODO:</span></code> labels in the code to complete the following tasks:</p>
+<ol class="arabic">
+<li><p class="first">Get the following parameters from ROS parameter server:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="53%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Default value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>serial/port</td>
+<td>dev/ttyUSB0</td>
+</tr>
+<tr class="row-odd"><td>serial/baudrate</td>
+<td>115200</td>
+</tr>
+<tr class="row-even"><td>imu/frame_id</td>
+<td>map</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">Set up the following publishers and services:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="37%" />
+<col width="31%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Publisher name</th>
+<th class="head">Datatype</th>
+<th class="head">topic</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>imu_publisher</td>
+<td>sensor_msgs::Imu</td>
+<td>imu</td>
+</tr>
+<tr class="row-odd"><td>sonar_publisher</td>
+<td>sensor_msgs::Range</td>
+<td>sonar_distance</td>
+</tr>
+<tr class="row-even"><td>range_imu_publisher</td>
+<td>sonar_driver::RangeImu</td>
+<td>range_imu_combined</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="41%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Service name</th>
+<th class="head">Datatype</th>
+<th class="head">topic</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>set_sonar_range_server</td>
+<td>sonar_driver::SetSonarRange</td>
+<td>set_sonar_range</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>Create a custom message for <code class="docutils literal notranslate"><span class="pre">range_imu_publisher</span></code> that combines <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Range</span></code> and <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Imu</span></code>.</li>
+</ul>
+</li>
+<li><p class="first">Create a timer to periodically read data from the serial buffer:</p>
+<ul class="simple">
+<li>set the period to 0.05 s (20 Hz)</li>
+<li>set the callback function to <code class="code docutils literal notranslate"><span class="pre">SonarHardwareClient::read</span></code></li>
+</ul>
+</li>
+<li><p class="first">Clamp the sonar range value between 0 and 2.</p>
+</li>
+<li><p class="first">Implement the function for processing the sonar data:</p>
+<ul class="simple">
+<li>Create and publish IMU data as <code class="docutils literal notranslate"><span class="pre">sensor_msgs::Imu</span></code> message</li>
+<li>Create and publish sonar data as <code class="docutils literal notranslate"><span class="pre">sensor_msgs::Range</span></code> message</li>
+<li>Create and publish our custom <code class="docutils literal notranslate"><span class="pre">sonar_driver::RangeImu</span></code> message</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../day4/index.html" class="btn btn-neutral float-right" title="Day 4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Day 3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, University of Tartu, License CC BY-ND-NC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
