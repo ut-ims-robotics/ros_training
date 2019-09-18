@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Unit Testing &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Day 4" href="../day4/index.html" />
+    <link rel="prev" title="Documentation Generation" href="workshop_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/index.html">Day 2</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="workshop_1.html">Documentation Generation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Unit Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#information-and-resources">Information and Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#problem-statement">Problem Statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guidance">Guidance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-unit-test-frame-work">Create the unit test frame work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-stock-publisher-tests">Add stock publisher tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#write-specific-unit-tests">Write specific unit tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#apply-what-you-learned-to-create-your-own-custom-test">Apply what you learned to create your own custom test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/index.html">Day 4</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day5/index.html">Day 5</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Day 3</a> &raquo;</li>
+        
+      <li>Unit Testing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day3/workshop_2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="unit-testing">
+<h1>Unit Testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise we will write unit tests for our sonar_driver package.</p>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> application is complete and documented.  Now we want to test the program to make sure it behaves as expected.</p>
+</div>
+<div class="section" id="information-and-resources">
+<h2>Information and Resources<a class="headerlink" href="#information-and-resources" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/google/googletest/blob/master/googletest/docs/primer.md">Google Test</a>: C++ XUnit test framework</p>
+<p><a class="reference external" href="http://wiki.ros.org/rostest">rostest</a>: ROS wrapper for XUnit test framework</p>
+<p><a class="reference external" href="http://catkin-tools.readthedocs.io/en/latest/verbs/catkin_build.html?highlight=run_tests#building-and-running-tests">catkin testing</a>: Building and running tests with catkin</p>
+</div>
+<div class="section" id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<p>We have completed and and documented our <code class="docutils literal notranslate"><span class="pre">sonar_hardware_client_node</span></code>.  We need to create a test framework so we can be sure our program runs as intended after it is built. In addition to ensuring the code runs as intended, unit tests allow you to easily check if new code changes functionality in unexpected ways.  Your goal is to create the unit test frame work and write a few tests.</p>
+</div>
+<div class="section" id="guidance">
+<h2>Guidance<a class="headerlink" href="#guidance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-the-unit-test-frame-work">
+<h3>Create the unit test frame work<a class="headerlink" href="#create-the-unit-test-frame-work" title="Permalink to this headline">¶</a></h3>
+<p>We will first create a simple test, so that you can see the workflow.</p>
+<ol class="arabic">
+<li><p class="first">Create a <cite>test</cite> folder in the sonar_driver/src folder. If you already have one then skip to step 2. In the workspace directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roscd sonar_driver
+mkdir src/test
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create utest.cpp (just a random name) file in the <cite>sonar_driver/src/test</cite> folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>touch src/test/utest.cpp
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open utest.cpp in your code editor and include ros &amp; gtest:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Write a dummy test that will return true if executed. This will test our framework and we will replace it later with more useful tests:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="n">TEST</span><span class="p">(</span><span class="n">TestSuite</span><span class="p">,</span> <span class="n">sonar_driver_framework</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">ASSERT_TRUE</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Next include the general main function, which will execute the unit tests we write later:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">testing</span><span class="o">::</span><span class="n">InitGoogleTest</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">RUN_ALL_TESTS</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> CMakeLists.txt to build the utest.cpp file. Find the comment which says “TODO: Add test targets” and replace that with:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span class="nb">if</span><span class="p">(</span><span class="s">CATKIN_ENABLE_TESTING</span><span class="p">)</span>
+  <span class="nb">find_package</span><span class="p">(</span><span class="s">rostest</span> <span class="s">REQUIRED</span><span class="p">)</span>
+  <span class="nb">add_rostest_gtest</span><span class="p">(</span><span class="s">utest_node</span> <span class="s">test/utest_launch.test</span> <span class="s">src/test/utest.cpp</span><span class="p">)</span>
+  <span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">utest_node</span> <span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a test folder under <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code>. If you already have one, then go to the next step.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roscd sonar_driver
+mkdir <span class="nb">test</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a test launch file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>touch test/utest_launch.test
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open the utest_launch.test file in your code editor and populate the file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;launch&gt;</span>
+    <span class="nt">&lt;test</span> <span class="na">test-name=</span><span class="s">&quot;unit_test_node&quot;</span> <span class="na">pkg=</span><span class="s">&quot;sonar_driver&quot;</span> <span class="na">type=</span><span class="s">&quot;utest_node&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build and test the framework in your package root folder</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roscd sonar_driver
+catkin run_tests sonar_driver
+</pre></div>
+</div>
+<p>The console output should show (buried in the midst of many build messages):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="o">[</span>ROSTEST<span class="o">]</span>-----------------------------------------------------------------------
+
+<span class="o">[</span>sonar_driver.rosunit-unit_test_node/sonar_driver_framework<span class="o">][</span>passed<span class="o">]</span>
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 1
+ * ERRORS: 0
+ * FAILURES: 0
+</pre></div>
+</div>
+<p>This means our framework is functional and now we can add usefull unit tests.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can also run tests directly from the command line, using the launch file we made above: <cite>rostest sonar_driver utest_launch.test</cite>.  Note that test files are not built using the regular <cite>catkin build</cite> command, so use <cite>catkin run_tests sonar_driver</cite> instead.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="add-stock-publisher-tests">
+<h3>Add stock publisher tests<a class="headerlink" href="#add-stock-publisher-tests" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">The rostest package provides several tools for inspecting basic topic characteristics <a class="reference external" href="http://wiki.ros.org/rostest/Nodes#hztest">hztest</a>, <a class="reference external" href="http://wiki.ros.org/rostest/Nodes#paramtest">paramtest</a>, <a class="reference external" href="http://wiki.ros.org/rostest/Nodes#publishtest">publishtest</a>.  We’ll add some basic tests to verify that the <code class="docutils literal notranslate"><span class="pre">sonar_hardware_client_node</span></code> node is outputting the expected topics and that the messages are getting throug.</p>
+</li>
+<li><p class="first">Add the test description to the <cite>utest_launch.test</cite> file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span class="c">&lt;!-- Start the Sonar --&gt;</span>
+<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;serial_port&quot;</span> <span class="na">default=</span><span class="s">&quot;/dev/ttyUSB0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;baudrate&quot;</span> <span class="na">default=</span><span class="s">&quot;115200&quot;</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find sonar_driver)/launch/sonar_driver.launch&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;serial_port&quot;</span> <span class="na">value=</span><span class="s">&quot;$(arg serial_port)&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;baudrate&quot;</span> <span class="na">value=</span><span class="s">&quot;$(arg baudrate)&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;frame_id&quot;</span> <span class="na">value=</span><span class="s">&quot;map&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/include&gt;</span>
+
+<span class="c">&lt;!-- Start the publish test --&gt;</span>
+<span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&quot;publishtest&quot;</span> <span class="na">test-name=</span><span class="s">&quot;publishtest&quot;</span> <span class="na">pkg=</span><span class="s">&quot;rostest&quot;</span> <span class="na">type=</span><span class="s">&quot;publishtest&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;rosparam&gt;</span>
+      topics:
+        - name: &quot;/imu&quot;
+          timeout: 10
+          negative: False
+        - name: &quot;/sonar_distance&quot;
+          timeout: 10
+          negative: False
+    <span class="nt">&lt;/rosparam&gt;</span>
+<span class="nt">&lt;/test&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run the test. NOTE: Your device should be connected:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin run_tests sonar_driver
+</pre></div>
+</div>
+<p>You should see:</p>
+<blockquote>
+<div><p>Summary: 2 tests, 0 errors, 0 failures</p>
+</div></blockquote>
+</li>
+<li><p class="first">Add a <a class="reference external" href="http://wiki.ros.org/rostest/Nodes#hztest">hztest</a> to your <cite>utest_launch.test</cite> file and  make it look for 50 Hz signal with 10 Hz error margin:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre>See http://wiki.ros.org/rostest/Nodes#hztest for an example.
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="write-specific-unit-tests">
+<h3>Write specific unit tests<a class="headerlink" href="#write-specific-unit-tests" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Lets now test more specific functions in our code. As an example lets test a function that is responsible for parsing raw serial strings to <code class="docutils literal notranslate"><span class="pre">Dataframe</span></code> structures (see /include/sonar_driver/sonar_driver_dataframe.h). In <cite>utest.cpp</cite>:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&quot;sonar_driver/packet_parser.h&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Then define a new test. Use the following code as a base structure:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="n">TEST</span><span class="p">(</span><span class="n">SonarDriverTestSuite</span><span class="p">,</span> <span class="n">packet_parser_test</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Define the raw messages and expected dataframes that are true</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">sonar_driver</span><span class="o">::</span><span class="n">Dataframe</span><span class="o">&gt;</span> <span class="n">test_frame_map_true</span> <span class="o">=</span>
+  <span class="p">{</span>
+    <span class="p">{</span><span class="s">&quot;6.12:6.32:6.52:6.12:6.32:6.52:6.12:6.32:6.52:1.92</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sonar_driver</span><span class="o">::</span><span class="n">Dataframe</span><span class="p">(</span><span class="mf">6.12</span><span class="p">,</span> <span class="mf">6.32</span><span class="p">,</span> <span class="mf">6.52</span><span class="p">,</span> <span class="mf">6.12</span><span class="p">,</span> <span class="mf">6.32</span><span class="p">,</span> <span class="mf">6.52</span><span class="p">,</span> <span class="mf">6.12</span><span class="p">,</span> <span class="mf">6.32</span><span class="p">,</span> <span class="mf">6.52</span><span class="p">,</span> <span class="mf">1.92</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s">&quot;1.11:2.22:3.33:4.44:5.55:6.66:7.77:8.88:9.99:1.23</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sonar_driver</span><span class="o">::</span><span class="n">Dataframe</span><span class="p">(</span><span class="mf">1.11</span><span class="p">,</span> <span class="mf">2.22</span><span class="p">,</span> <span class="mf">3.33</span><span class="p">,</span> <span class="mf">4.44</span><span class="p">,</span> <span class="mf">5.55</span><span class="p">,</span> <span class="mf">6.66</span><span class="p">,</span> <span class="mf">7.77</span><span class="p">,</span> <span class="mf">8.88</span><span class="p">,</span> <span class="mf">9.99</span><span class="p">,</span> <span class="mf">1.23</span><span class="p">)}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Define the raw messages and expected dataframes that fail</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">sonar_driver</span><span class="o">::</span><span class="n">Dataframe</span><span class="o">&gt;</span> <span class="n">test_frame_map_false</span> <span class="o">=</span>
+  <span class="p">{</span>
+    <span class="c1">//</span>
+    <span class="c1">//</span>
+    <span class="c1">// TODO: Just like with &quot;true&quot; cases, define 2 or 3 &quot;false&quot; cases</span>
+    <span class="c1">//</span>
+    <span class="c1">//</span>
+  <span class="p">};</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   * Run the tests on true frames</span>
+<span class="cm">   */</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">frame_pair_true</span> <span class="p">:</span> <span class="n">test_frame_map_true</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="n">sonar_driver</span><span class="o">::</span><span class="n">Dataframe</span><span class="o">&amp;</span> <span class="n">expected_result</span> <span class="o">=</span> <span class="n">frame_pair_true</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+    <span class="n">sonar_driver</span><span class="o">::</span><span class="n">Dataframe</span> <span class="n">result</span><span class="p">;</span>
+    <span class="k">try</span>
+    <span class="p">{</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="n">sonar_driver</span><span class="o">::</span><span class="n">parsePacket</span><span class="p">(</span><span class="n">frame_pair_true</span><span class="p">.</span><span class="n">first</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">catch</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">result</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+    <span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expected_result</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Incorrectly parsed true frame : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">frame_pair_true</span><span class="p">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;. Result is </span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">result</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   * Run the tests on false frames</span>
+<span class="cm">   */</span>
+  <span class="c1">//</span>
+  <span class="c1">//</span>
+  <span class="c1">// TODO: Add the code for testing the false cases. NOTE: Pay attention to what is</span>
+  <span class="c1">// the difference between &quot;ASSERT_EQ&quot; and &quot;ASSERT_NE&quot;.</span>
+  <span class="c1">// For more information see: https://github.com/google/googletest/blob/master/googletest/docs/primer.md</span>
+  <span class="c1">//</span>
+  <span class="c1">//</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Fill the <code class="docutils literal notranslate"><span class="pre">TODOs</span></code> in the previous code block and run the tests</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin run_tests sonar_driver
+</pre></div>
+</div>
+</li>
+<li><p class="first">view the results of the test:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin_test_results build/sonar_driver
+</pre></div>
+</div>
+</li>
+</ol>
+<p>You should see:</p>
+<blockquote>
+<div>Summary: 3 tests, 0 errors, 0 failures</div></blockquote>
+</div>
+<div class="section" id="apply-what-you-learned-to-create-your-own-custom-test">
+<h3>Apply what you learned to create your own custom test<a class="headerlink" href="#apply-what-you-learned-to-create-your-own-custom-test" title="Permalink to this headline">¶</a></h3>
+<p>Few ideas:</p>
+<ol class="arabic simple">
+<li>Test the the <code class="docutils literal notranslate"><span class="pre">set_sonar_range</span></code> service that you created for the sonar_driver. See if it will clamp the values correctly (should not go over 2 m or under 0.1 m).</li>
+<li>Check if <code class="docutils literal notranslate"><span class="pre">serial_port</span></code> or <code class="docutils literal notranslate"><span class="pre">baud_rate</span></code> parameters are set in the parameter server: <a class="reference external" href="http://wiki.ros.org/rostest/Nodes#paramtest">http://wiki.ros.org/rostest/Nodes#paramtest</a></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../day4/index.html" class="btn btn-neutral float-right" title="Day 4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="workshop_1.html" class="btn btn-neutral float-left" title="Documentation Generation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, University of Tartu, License CC BY-ND-NC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation Generation &mdash; ROS Training For Industry 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/contentui.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unit Testing" href="workshop_2.html" />
+    <link rel="prev" title="Day 3" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ROS Training For Industry
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/system_setup.html">System Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day1/index.html">Day 1</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/index.html">Day 2</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 3</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Documentation Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#information-and-resources">Information and Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#problem-statement">Problem Statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guidance">Guidance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#annotate-the-source-code">Annotate the Source Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-documentation">Generate documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-the-documentation">View the Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workshop_2.html">Unit Testing</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/index.html">Day 4</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day5/index.html">Day 5</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS Training For Industry</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Day 3</a> &raquo;</li>
+        
+      <li>Documentation Generation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/day3/workshop_1.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="documentation-generation">
+<h1>Documentation Generation<a class="headerlink" href="#documentation-generation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Now after you have successfully created a driver for our custom sonar+IMU device, the application part is completed. But it is equally important to test and document your code.</p>
+<ul class="simple">
+<li><strong>Document your code</strong> because otherwise others and even at some point YOU yourself do not understand the structure of the code.</li>
+<li><strong>Test your code</strong> because there could be many run-time specific bugs left in your code that only appear under certain conditions.</li>
+</ul>
+<p>We will first start with documentation.</p>
+</div>
+<div class="section" id="information-and-resources">
+<h2>Information and Resources<a class="headerlink" href="#information-and-resources" title="Permalink to this headline">¶</a></h2>
+<p>There are different source code documentation tools out there but Doxygen is very well known and widely used C++ documentation tool. The concept is that all you need to do is write <strong>code comments</strong> in a Doxygen specific syntax, and Doxygen is able to generate HTML pages from your code, which are simple to read.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.doxygen.org/"><code class="docutils literal notranslate"><span class="pre">doxygen</span></code> generates documentation from annotated source code</a></li>
+</ul>
+<p>ROS provides a convenience package called <code class="docutils literal notranslate"><span class="pre">rosdoc_lite</span></code> which helps you to manage documentation tools, such as Doxygen and Sphinx.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://wiki.ros.org/rosdoc_lite"><code class="docutils literal notranslate"><span class="pre">rosdoc_lite</span></code> is a ROS wrapper for doxygen</a></li>
+</ul>
+</div>
+<div class="section" id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<p>We have completed and tested our sonar_driver program from workshop 1 and we need to release the code to the public.  Your goal is to make documentation viewable in a browser.  You may accomplish this by documenting the <code class="docutils literal notranslate"><span class="pre">sonar_hardware_client_node.cpp</span></code> with <code class="docutils literal notranslate"><span class="pre">doxygen</span></code> syntax and generating documentation with <code class="docutils literal notranslate"><span class="pre">rosdoc_lite</span></code>.</p>
+</div>
+<div class="section" id="guidance">
+<h2>Guidance<a class="headerlink" href="#guidance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="annotate-the-source-code">
+<h3>Annotate the Source Code<a class="headerlink" href="#annotate-the-source-code" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p class="first">Open the sonar_hardware_client_node.cpp file from the previous workshop.</p>
+<ol>
+<li><p class="first">Annotate above the <code class="docutils literal notranslate"><span class="pre">SonarHardwareClient</span></code> class:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * @brief Object that handles communication with an IMU + sonar hardware via serial port.</span>
+<span class="cm"> * Publishes the processed IMU data as sensor_msgs::Imu and sonar data as sensor_msgs::Range.</span>
+<span class="cm"> * </span>
+<span class="cm"> */</span>
+<span class="k">class</span> <span class="nc">SonarHardwareClient</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Annotate above the <code class="docutils literal notranslate"><span class="pre">processSonarDataframe()</span></code> method similarly</p>
+</li>
+<li><p class="first">Annotate any class member variables that you have added. For variables we can use a simpler documentation notation <code class="docutils literal notranslate"><span class="pre">///</span></code> or <code class="docutils literal notranslate"><span class="pre">///&lt;</span></code>:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="c1">/// my_example_variable_ documentation</span>
+<span class="kt">int</span> <span class="n">my_example_variable_</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="kt">int</span> <span class="n">my_example_variable_</span><span class="p">;</span>   <span class="c1">///&lt; my_example_variable_ documentation</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Additional annotations may be  placed above private variables or other important code elements.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="generate-documentation">
+<h3>Generate documentation<a class="headerlink" href="#generate-documentation" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p class="first">Install <code class="docutils literal notranslate"><span class="pre">rosdoc_lite</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">ros</span><span class="o">-</span><span class="n">melodic</span><span class="o">-</span><span class="n">rosdoc</span><span class="o">-</span><span class="n">lite</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build the workspace so we can produce documentation for its packages later:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">catkin</span> <span class="n">build</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Source the workspace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">source</span> <span class="o">./</span><span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run <code class="docutils literal notranslate"><span class="pre">rosdoc_lite</span></code> to generate the documentation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">roscd</span> <span class="n">sonar_driver</span>
+<span class="n">rosdoc_lite</span> <span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="view-the-documentation">
+<h3>View the Documentation<a class="headerlink" href="#view-the-documentation" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p class="first">Open the documentation in a browser:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">firefox</span> <span class="n">doc</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Navigate to Classes -&gt; SonarHardwareClient and view the documentation.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="workshop_2.html" class="btn btn-neutral float-right" title="Unit Testing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Day 3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, University of Tartu, License CC BY-ND-NC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -7,5 +7,7 @@ Day 3
 .. toctree::
    :maxdepth: 2
  
+   workshop_1.md
+   workshop_2.rst
 .. ..  writing tests for the ongoing package
 .. ..  Implementing ROS driver for Custom Hardware

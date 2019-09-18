@@ -14,3 +14,10 @@ To obtain a copy of this repository, simply clone it into you catkin workspace:
 cd ~/catkin_ws/src
 git clone https://github.com/ut-ims-robotics/ros_training.git
 ```
+
+```
+pip install --user sphinx
+pip install --user sphinx_rtd_theme
+pip install --user sphinxcontrib-contentui
+pip install --user recommonmark
+```

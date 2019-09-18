@@ -15,6 +15,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+from recommonmark.parser import CommonMarkParser
 def setup(app):
     app.add_stylesheet('css/hacks.css')
 
@@ -51,7 +52,9 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ['.rst', '.md']
+
+source_parsers = {'.md': CommonMarkParser}
 
 # The master toctree document.
 master_doc = 'index'
