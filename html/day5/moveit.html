@@ -179,14 +179,16 @@
 <p>In order to start working with MoveIt, we’ll download ROS and MoveIt support packages for an existing robot manipulator. Today we’ll work with UFACTORY xArm7.</p>
 <p>Clone the xArm ROS support into the <code class="docutils literal notranslate"><span class="pre">src/</span></code> folder of your catkin workspace.</p>
 <blockquote>
-<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/ut-ims-robotics/xarm_ros.git</span></code></div></blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/ut-ims-robotics/xarm_ros.git</span></code></p>
+</div></blockquote>
 <p>Next build the workspace:</p>
 <blockquote>
-<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">catkin</span> <span class="pre">build</span></code></div></blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">catkin</span> <span class="pre">build</span></code></p>
+</div></blockquote>
 <p>The xArm7 already has everything set up for MoveIt, so we can simply launch their demo.</p>
 <blockquote>
 <div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">roslaunch</span> <span class="pre">xarm7_moveit_config</span> <span class="pre">demo.launch</span></code></p>
-<div class="figure">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../_images/moveit_gui_xarm7.png"><img alt="../_images/moveit_gui_xarm7.png" src="../_images/moveit_gui_xarm7.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
@@ -195,7 +197,7 @@
 In the MoveIt controls (the <em>MotionPlanning</em> panel), switch to <em>Planning</em> tab. Feel free to drag the interactive markers to choose a target pose (visualized in orange) for the manipulator. Then click on the <em>Plan</em> button. After you have visually verified
 the plan, click on <em>Execute</em>. And that is it. That is how easy it is to make a manipulator plan and execute a collision-free path using MoveIt GUI.</p>
 <blockquote>
-<div><div class="figure">
+<div><div class="figure align-default">
 <a class="reference internal image-reference" href="../_images/moveit_gui_xarm7_target.png"><img alt="../_images/moveit_gui_xarm7_target.png" src="../_images/moveit_gui_xarm7_target.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>

@@ -183,27 +183,27 @@
 <h1>Launch file<a class="headerlink" href="#launch-file" title="Permalink to this headline">¶</a></h1>
 <p>Launch files are useful for running multiple nodes simultaneously with a single <code class="docutils literal notranslate"><span class="pre">roslaunch</span></code> command. It can also be used to read parameters into the parameter server.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The roslaunch automatically starts rosmaster if it isn’t already running.</p>
+<p class="admonition-title">Note</p>
+<p>The roslaunch automatically starts rosmaster if it isn’t already running.</p>
 </div>
 <ol class="arabic simple">
-<li>Go through the <a class="reference external" href="http://wiki.ros.org/roslaunch/XML/param">roslaunch wiki</a> and get familiar with its syntax.</li>
-<li>From the wiki, find the information on:</li>
+<li><p>Go through the <a class="reference external" href="http://wiki.ros.org/roslaunch/XML/param">roslaunch wiki</a> and get familiar with its syntax.</p></li>
+<li><p>From the wiki, find the information on:</p></li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li>how to pass and use command line arguments in the launch file;</li>
-<li>how to use the <code class="docutils literal notranslate"><span class="pre">&lt;param</span> <span class="pre">/&gt;</span></code> tag and read parameters to the server;</li>
-<li>how to use the <code class="docutils literal notranslate"><span class="pre">&lt;node</span> <span class="pre">/&gt;</span></code> tag to run nodes within roslaunch file.</li>
+<li><p>how to pass and use command line arguments in the launch file;</p></li>
+<li><p>how to use the <code class="docutils literal notranslate"><span class="pre">&lt;param</span> <span class="pre">/&gt;</span></code> tag and read parameters to the server;</p></li>
+<li><p>how to use the <code class="docutils literal notranslate"><span class="pre">&lt;node</span> <span class="pre">/&gt;</span></code> tag to run nodes within roslaunch file.</p></li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple">
-<li>Your task is to create a launch file into the <code class="docutils literal notranslate"><span class="pre">fake</span> <span class="pre">sonar</span> <span class="pre">driver</span></code> package. Implement the following functionality in the launch file:</li>
+<li><p>Your task is to create a launch file into the <code class="docutils literal notranslate"><span class="pre">fake</span> <span class="pre">sonar</span> <span class="pre">driver</span></code> package. Implement the following functionality in the launch file:</p></li>
 </ol>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Read the the frequency argument from the command line and pass it to the parameter server.</li>
-<li>Start the fake sonar driver node.</li>
+<li><p>Read the the frequency argument from the command line and pass it to the parameter server.</p></li>
+<li><p>Start the fake sonar driver node.</p></li>
 </ol>
 </div></blockquote>
 <div class="section" id="bonus-task">
@@ -211,8 +211,8 @@
 <p>Add two more fake sonar driver nodes to the launch file:</p>
 <blockquote>
 <div><ul class="simple">
-<li>For the first node, assign an anonymous name</li>
-<li>Define the second node to be executed in a <code class="docutils literal notranslate"><span class="pre">fake_ns</span></code> namespace.</li>
+<li><p>For the first node, assign an anonymous name</p></li>
+<li><p>Define the second node to be executed in a <code class="docutils literal notranslate"><span class="pre">fake_ns</span></code> namespace.</p></li>
 </ul>
 </div></blockquote>
 </div>

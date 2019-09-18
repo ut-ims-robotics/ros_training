@@ -185,21 +185,19 @@
 <div class="section" id="using-the-file-browser-to-navigate">
 <h2>Using the File Browser to Navigate<a class="headerlink" href="#using-the-file-browser-to-navigate" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Open the folder browser application we opened in the <a class="reference internal" href="ubuntu_gui.html"><span class="doc">previous exercise</span></a>. You should see a window like the one below. The icons and text above the main window show the current location of the window in the file system.</p>
-<div class="figure">
+<li><p>Open the folder browser application we opened in the <a class="reference internal" href="ubuntu_gui.html"><span class="doc">previous exercise</span></a>. You should see a window like the one below. The icons and text above the main window show the current location of the window in the file system.</p>
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../_images/ubuntu_file_system.png"><img alt="../_images/ubuntu_file_system.png" src="../_images/ubuntu_file_system.png" style="width: 294.7px; height: 171.5px;" /></a>
 </div>
 </li>
-<li><p class="first">The icons at the top constitute the “location bar” of the file browser. While the location bar is very useful for navigating in the GUI, it hides the exact location of the window. You can show the location by pressing <kbd class="kbd docutils literal notranslate">Ctrl+L</kbd>. You should see the location bar turn into something like the image below:</p>
-<div class="figure">
+<li><p>The icons at the top constitute the “location bar” of the file browser. While the location bar is very useful for navigating in the GUI, it hides the exact location of the window. You can show the location by pressing <kbd class="kbd docutils literal notranslate">Ctrl+L</kbd>. You should see the location bar turn into something like the image below:</p>
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../_images/ubuntu_file_system_location.png"><img alt="../_images/ubuntu_file_system_location.png" src="../_images/ubuntu_file_system_location.png" style="width: 238.7px; height: 104.3px;" /></a>
 </div>
 </li>
-<li><p class="first">The folder browser opens up in the user’s home folder by default. This folder is typically <code class="code docutils literal notranslate"><span class="pre">/home/&lt;username&gt;</span></code>, which in this training computer is <code class="code docutils literal notranslate"><span class="pre">/home/academy</span></code>. This folder is the only one which the user has full access to. This is by design for security’s sake.</p>
-</li>
-<li><p class="first">By default, the file browser doesn’t show hidden files (files which begin with a . character) or “backup” files (which end with a ~ character). To show these files, click on the “View” menu, and select “Show Hidden Files” (or press <kbd class="kbd docutils literal notranslate">Ctrl+H</kbd>). This will show all of the hidden files. Uncheck the option to re-hide those files.</p>
-</li>
-<li><p class="first">Two hidden directories are <em>never</em> shown:</p>
+<li><p>The folder browser opens up in the user’s home folder by default. This folder is typically <code class="code docutils literal notranslate"><span class="pre">/home/&lt;username&gt;</span></code>, which in this training computer is <code class="code docutils literal notranslate"><span class="pre">/home/academy</span></code>. This folder is the only one which the user has full access to. This is by design for security’s sake.</p></li>
+<li><p>By default, the file browser doesn’t show hidden files (files which begin with a . character) or “backup” files (which end with a ~ character). To show these files, click on the “View” menu, and select “Show Hidden Files” (or press <kbd class="kbd docutils literal notranslate">Ctrl+H</kbd>). This will show all of the hidden files. Uncheck the option to re-hide those files.</p></li>
+<li><p>Two hidden directories are <em>never</em> shown:</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">“.” – a folder, which is a special folder that represents the current folder</div>
@@ -207,60 +205,54 @@
 </div>
 </div></blockquote>
 </li>
-<li><p class="first">On the left hand side of the window are some quick links to removable devices, other hard drives, bookmarks, etc. Click on the “Computer” shortcut link. This will take you to the “root” of the file system, the / folder. All of the files on the computer are in sub-folders under this folder.</p>
-</li>
-<li><p class="first">Double click on the <em>opt</em> folder, then the <em>ros</em> folder. This is where all of the ROS software resides. Each version is stored in its own folder; we should see a kinetic folder there. Double-click on that folder. The <em>setup.bash</em> file will be used later in this training to configure the terminal for ROS. The programs, data, etc. are in the <em>bin</em> and <em>share</em> folders. You generally do not need to modify any of these files directly, but it is good to know where they reside.</p>
-</li>
+<li><p>On the left hand side of the window are some quick links to removable devices, other hard drives, bookmarks, etc. Click on the “Computer” shortcut link. This will take you to the “root” of the file system, the / folder. All of the files on the computer are in sub-folders under this folder.</p></li>
+<li><p>Double click on the <em>opt</em> folder, then the <em>ros</em> folder. This is where all of the ROS software resides. Each version is stored in its own folder; we should see a kinetic folder there. Double-click on that folder. The <em>setup.bash</em> file will be used later in this training to configure the terminal for ROS. The programs, data, etc. are in the <em>bin</em> and <em>share</em> folders. You generally do not need to modify any of these files directly, but it is good to know where they reside.</p></li>
 </ol>
 </div>
 <div class="section" id="making-changes">
 <h2>Making changes<a class="headerlink" href="#making-changes" title="Permalink to this headline">¶</a></h2>
 <p>Next, you will learn to create, change, rename, and remove files and folders.</p>
 <ol class="arabic">
-<li><p class="first">Make a directory <code class="code docutils literal notranslate"><span class="pre">&lt;Home&gt;/linux_intro</span></code>. We will be working within this folder.</p>
+<li><p>Make a directory <code class="code docutils literal notranslate"><span class="pre">&lt;Home&gt;/linux_intro</span></code>. We will be working within this folder.</p>
 <ol class="arabic simple">
-<li>Inside the file browser, click on the “Home” shortcut in the left sidebar.</li>
-<li>Right click in the file browser’s main panel and select “New Folder”.</li>
-<li>Name the folder “linux_intro” and press “Enter”.</li>
+<li><p>Inside the file browser, click on the “Home” shortcut in the left sidebar.</p></li>
+<li><p>Right click in the file browser’s main panel and select “New Folder”.</p></li>
+<li><p>Name the folder “linux_intro” and press “Enter”.</p></li>
 </ol>
 </li>
-<li><p class="first">Make a file <em>test.txt</em> inside the newly-created <em>linux_intro</em> folder.</p>
+<li><p>Make a file <em>test.txt</em> inside the newly-created <em>linux_intro</em> folder.</p>
 <ol class="arabic simple">
-<li>Double-click on the <em>linux_intro</em> folder.  Note how the File Browser header changes to show the current folder.</li>
-<li>Right click in the file browser’s main panel and select “New Document”, then “Empty Document”.</li>
-<li>Name the file “test.txt” and press “Enter”.</li>
+<li><p>Double-click on the <em>linux_intro</em> folder.  Note how the File Browser header changes to show the current folder.</p></li>
+<li><p>Right click in the file browser’s main panel and select “New Document”, then “Empty Document”.</p></li>
+<li><p>Name the file “test.txt” and press “Enter”.</p></li>
 </ol>
 </li>
-<li><p class="first">Copy the file using one of the following methods:</p>
+<li><p>Copy the file using one of the following methods:</p>
 <ul>
-<li><p class="first">Click and hold on the <em>test.txt</em> file, hold down on the control key, drag somewhere else on the folder, and release.</p>
-</li>
-<li><p class="first">Click on the file, go to the “Copy” from the “Edit” menu, and then “Paste” from the “Edit” menu.</p>
+<li><p>Click and hold on the <em>test.txt</em> file, hold down on the control key, drag somewhere else on the folder, and release.</p></li>
+<li><p>Click on the file, go to the “Copy” from the “Edit” menu, and then “Paste” from the “Edit” menu.</p>
 <div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">To see the Menu, hover your mouse above the bar at the top of the screen</p>
+<p class="admonition-title">Hint</p>
+<p>To see the Menu, hover your mouse above the bar at the top of the screen</p>
 </div>
 </li>
 </ul>
 </li>
-<li><p class="first">Rename the copied file to <em>copy.txt</em> using one of the following methods:</p>
+<li><p>Rename the copied file to <em>copy.txt</em> using one of the following methods:</p>
 <ul class="simple">
-<li>Right-click on the copied file, select “Rename…” and enter <em>copy.txt</em>.</li>
-<li>Click on the file, press the F2 key, and enter <em>copy.txt</em>.</li>
+<li><p>Right-click on the copied file, select “Rename…” and enter <em>copy.txt</em>.</p></li>
+<li><p>Click on the file, press the F2 key, and enter <em>copy.txt</em>.</p></li>
 </ul>
 </li>
-<li><p class="first">Create a folder <em>new</em> using one of the following methods:</p>
+<li><p>Create a folder <em>new</em> using one of the following methods:</p>
 <ul class="simple">
-<li>Right-click on an open area of the file browser window, select “New Folder”, and naming it <em>new</em></li>
-<li>Select “New Folder” from the “File” menu, and naming it <em>new</em></li>
+<li><p>Right-click on an open area of the file browser window, select “New Folder”, and naming it <em>new</em></p></li>
+<li><p>Select “New Folder” from the “File” menu, and naming it <em>new</em></p></li>
 </ul>
 </li>
-<li><p class="first">Move the file <em>copy.txt</em> into the <em>new</em> folder by dragging the file into the <em>new</em> folder.</p>
-</li>
-<li><p class="first">Copy the file <em>test.txt</em> by holding down the Control key while dragging the file into the new folder.</p>
-</li>
-<li><p class="first">Navigate into the <em>new</em> folder, and delete the <em>test.txt</em> folder by clicking on the file, and pressing the delete key.</p>
-</li>
+<li><p>Move the file <em>copy.txt</em> into the <em>new</em> folder by dragging the file into the <em>new</em> folder.</p></li>
+<li><p>Copy the file <em>test.txt</em> by holding down the Control key while dragging the file into the new folder.</p></li>
+<li><p>Navigate into the <em>new</em> folder, and delete the <em>test.txt</em> folder by clicking on the file, and pressing the delete key.</p></li>
 </ol>
 </div>
 </div>

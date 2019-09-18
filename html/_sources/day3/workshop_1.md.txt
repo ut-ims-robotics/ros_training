@@ -15,7 +15,7 @@ ROS provides a convenience package called `rosdoc_lite` which helps you to manag
 * [`rosdoc_lite` is a ROS wrapper for doxygen](http://wiki.ros.org/rosdoc_lite)
 
 ## Problem Statement
-We have completed and tested our sonar_driver program from workshop 1 and we need to release the code to the public.  Your goal is to make documentation viewable in a browser.  You may accomplish this by documenting the `sonar_hardware_client_node.cpp` with `doxygen` syntax and generating documentation with `rosdoc_lite`.
+We have completed and tested our sonar_driver program from previous workshop and we need to release the code to the public.  Your goal is to make documentation viewable in a browser.  You may accomplish this by documenting the `sonar_hardware_client_node.cpp` with `doxygen` syntax and generating documentation with `rosdoc_lite`.
 
 ## Guidance
 ### Annotate the Source Code
@@ -54,7 +54,7 @@ We have completed and tested our sonar_driver program from workshop 1 and we nee
 1. Install `rosdoc_lite`:
 
     ```
-    sudo apt install ros-melodic-rosdoc-lite
+    sudo apt install ros-kinetic-rosdoc-lite
     ```
 
 1. Build the workspace so we can produce documentation for its packages later:

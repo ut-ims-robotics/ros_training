@@ -178,34 +178,31 @@ The training is tested on <a class="reference external" href="http://wiki.ros.or
 <div class="section" id="install-ros-with-dependencies">
 <h2>Install ROS with dependencies<a class="headerlink" href="#install-ros-with-dependencies" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Set up ROS keys.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>sudo sh -c <span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
+<li><p>Set up ROS keys.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo sh -c <span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
 sudo apt-key adv --keyserver <span class="s1">&#39;hkp://keyserver.ubuntu.com:80&#39;</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 sudo apt update
 </pre></div>
 </div>
 </li>
-<li><p class="first">Get the dependency list from github and install.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nv">PKG_LIST</span><span class="o">=</span><span class="k">$(</span>wget -O- -q https://github.com/ut-ims-robotics/ros_training/raw/master/config/dependencies_apt.txt<span class="k">)</span>
-<span class="nb">echo</span> <span class="s2">&quot;</span>$<span class="s2">PKG_LIST&quot;</span> <span class="p">|</span> egrep <span class="s1">&#39;^[^#;]&#39;</span> <span class="p">|</span> xargs -r sudo apt -q -y install
+<li><p>Get the dependency list from github and install.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PKG_LIST</span><span class="o">=</span><span class="k">$(</span>wget -O- -q https://github.com/ut-ims-robotics/ros_training/raw/master/config/dependencies_apt.txt<span class="k">)</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$PKG_LIST</span><span class="s2">&quot;</span> <span class="p">|</span> egrep <span class="s1">&#39;^[^#;]&#39;</span> <span class="p">|</span> xargs -r sudo apt -q -y install
 sudo rosdep init
 rosdep update
 </pre></div>
 </div>
 </li>
-<li><p class="first">Prepare coffee…</p>
-</li>
-<li><p class="first">Enjoy coffee…</p>
-</li>
-<li><p class="first">Prepare more coffee, because it is still installing…</p>
-</li>
+<li><p>Prepare coffee…</p></li>
+<li><p>Enjoy coffee…</p></li>
+<li><p>Prepare more coffee, because it is still installing…</p></li>
 </ol>
 </div>
 <div class="section" id="install-librealsense">
 <h2>Install librealsense<a class="headerlink" href="#install-librealsense" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nv">TMP_DIR</span><span class="o">=</span><span class="k">$(</span>mktemp -d<span class="k">)</span>
-<span class="nb">cd</span> $TMP_DIR
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">TMP_DIR</span><span class="o">=</span><span class="k">$(</span>mktemp -d<span class="k">)</span>
+<span class="nb">cd</span> <span class="nv">$TMP_DIR</span>
 git clone https://github.com/IntelRealSense/librealsense.git
 <span class="nb">cd</span> librealsense
 cmake .
@@ -213,7 +210,7 @@ make -j4
 sudo make install
 sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules <span class="o">&amp;&amp;</span> udevadm trigger
-<span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> rm -fr $TMP_DIR
+<span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> rm -fr <span class="nv">$TMP_DIR</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -221,8 +218,8 @@ sudo udevadm control --reload-rules <span class="o">&amp;&amp;</span> udevadm tr
 <div class="section" id="install-proto3-for-cartographer">
 <h2>Install proto3 for cartographer<a class="headerlink" href="#install-proto3-for-cartographer" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nv">TMP_DIR</span><span class="o">=</span><span class="k">$(</span>mktemp -d<span class="k">)</span>
-<span class="nb">cd</span> $TMP_DIR
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">TMP_DIR</span><span class="o">=</span><span class="k">$(</span>mktemp -d<span class="k">)</span>
+<span class="nb">cd</span> <span class="nv">$TMP_DIR</span>
 git clone https://github.com/google/protobuf.git
 <span class="nb">cd</span> protobuf
 git checkout tags/v3.4.1
@@ -235,7 +232,7 @@ cmake -G Ninja <span class="se">\</span>
   ../cmake
 ninja
 sudo ninja install
-<span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> rm -fr $TMP_DIR
+<span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> rm -fr <span class="nv">$TMP_DIR</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -243,7 +240,7 @@ sudo ninja install
 <div class="section" id="setup-clearbot-ros-ws-workspace">
 <h2>Setup <code class="code docutils literal notranslate"><span class="pre">clearbot_ros_ws</span></code> workspace<a class="headerlink" href="#setup-clearbot-ros-ws-workspace" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">source</span> /opt/ros/kinetic/setup.bash
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/kinetic/setup.bash
 mkdir -p ~/clearbot_ros_ws/src
 <span class="nb">cd</span> ~/clearbot_ros_ws
 wstool init src https://github.com/ut-ims-robotics/ros_training/raw/master/config/.rosinstall
@@ -256,7 +253,7 @@ catkin build
 <div class="section" id="automatic-sourcing">
 <h2>Automatic sourcing<a class="headerlink" href="#automatic-sourcing" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">echo</span> <span class="s2">&quot;source ~/clearbot_ros_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source ~/clearbot_ros_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
 <span class="nb">source</span> ~/.bashrc
 </pre></div>
 </div>

@@ -204,34 +204,28 @@ and is set as a fixed frame so that everything else is
 taken relative to <strong>map</strong> origin.
 <strong>imu_link</strong> serves as the frame for your sensor.</p>
 <ol class="arabic">
-<li><p class="first">Run <strong>roscore</strong>.</p>
-</li>
-<li><p class="first">Using <em>static_transform_publisher</em>, create a transform between
+<li><p>Run <strong>roscore</strong>.</p></li>
+<li><p>Using <em>static_transform_publisher</em>, create a transform between
 <strong>map</strong> and <strong>imu_link</strong>. Use <a class="reference external" href="http://wiki.ros.org/tf2_ros#static_transform_publisher">http://wiki.ros.org/tf2_ros#static_transform_publisher</a>
 as a reference as well as the presentation slides.
 You can keep the rotation zero for now but change the translation
-so that <strong>imu_link</strong> would be 1 meter higher than the <strong>map</strong> frame.</p>
-</li>
-<li><p class="first">Launch <strong>rqt</strong> from terminal.
+so that <strong>imu_link</strong> would be 1 meter higher than the <strong>map</strong> frame.</p></li>
+<li><p>Launch <strong>rqt</strong> from terminal.
 On the top bar, go to
 Plugins -&gt; Visualization -&gt; TF Tree.
 This will show you the current transforms in the system.
 And should look like this:</p>
-<div class="figure">
-<a class="reference internal image-reference" href="../_images/tftreestatic.png"><img alt="../_images/tftreestatic.png" src="../_images/tftreestatic.png" style="width: 420.0px; height: 334.6px;" /></a>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/tftreestatic.png"><img alt="../_images/tftreestatic.png" src="../_images/tftreestatic.png" style="width: 420.0px; height: 334.59999999999997px;" /></a>
 </div>
 </li>
-<li><p class="first">If you see this result, continue to step 5, if not, go back to 2.</p>
-</li>
-<li><p class="first">Now launch <em>sonar_driver_visualize.launch</em>
-with argument <strong>imu_frame:=imu_link</strong>.</p>
-</li>
-<li><p class="first">In the RViz windows,
+<li><p>If you see this result, continue to step 5, if not, go back to 2.</p></li>
+<li><p>Now launch <em>sonar_driver_visualize.launch</em>
+with argument <strong>imu_frame:=imu_link</strong>.</p></li>
+<li><p>In the RViz windows,
 you should see the origin of IMU pose and range be set to
-1 meter above ground.</p>
-</li>
-<li><p class="first">If everything works, shut down all ROS programs and continue to next task.</p>
-</li>
+1 meter above ground.</p></li>
+<li><p>If everything works, shut down all ROS programs and continue to next task.</p></li>
 </ol>
 </div>
 <div class="section" id="dynamic-transform">
@@ -240,9 +234,8 @@ you should see the origin of IMU pose and range be set to
 we need a transform that moves according to IMU readings.</p>
 <p>This is where transform programming comes in play.</p>
 <ol class="arabic">
-<li><p class="first">First, add <em>tf2_ros</em> in your CMakeLists.txt under <em>find_package</em>.</p>
-</li>
-<li><p class="first">Use this <a class="reference external" href="http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20broadcaster%20%28C%2B%2B%29">this</a>
+<li><p>First, add <em>tf2_ros</em> in your CMakeLists.txt under <em>find_package</em>.</p></li>
+<li><p>Use this <a class="reference external" href="http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20broadcaster%20%28C%2B%2B%29">this</a>
 tutorial to publish <strong>map</strong> to <strong>imu_link</strong> transform
 according to IMU data.
 You can write your code under <em>processSonarDataframe()</em> function.
@@ -250,19 +243,16 @@ Keep the translation the same as in the previous task but now change
 rotation to IMU data.</p>
 <p>Don’t forget to include necessary headers.</p>
 </li>
-<li><p class="first">To test your code, build, source and launch <em>sonar_driver_visualize.launch</em>
-like in the previous task.</p>
-</li>
-<li><p class="first">Now you should see your <em>Range</em> moving.
+<li><p>To test your code, build, source and launch <em>sonar_driver_visualize.launch</em>
+like in the previous task.</p></li>
+<li><p>Now you should see your <em>Range</em> moving.
 If not, first check if your <em>Fixed Frame</em> is set to <strong>map</strong>.
 If it is and <em>Range</em> is not moving,
-go back and recheck the code and launch options.</p>
-</li>
-<li><p class="first">Now try turning the sensor and see if relates properly
+go back and recheck the code and launch options.</p></li>
+<li><p>Now try turning the sensor and see if relates properly
 to real world movements.
 If yes, congratulations, you have completed the task.
-If not, go double check the transforms.</p>
-</li>
+If not, go double check the transforms.</p></li>
 </ol>
 </div>
 </div>

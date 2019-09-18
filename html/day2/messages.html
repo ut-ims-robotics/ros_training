@@ -181,38 +181,38 @@
 <p>In this exercise, we will explore the concept of ROS messages and topics. The first type of ROS communication that we will explore is a one-way communication called messages which are sent over channels called topics. Typically one node publishes messages on a topic and another node subscribes to messages on that same topic.</p>
 <p>In the following we first complete couple of ROS tutorials to get familiar with how subscribers and publishers are implemented in ROS. After practicing, we add a publisher to our <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code>.</p>
 <ol class="arabic simple">
-<li>First, create a new package into your <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code>. Name it <code class="docutils literal notranslate"><span class="pre">beginner_tutorials</span></code> and make it depend on <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code>, <code class="docutils literal notranslate"><span class="pre">rospy</span></code>, and <code class="docutils literal notranslate"><span class="pre">roscpp</span></code> packages.</li>
-<li>Complete the <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">Writing a Simple Publisher and Subscriber (C++)</a> tutorial.</li>
-<li>Now that you got the nodes communicating, it is time to add a publisher to our <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package. Check out the documentation of the <a class="reference external" href="http://docs.ros.org/melodic/api/sensor_msgs/html/msg/Range.html">sensor_msgs/Range</a> message. This message is being used for devices that measure distance to an object while having a specific field of view (for example, ultrasonic, infrared, etc sensors).</li>
-<li>Navigate back to the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package and open the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node.cpp</span></code> for editing.</li>
-<li>Add the following functionality to our fake sonar node:</li>
+<li><p>First, create a new package into your <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code>. Name it <code class="docutils literal notranslate"><span class="pre">beginner_tutorials</span></code> and make it depend on <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code>, <code class="docutils literal notranslate"><span class="pre">rospy</span></code>, and <code class="docutils literal notranslate"><span class="pre">roscpp</span></code> packages.</p></li>
+<li><p>Complete the <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">Writing a Simple Publisher and Subscriber (C++)</a> tutorial.</p></li>
+<li><p>Now that you got the nodes communicating, it is time to add a publisher to our <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package. Check out the documentation of the <a class="reference external" href="http://docs.ros.org/melodic/api/sensor_msgs/html/msg/Range.html">sensor_msgs/Range</a> message. This message is being used for devices that measure distance to an object while having a specific field of view (for example, ultrasonic, infrared, etc sensors).</p></li>
+<li><p>Navigate back to the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package and open the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node.cpp</span></code> for editing.</p></li>
+<li><p>Add the following functionality to our fake sonar node:</p></li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li>the node publishes messages on a topic <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code></li>
-<li>the type of messages is <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Range</span></code></li>
-<li>the <code class="docutils literal notranslate"><span class="pre">range</span></code> field in the messages is set to 1.5</li>
+<li><p>the node publishes messages on a topic <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code></p></li>
+<li><p>the type of messages is <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Range</span></code></p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">range</span></code> field in the messages is set to 1.5</p></li>
 </ul>
 </div></blockquote>
 <ol class="arabic">
-<li><p class="first">Test the publisher with <code class="code docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">echo</span> <span class="pre">/sonar_distance</span></code> and show the result to the instructor.</p>
-</li>
-<li><p class="first">Improve the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code> to make it outputing oscilating signal in range [0-2] meters. For that you can use a <code class="docutils literal notranslate"><span class="pre">count</span></code> variable as was in the <code class="docutils literal notranslate"><span class="pre">beginners_tutorials</span></code>. Simply scale it down a bit and use it as an argument of a sine() function:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">sine</span><span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="mf">100.0f</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<li><p>Test the publisher with <code class="code docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">echo</span> <span class="pre">/sonar_distance</span></code> and show the result to the instructor.</p></li>
+<li><p>Improve the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code> to make it outputing oscilating signal in range [0-2] meters. For that you can use a <code class="docutils literal notranslate"><span class="pre">count</span></code> variable as was in the <code class="docutils literal notranslate"><span class="pre">beginners_tutorials</span></code>. Simply scale it down a bit and use it as an argument of a sine() function:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sine</span><span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="mf">100.0f</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 </pre></div>
 </div>
 </li>
 </ol>
 <blockquote>
 <div><div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">Don’t forget the <code class="code docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;math.h&gt;</span></code> to bring in the trigonometry functions to your project.</p>
+<p class="admonition-title">Tip</p>
+<p>Don’t forget the <code class="code docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;math.h&gt;</span></code> to bring in the trigonometry functions to your project.</p>
 </div>
 </div></blockquote>
 <ol class="arabic simple">
-<li>Let’s visualize the distance value on a graph. For that, ROS has a visualization toolkit called <code class="docutils literal notranslate"><span class="pre">rqt</span></code>.  Enter this as a command in a new terminal window.<ul>
-<li>In the upper menu bar, click <code class="docutils literal notranslate"><span class="pre">Plugins</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">Visualization</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">Plot</span></code></li>
-<li>Specify the topic as <code class="docutils literal notranslate"><span class="pre">/sonar_distance/range</span></code> and you should see the range field plotted.</li>
+<li><p>Let’s visualize the distance value on a graph. For that, ROS has a visualization toolkit called <code class="docutils literal notranslate"><span class="pre">rqt</span></code>.  Enter this as a command in a new terminal window.</p>
+<ul class="simple">
+<li><p>In the upper menu bar, click <code class="docutils literal notranslate"><span class="pre">Plugins</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">Visualization</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">Plot</span></code></p></li>
+<li><p>Specify the topic as <code class="docutils literal notranslate"><span class="pre">/sonar_distance/range</span></code> and you should see the range field plotted.</p></li>
 </ul>
 </li>
 </ol>

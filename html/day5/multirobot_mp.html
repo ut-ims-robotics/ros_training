@@ -177,16 +177,16 @@
 <p>ROS and MoveIt make it very easy to control multi manipulator systems. To exemplify it, let us create a dual manipulator setup using two xArm7s. The steps
 are analogous to what we have learned already today.</p>
 <ol class="arabic simple">
-<li>Create a URDF for the dual manipulator system;</li>
-<li>generate MoveIt configuration package for the system;</li>
-<li>control the movement of manipulators using either MoveIt GUI or MoveGroup C++ Interface.</li>
+<li><p>Create a URDF for the dual manipulator system;</p></li>
+<li><p>generate MoveIt configuration package for the system;</p></li>
+<li><p>control the movement of manipulators using either MoveIt GUI or MoveGroup C++ Interface.</p></li>
 </ol>
 <p>In order to take advantage of the modularity in ROS we’ll be using XACRO to create URDF for our system. To quote xacro’s ROS <a class="reference external" href="http://wiki.ros.org/xacro">wiki page</a>, <em>‘With xacro,
 we can construct shorter and more readable XML files by using macros that expand to larger XML expressions.’</em></p>
 <p>Locate <code class="docutils literal notranslate"><span class="pre">dual_xarm7.urdf.xacro</span></code> in <code class="docutils literal notranslate"><span class="pre">dual_manipulator_support</span></code> package. This xacro-file demonstrates how to include an existing robot description to higher level system.
 Modify the xacro-file to include another xArm7 with a prefix <code class="docutils literal notranslate"><span class="pre">right_</span></code> and position it on the <code class="docutils literal notranslate"><span class="pre">platform</span></code> link next to the already included xArm7.</p>
 <blockquote>
-<div><div class="figure">
+<div><div class="figure align-default">
 <a class="reference internal image-reference" href="../_images/moveit_dual_xarm7.png"><img alt="../_images/moveit_dual_xarm7.png" src="../_images/moveit_dual_xarm7.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
@@ -195,7 +195,7 @@ Modify the xacro-file to include another xArm7 with a prefix <code class="docuti
 to what we did before. However, on <em>Planning Groups</em> tab it is best to define 3 different groups: one for each manipulator and the third one to include them as
 subgroups.</p>
 <blockquote>
-<div><div class="figure">
+<div><div class="figure align-default">
 <a class="reference internal image-reference" href="../_images/moveit_dual_planning_groups.png"><img alt="../_images/moveit_dual_planning_groups.png" src="../_images/moveit_dual_planning_groups.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
