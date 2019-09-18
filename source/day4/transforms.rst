@@ -95,3 +95,14 @@ This is where transform programming comes in play.
     to real world movements.
     If yes, congratulations, you have completed the task.
     If not, go double check the transforms.
+
+
+Extra task
+^^^^^^^^^^^
+
+Your task is to create a transform and set up RViz, so that if you
+launch *robotont_description display_2dmapping.launch*, then it 
+will show the range as if it comes from the robot when you move it.
+
+Try it also with a real robot, set fixed frame to odom, so that
+the robot would move in rviz according to wheel odometry.
