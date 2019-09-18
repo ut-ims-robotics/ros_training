@@ -8,7 +8,9 @@ We will be using Google Cartographer.
 Copying necessary files to your workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.  For starters, ssh to your robot and go to your workspace's source folder.
+1.  For starters, ssh to your robot, create a new workspace
+    (you can name it for example *academy_ws*) and go to your
+    source folder.
 
 2.  In your source folder, use
 
