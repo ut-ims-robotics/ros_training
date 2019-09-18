@@ -106,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="2d_slam.html">2D SLAM with a robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="navigation.html">Navigation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3dmap.html">3D mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced tasks</a></li>
 </ul>
 </li>
 </ul>
@@ -190,6 +191,8 @@ Transforms are necessary to tell the system
 from which location the data is coming from.</p>
 <p>Currently when you visualize your sensor, it is by default tied to the <strong>map</strong>
 frame which is not right because sensor and map are not the same thing.</p>
+<p><strong>NB! Before running your ros nodes, make sure you have sourced your workspace!</strong>
+<strong>To make your life easier, you can add sourcing to your .bashrc file.</strong></p>
 <div class="section" id="static-transform">
 <h2>Static transform<a class="headerlink" href="#static-transform" title="Permalink to this headline">¶</a></h2>
 <p>First, let’s try adding a static transform.</p>
@@ -210,8 +213,8 @@ taken relative to <strong>map</strong> origin.
 as a reference as well as the presentation slides.
 You can keep the rotation zero for now but change the translation
 so that <strong>imu_link</strong> would be 1 meter higher than the <strong>map</strong> frame.</p></li>
-<li><p>Launch <strong>rqt</strong> from terminal.
-On the top bar, go to
+<li><p>Launch <strong>rqt</strong> from terminal</p>
+<p>On the top bar, go to
 Plugins -&gt; Visualization -&gt; TF Tree.
 This will show you the current transforms in the system.
 And should look like this:</p>
@@ -221,11 +224,11 @@ And should look like this:</p>
 </li>
 <li><p>If you see this result, continue to step 5, if not, go back to 2.</p></li>
 <li><p>Now launch <em>sonar_driver_visualize.launch</em>
-with argument <strong>imu_frame:=imu_link</strong>.</p></li>
+with argument <strong>frame_id:=imu_link</strong>.</p></li>
 <li><p>In the RViz windows,
-you should see the origin of IMU pose and range be set to
+you should see the origin of IMU acceleration vector and range be set to
 1 meter above ground.</p></li>
-<li><p>If everything works, shut down all ROS programs and continue to next task.</p></li>
+<li><p>If everything works, shut down all ROS programs except roscore and continue to next task.</p></li>
 </ol>
 </div>
 <div class="section" id="dynamic-transform">
@@ -234,21 +237,19 @@ you should see the origin of IMU pose and range be set to
 we need a transform that moves according to IMU readings.</p>
 <p>This is where transform programming comes in play.</p>
 <ol class="arabic">
-<li><p>First, add <em>tf2_ros</em> in your CMakeLists.txt under <em>find_package</em>.</p></li>
+<li><p>First, add <em>tf2_ros</em> to your CMakeLists.txt.</p></li>
 <li><p>Use this <a class="reference external" href="http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20broadcaster%20%28C%2B%2B%29">this</a>
 tutorial to publish <strong>map</strong> to <strong>imu_link</strong> transform
-according to IMU data.
-You can write your code under <em>processSonarDataframe()</em> function.
-Keep the translation the same as in the previous task but now change
-rotation to IMU data.</p>
-<p>Don’t forget to include necessary headers.</p>
-</li>
+according to IMU data.</p></li>
 <li><p>To test your code, build, source and launch <em>sonar_driver_visualize.launch</em>
 like in the previous task.</p></li>
 <li><p>Now you should see your <em>Range</em> moving.
-If not, first check if your <em>Fixed Frame</em> is set to <strong>map</strong>.
+You can disable IMU from the left side bar because it is
+not relevant anymore.</p>
+<p>If not, first check if your <em>Fixed Frame</em> is set to <strong>map</strong>.
 If it is and <em>Range</em> is not moving,
-go back and recheck the code and launch options.</p></li>
+go back and recheck the code and launch options.</p>
+</li>
 <li><p>Now try turning the sensor and see if relates properly
 to real world movements.
 If yes, congratulations, you have completed the task.
