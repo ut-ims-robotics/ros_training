@@ -215,9 +215,10 @@ git pull
 </div>
 <div class="section" id="complete-our-broken-driver-code-by-filling-in-the-missing-parts">
 <h2>Complete our broken driver code by filling in the missing parts<a class="headerlink" href="#complete-our-broken-driver-code-by-filling-in-the-missing-parts" title="Permalink to this headline">¶</a></h2>
+<p>This work will be combining the knowledge you learned from the past 2 days. Our motivation is to encourage you to work through the familiar problems in a new perspective. For that there will be no detailed step-by-step guide in this assignment.</p>
 <p>Once you got the package compiling, open the <code class="docutils literal notranslate"><span class="pre">sonar_hardware_client_node.cpp</span></code>. Follow the <code class="code docutils literal notranslate"><span class="pre">TODO:</span></code> labels in the code to complete the following tasks:</p>
 <ol class="arabic">
-<li><p class="first">Get the following parameters from ROS parameter server:</p>
+<li><p class="first">TODO: Get the following parameters from ROS parameter server:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="53%" />
@@ -241,7 +242,7 @@ git pull
 </tbody>
 </table>
 </li>
-<li><p class="first">Set up the following publishers and services:</p>
+<li><p class="first">TODO: Set up the following publishers and services:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="32%" />
@@ -292,15 +293,15 @@ git pull
 <li>Create a custom message for <code class="docutils literal notranslate"><span class="pre">range_imu_publisher</span></code> that combines <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Range</span></code> and <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Imu</span></code>.</li>
 </ul>
 </li>
-<li><p class="first">Create a timer to periodically read data from the serial buffer:</p>
+<li><p class="first">TODO: Create a timer to periodically read data from the serial buffer:</p>
 <ul class="simple">
 <li>set the period to 0.05 s (20 Hz)</li>
 <li>set the callback function to <code class="code docutils literal notranslate"><span class="pre">SonarHardwareClient::read</span></code></li>
 </ul>
 </li>
-<li><p class="first">Clamp the sonar range value between 0 and 2.</p>
+<li><p class="first">TODO: Clamp the sonar range value between 0 and 2.</p>
 </li>
-<li><p class="first">Implement the function for processing the sonar data:</p>
+<li><p class="first">TODO: Implement the function for processing the sonar data:</p>
 <ul class="simple">
 <li>Create and publish IMU data as <code class="docutils literal notranslate"><span class="pre">sensor_msgs::Imu</span></code> message</li>
 <li>Create and publish sonar data as <code class="docutils literal notranslate"><span class="pre">sensor_msgs::Range</span></code> message</li>

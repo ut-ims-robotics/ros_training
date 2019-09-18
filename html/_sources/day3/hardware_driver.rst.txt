@@ -37,10 +37,11 @@ Get the base package for the sonar_driver
 
 Complete our broken driver code by filling in the missing parts
 ---------------------------------------------------------------
+This work will be combining the knowledge you learned from the past 2 days. Our motivation is to encourage you to work through the familiar problems in a new perspective. For that there will be no detailed step-by-step guide in this assignment.
 
 Once you got the package compiling, open the ``sonar_hardware_client_node.cpp``. Follow the :code:`TODO:` labels in the code to complete the following tasks:
 
-1. Get the following parameters from ROS parameter server:
+1. TODO: Get the following parameters from ROS parameter server:
    
    +-----------------+---------------+
    | Parameter       | Default value |
@@ -52,7 +53,7 @@ Once you got the package compiling, open the ``sonar_hardware_client_node.cpp``.
    | imu/frame_id    | map           |
    +-----------------+---------------+
 
-2. Set up the following publishers and services:
+2. TODO: Set up the following publishers and services:
 
    +---------------------+------------------------+--------------------+
    | Publisher name      | Datatype               | topic              |
@@ -72,14 +73,14 @@ Once you got the package compiling, open the ``sonar_hardware_client_node.cpp``.
 
    * Create a custom message for ``range_imu_publisher`` that combines ``sensor_msgs/Range`` and ``sensor_msgs/Imu``.
 
-3. Create a timer to periodically read data from the serial buffer:
+3. TODO: Create a timer to periodically read data from the serial buffer:
 
    * set the period to 0.05 s (20 Hz)  
    * set the callback function to :code:`SonarHardwareClient::read`
 
-4. Clamp the sonar range value between 0 and 2.
+4. TODO: Clamp the sonar range value between 0 and 2.
 
-5. Implement the function for processing the sonar data:
+5. TODO: Implement the function for processing the sonar data:
 
    * Create and publish IMU data as ``sensor_msgs::Imu`` message 
    * Create and publish sonar data as ``sensor_msgs::Range`` message 
