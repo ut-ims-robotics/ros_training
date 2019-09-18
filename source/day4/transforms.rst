@@ -74,16 +74,11 @@ we need a transform that moves according to IMU readings.
 
 This is where transform programming comes in play.
 
-1.  First, add *tf2_ros* in your CMakeLists.txt under *find_package*.
+1.  First, add *tf2_ros* to your CMakeLists.txt.
 
 2.  Use this `this <http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20broadcaster%20%28C%2B%2B%29>`_
     tutorial to publish **map** to **imu_link** transform
     according to IMU data.
-    You can write your code in *sonar_hardware_client_node.cpp* under *processSonarDataframe()* function.
-    Keep the translation the same as in the previous task but now change
-    rotation to IMU data.
-
-    Don't forget to include necessary headers.
 
 3.  To test your code, build, source and launch *sonar_driver_visualize.launch*
     like in the previous task.
