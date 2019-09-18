@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Day 4" href="../day4/index.html" />
+    <link rel="next" title="Documentation Generation" href="workshop_1.html" />
     <link rel="prev" title="Day 3" href="index.html" /> 
 </head>
 
@@ -95,11 +95,14 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Day 3</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Custom Hardware Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#preparing-the-sonar-driver">Preparing the sonar_driver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#implement-the-driver">Implement the driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-the-base-package-for-the-sonar-driver">Get the base package for the sonar_driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-our-broken-driver-code-by-filling-in-the-missing-parts">Complete our broken driver code by filling in the missing parts</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="workshop_1.html">Documentation Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workshop_2.html">Unit Testing</a></li>
 </ul>
 </li>
 </ul>
@@ -177,6 +180,10 @@
   <div class="section" id="custom-hardware-driver">
 <h1>Custom Hardware Driver<a class="headerlink" href="#custom-hardware-driver" title="Permalink to this headline">¶</a></h1>
 <p>In this exercise, we are going to replace our <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package with the real hardware. To get started, you are provided with a <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> template that implements core communication between the driver node and the hardware. Your task is to complete the given base code with the missing pieces and integrate the driver with ROS.</p>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>The majority of the work will be done in <code class="docutils literal notranslate"><span class="pre">sonar_hardware_client_node.cpp</span></code> file, where driver communication takes place. The structure of this node is a bit unconventional: instead of everyting defined in <code class="docutils literal notranslate"><span class="pre">main</span></code> we create a custom Class that implemets the hardware communication functionalities. This “Class based” approach is actually very common in industrial applications where many different libraries are integrated to a single application.</p>
+</div>
 <div class="section" id="hardware">
 <h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
 <p>Our device consists of:</p>
@@ -188,8 +195,8 @@
 </ul>
 </div></blockquote>
 </div>
-<div class="section" id="preparing-the-sonar-driver">
-<h2>Preparing the sonar_driver<a class="headerlink" href="#preparing-the-sonar-driver" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-the-base-package-for-the-sonar-driver">
+<h2>Get the base package for the sonar_driver<a class="headerlink" href="#get-the-base-package-for-the-sonar-driver" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Update the <code class="docutils literal notranslate"><span class="pre">ros_training</span></code> repository located in your home folder:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">cd</span> ~/ros_training
@@ -206,8 +213,8 @@ git pull
 </li>
 </ol>
 </div>
-<div class="section" id="implement-the-driver">
-<h2>Implement the driver<a class="headerlink" href="#implement-the-driver" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="complete-our-broken-driver-code-by-filling-in-the-missing-parts">
+<h2>Complete our broken driver code by filling in the missing parts<a class="headerlink" href="#complete-our-broken-driver-code-by-filling-in-the-missing-parts" title="Permalink to this headline">¶</a></h2>
 <p>Once you got the package compiling, open the <code class="docutils literal notranslate"><span class="pre">sonar_hardware_client_node.cpp</span></code>. Follow the <code class="code docutils literal notranslate"><span class="pre">TODO:</span></code> labels in the code to complete the following tasks:</p>
 <ol class="arabic">
 <li><p class="first">Get the following parameters from ROS parameter server:</p>
@@ -312,7 +319,7 @@ git pull
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../day4/index.html" class="btn btn-neutral float-right" title="Day 4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="workshop_1.html" class="btn btn-neutral float-right" title="Documentation Generation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Day 3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

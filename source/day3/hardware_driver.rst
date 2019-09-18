@@ -3,6 +3,11 @@ Custom Hardware Driver
 
 In this exercise, we are going to replace our ``fake_sonar_driver`` package with the real hardware. To get started, you are provided with a ``sonar_driver`` template that implements core communication between the driver node and the hardware. Your task is to complete the given base code with the missing pieces and integrate the driver with ROS.
 
+Motivation
+----------
+
+The majority of the work will be done in ``sonar_hardware_client_node.cpp`` file, where driver communication takes place. The structure of this node is a bit unconventional: instead of everyting defined in ``main`` we create a custom Class that implemets the hardware communication functionalities. This "Class based" approach is actually very common in industrial applications where many different libraries are integrated to a single application.
+
 Hardware
 --------
 
@@ -12,8 +17,8 @@ Our device consists of:
   + Pololu AltIMU-10v4
   + Ultrasound sensor HC-SR04
 
-Preparing the sonar_driver
---------------------------
+Get the base package for the sonar_driver
+-----------------------------------------
 
 #. Update the ``ros_training`` repository located in your home folder:
 
@@ -30,8 +35,8 @@ Preparing the sonar_driver
 
 #. Find and fix the bug deliberately left in the package.
 
-Implement the driver
---------------------
+Complete our broken driver code by filling in the missing parts
+---------------------------------------------------------------
 
 Once you got the package compiling, open the ``sonar_hardware_client_node.cpp``. Follow the :code:`TODO:` labels in the code to complete the following tasks:
 
