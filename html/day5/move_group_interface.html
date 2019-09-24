@@ -190,49 +190,45 @@ To illustrate some of the capabilities of the interface, we’ll be using <code 
 </div></blockquote>
 <p>The general workflow for using MoveIt MoveGroup interface in your program code can be summarized in the following steps:</p>
 <ol class="arabic simple">
-<li><p>Initialize ROS.</p></li>
-<li><p>Create an instance of MoveGroup that corresponds to the <em>robot</em> you program for.</p></li>
-<li><p>Use an appropriate MoveGroup interface method to set target pose for the manipulator.</p></li>
-<li><p>Trigger motion-planning from current pose to the target pose by using a method from the MoveGroup API.</p></li>
-<li><p>If motion plan was successfully generated, execute the motion on the robot.</p></li>
+<li>Initialize ROS.</li>
+<li>Create an instance of MoveGroup that corresponds to the <em>robot</em> you program for.</li>
+<li>Use an appropriate MoveGroup interface method to set target pose for the manipulator.</li>
+<li>Trigger motion-planning from current pose to the target pose by using a method from the MoveGroup API.</li>
+<li>If motion plan was successfully generated, execute the motion on the robot.</li>
 </ol>
 <p>In order to demonstrate and investigate the capabilites of MoveGroup interface, first start xArm7 with MoveIt. Keep the RViz window visible as you
 run different nodes from the <code class="docutils literal notranslate"><span class="pre">movegroup_interface_demo</span></code> package.</p>
 <blockquote>
 <div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">roslaunch</span> <span class="pre">xarm7_moveit_config</span> <span class="pre">demo.launch</span></code></p>
-<div class="figure align-default">
+<div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_gui_xarm7.png"><img alt="../_images/moveit_gui_xarm7.png" src="../_images/moveit_gui_xarm7.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
 <div class="section" id="planning-to-a-pose-goal">
 <h2>Planning to a Pose Goal<a class="headerlink" href="#planning-to-a-pose-goal" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">pose_goal</span></code></p>
-</div></blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">pose_goal</span></code></div></blockquote>
 <p>Look into the source code <code class="docutils literal notranslate"><span class="pre">src/pose_goal.cpp</span></code> to understand how MoveGroup Interface is being used. All the explanations are provided within the
 source file. Feel free to tinker with the contents of the source code to see the effects. Remember to <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> after every time you change something in the source code.</p>
 </div>
 <div class="section" id="planning-to-a-named-goal">
 <h2>Planning to a Named Goal<a class="headerlink" href="#planning-to-a-named-goal" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">named_goal</span></code></p>
-</div></blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">named_goal</span></code></div></blockquote>
 <p>Look into the source code <code class="docutils literal notranslate"><span class="pre">src/named_goal.cpp</span></code> to understand how MoveGroup Interface is being used. All the explanations are provided within the
 source file. Feel free to tinker with the contents of the source code to see the effects. Remember to <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> after every time you change something in the source code.</p>
 </div>
 <div class="section" id="planning-to-a-joint-value-goal">
 <h2>Planning to a Joint Value Goal<a class="headerlink" href="#planning-to-a-joint-value-goal" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">joint_value_goal</span></code></p>
-</div></blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">joint_value_goal</span></code></div></blockquote>
 <p>Look into the source code <code class="docutils literal notranslate"><span class="pre">src/joint_value_goal.cpp</span></code> to understand how MoveGroup Interface is being used. All the explanations are provided within the
 source file. Feel free to tinker with the contents of the source code to see the effects. Remember to <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> after every time you change something in the source code.</p>
 </div>
 <div class="section" id="computing-a-cartesian-path">
 <h2>Computing a Cartesian Path<a class="headerlink" href="#computing-a-cartesian-path" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">cartesian_path</span></code></p>
-</div></blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">rosrun</span> <span class="pre">movegroup_interface_demo</span> <span class="pre">cartesian_path</span></code></div></blockquote>
 <p>Look into the source code <code class="docutils literal notranslate"><span class="pre">src/cartesian_path.cpp</span></code> to understand how MoveGroup Interface is being used. All the explanations are provided within the
 source file. Feel free to tinker with the contents of the source code to see the effects. Remember to <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> after every time you change something in the source code.</p>
 </div>

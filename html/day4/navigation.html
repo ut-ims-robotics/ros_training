@@ -189,10 +189,10 @@ it is time to move on to autonomous navigation.</p>
 <p>First of all, we have to configure our
 launch file like when we worked with 2D mapping.</p>
 <ol class="arabic simple">
-<li><p>Open <em>teleop_carto_with_navstack.launch</em> from your package.</p></li>
-<li><p>Change the launch file so that it reads
+<li>Open <em>teleop_carto_with_navstack.launch</em> from your package.</li>
+<li>Change the launch file so that it reads
 configuration files from your package.
-(NOTE: You have to change paths in 8 places.)</p></li>
+(NOTE: You have to change paths in 8 places.)</li>
 </ol>
 </div>
 <div class="section" id="launching-slam-and-navstack-and-mapping-the-room">
@@ -200,37 +200,40 @@ configuration files from your package.
 <p>Now that you have configured the launch files,
 let’s try running the navstack on Clearbot.</p>
 <ol class="arabic">
-<li><p>In robot’s terminal, run <strong>roscore</strong>.</p></li>
-<li><p>In another robot terminal, launch</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch &lt;your_package_name&gt; teleop_carto_with_navstack.launch.launch
+<li><p class="first">In robot’s terminal, run <strong>roscore</strong>.</p>
+</li>
+<li><p class="first">In another robot terminal, launch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch &lt;your_package_name&gt; teleop_carto_with_navstack.launch.launch
 </pre></div>
 </div>
 <p>This will run the mapping software.</p>
 </li>
-<li><p>In the PC, launch:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_description display_2dmapping.launch
+<li><p class="first">In the PC, launch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description display_2dmapping.launch
 </pre></div>
 </div>
 <p>This will launch preconfigured RViz environment.</p>
 </li>
-<li><p>In the PC, launch:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_pc_side.launch
+<li><p class="first">In the PC, launch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_pc_side.launch
 </pre></div>
 </div>
 <p>From this terminal, you can control the robot.</p>
 </li>
-<li><p>All very similar to last task, now you should be able to map.</p></li>
-<li><p>If you are satisfied with your map, move on to navigation.</p></li>
+<li><p class="first">All very similar to last task, now you should be able to map.</p>
+</li>
+<li><p class="first">If you are satisfied with your map, move on to navigation.</p>
+</li>
 </ol>
 <p>If you want to save your map, you can use:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun map_server map_saver
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun map_server map_saver
 </pre></div>
 </div>
 </div></blockquote>
 <p>And load it later with:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun map_server map_server map.yaml
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun map_server map_server map.yaml
 </pre></div>
 </div>
 </div></blockquote>
@@ -241,7 +244,7 @@ let’s try running the navstack on Clearbot.</p>
 you tell the robot where it is
 (if it doesnt already know) and where it needs to go.</p>
 <ol class="arabic">
-<li><p>In case you have not created a map right now
+<li><p class="first">In case you have not created a map right now
 and instead loaded it in externally,
 you have to tell the robot where it currently is.</p>
 <p><strong>If you have just created
@@ -250,21 +253,21 @@ the robot seems to be in RViz, where it is actually,
 then you may SKIP THIS STEP.</strong></p>
 <p>For setting initial pose, click on 2D Pose Estimate
 and drag the arrow where and how the robot actually is.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/2dposeestimate.png"><img alt="../_images/2dposeestimate.png" src="../_images/2dposeestimate.png" style="width: 910.6999999999999px; height: 520.8px;" /></a>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/2dposeestimate.png"><img alt="../_images/2dposeestimate.png" src="../_images/2dposeestimate.png" style="width: 910.7px; height: 520.8px;" /></a>
 </div>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/poseestimatearrow.png"><img alt="../_images/poseestimatearrow.png" src="../_images/poseestimatearrow.png" style="width: 910.6999999999999px; height: 520.8px;" /></a>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/poseestimatearrow.png"><img alt="../_images/poseestimatearrow.png" src="../_images/poseestimatearrow.png" style="width: 910.7px; height: 520.8px;" /></a>
 </div>
 </li>
-<li><p>To tell the robot where to go, click on 2D Nav Goal
+<li><p class="first">To tell the robot where to go, click on 2D Nav Goal
 and drag the arrow to where you want the robot to go
 and which way does it have to face.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/2dnavgoal.png"><img alt="../_images/2dnavgoal.png" src="../_images/2dnavgoal.png" style="width: 910.6999999999999px; height: 520.8px;" /></a>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/2dnavgoal.png"><img alt="../_images/2dnavgoal.png" src="../_images/2dnavgoal.png" style="width: 910.7px; height: 520.8px;" /></a>
 </div>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/2dnavgoalarrow.png"><img alt="../_images/2dnavgoalarrow.png" src="../_images/2dnavgoalarrow.png" style="width: 910.6999999999999px; height: 520.8px;" /></a>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/2dnavgoalarrow.png"><img alt="../_images/2dnavgoalarrow.png" src="../_images/2dnavgoalarrow.png" style="width: 910.7px; height: 520.8px;" /></a>
 </div>
 </li>
 </ol>
@@ -281,9 +284,10 @@ The most important file here for you is <em>planner.yaml</em>.
 From this file, you can tune the parameters for the planner.
 Reference can be found here: <a class="reference external" href="http://wiki.ros.org/base_local_planner">http://wiki.ros.org/base_local_planner</a> .</p>
 <ol class="arabic">
-<li><p>First, open <em>navstack.launch</em> and change the paths to point
-to your configuration files just like before.</p></li>
-<li><p>Now open <em>planner.yaml</em>. Your task is to configure the planner
+<li><p class="first">First, open <em>navstack.launch</em> and change the paths to point
+to your configuration files just like before.</p>
+</li>
+<li><p class="first">Now open <em>planner.yaml</em>. Your task is to configure the planner
 and make it work better.</p>
 <p>What if you would change acceleration limits?
 What if you would try to increase or decrease the goal tolerance?
@@ -291,15 +295,16 @@ What if you changed local and global map sizes in the launch file?
 You can use ROS Wiki to see what the parameters do and make the
 robot navigate more accurately.</p>
 </li>
-<li><p>To test your new configuration, launch <em>navstack.launch</em>.
+<li><p class="first">To test your new configuration, launch <em>navstack.launch</em>.
 If you have launched <em>teleop_carto_with_navstack.launch</em>
 then this launch will kill the navstack process in that
 terminal and launch a new one.</p>
 <p>After the first launch, for next testing, just use Ctrl+C to
 kill the process and then launch it again.</p>
 </li>
-<li><p>If you are satisfied with the performance of your navigation,
-congratulations!</p></li>
+<li><p class="first">If you are satisfied with the performance of your navigation,
+congratulations!</p>
+</li>
 </ol>
 </div>
 </div>

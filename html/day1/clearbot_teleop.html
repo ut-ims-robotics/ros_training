@@ -185,7 +185,7 @@
 <div class="section" id="clearbot">
 <h2>Clearbot<a class="headerlink" href="#clearbot" title="Permalink to this headline">¶</a></h2>
 <p>Clearbot is an omnidirectionally moving platform meant for educational purposes. The platform is grown out from the Tartu University’s football robot at ROBOTEX robot competition, which was customized for teaching. Clearbot combines an Intel Realsense 3D depth camera and Intel NUC on-board computer to perform computationally expensive tasks (e.g. 3D mapping) locally on the robot. More information on Clearbot is available <a class="reference external" href="http://clearbot.eu">here</a>.</p>
-<div class="figure align-default">
+<div class="figure">
 <a class="reference internal image-reference" href="../_images/clearbot.png"><img alt="../_images/clearbot.png" src="../_images/clearbot.png" style="width: 330.0px; height: 359.5px;" /></a>
 </div>
 </div>
@@ -193,25 +193,28 @@
 <h2>Start Clearbot drivers<a class="headerlink" href="#start-clearbot-drivers" title="Permalink to this headline">¶</a></h2>
 <p>In order to start ROS programs on Clearbot, we need to log into the robot.</p>
 <ol class="arabic">
-<li><p>Open a new terminal and establish an ssh connection:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh kasutaja@clearbot-X
+<li><p class="first">Open a new terminal and establish an ssh connection:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>ssh kasutaja@clearbot-X
 </pre></div>
 </div>
 <p>where X has to be replaced with the ID written on the robot. For example: <code class="code docutils literal notranslate"><span class="pre">clearbot-3</span></code>.</p>
 </li>
-<li><p>Enter the password given to you by the instructor.</p>
+<li><p class="first">Enter the password given to you by the instructor.</p>
 <blockquote>
 <div><div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For security reasons, passwords are not shown as asterisks or bullets when being typed into the terminal. So no panic, your keyboard works just fine. Simply type the password and hit enter.</p>
+<p class="first admonition-title">Tip</p>
+<p class="last">For security reasons, passwords are not shown as asterisks or bullets when being typed into the terminal. So no panic, your keyboard works just fine. Simply type the password and hit enter.</p>
 </div>
 </div></blockquote>
 </li>
-<li><p>When logged in successfully, you can see that the terminal prompt has changed from <code class="code docutils literal notranslate"><span class="pre">academy&#64;laptop-X</span></code> to <code class="code docutils literal notranslate"><span class="pre">kasutaja&#64;clearbot-X</span></code>. This will be an important reference when trying to figure out which terminal is connected to where.</p></li>
-<li><p>After logging into the robot, the ROS environment should be automatically sourced for you. You can quickly display the last lines of the file with <code class="code docutils literal notranslate"><span class="pre">tail</span> <span class="pre">~/.bashrc</span></code> command to examine which workspaces are sourced.</p></li>
-<li><p>Recall the <code class="code docutils literal notranslate"><span class="pre">printenv</span></code> and <code class="code docutils literal notranslate"><span class="pre">echo</span></code> commands to check that the required ROS variables are set.</p></li>
-<li><p>If all looks good, use to start the driver:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_bare.launch
+<li><p class="first">When logged in successfully, you can see that the terminal prompt has changed from <code class="code docutils literal notranslate"><span class="pre">academy&#64;laptop-X</span></code> to <code class="code docutils literal notranslate"><span class="pre">kasutaja&#64;clearbot-X</span></code>. This will be an important reference when trying to figure out which terminal is connected to where.</p>
+</li>
+<li><p class="first">After logging into the robot, the ROS environment should be automatically sourced for you. You can quickly display the last lines of the file with <code class="code docutils literal notranslate"><span class="pre">tail</span> <span class="pre">~/.bashrc</span></code> command to examine which workspaces are sourced.</p>
+</li>
+<li><p class="first">Recall the <code class="code docutils literal notranslate"><span class="pre">printenv</span></code> and <code class="code docutils literal notranslate"><span class="pre">echo</span></code> commands to check that the required ROS variables are set.</p>
+</li>
+<li><p class="first">If all looks good, use to start the driver:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_bare.launch
 </pre></div>
 </div>
 </li>
@@ -220,48 +223,50 @@
 <div class="section" id="teleoperation-using-a-remote-ros-master">
 <h2>Teleoperation using a remote ROS Master<a class="headerlink" href="#teleoperation-using-a-remote-ros-master" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>The robot driver subscribes to a specific type of messages called <em>velocity commands</em>. The standard name for this topic is <code class="code docutils literal notranslate"><span class="pre">/cmd_vel</span></code> or <code class="code docutils literal notranslate"><span class="pre">/robotont/cmd_vel</span></code> when in robot namespace.</p></li>
-<li><p>The message is of type <code class="code docutils literal notranslate"><span class="pre">geometry_msgs/Twist</span></code> and it’s structure can be found from <cite>ROS wiki &lt;https://docs.ros.org/api/geometry_msgs/html/msg/Twist.html&gt;</cite>.</p></li>
+<li>The robot driver subscribes to a specific type of messages called <em>velocity commands</em>. The standard name for this topic is <code class="code docutils literal notranslate"><span class="pre">/cmd_vel</span></code> or <code class="code docutils literal notranslate"><span class="pre">/robotont/cmd_vel</span></code> when in robot namespace.</li>
+<li>The message is of type <code class="code docutils literal notranslate"><span class="pre">geometry_msgs/Twist</span></code> and it’s structure can be found from <cite>ROS wiki &lt;https://docs.ros.org/api/geometry_msgs/html/msg/Twist.html&gt;</cite>.</li>
 </ol>
 <p>To set and control the robot speed, we need to continuously publish the velocity commands. Tomorrow we look how to write the publishers from scratch, but for now let’s use a package that listens keyboard events and publishes them as <code class="code docutils literal notranslate"><span class="pre">Twist</span></code> messages.</p>
 <ol class="arabic">
-<li><p>Open a new terminal</p></li>
-<li><p>Configure the ROS environment to connect to the master on the robot:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>set_master
+<li><p class="first">Open a new terminal</p>
+</li>
+<li><p class="first">Configure the ROS environment to connect to the master on the robot:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>set_master
 </pre></div>
 </div>
 </li>
-<li><p>The small script asks for the robot’s ID and sets ROS environmental variables accordingly.</p></li>
-<li><p>Now you are ready to run the ros node which listens keyboard events and publishes them as velocity commands:</p>
+<li><p class="first">The small script asks for the robot’s ID and sets ROS environmental variables accordingly.</p>
+</li>
+<li><p class="first">Now you are ready to run the ros node which listens keyboard events and publishes them as velocity commands:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_pc_side.launch
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_pc_side.launch
 </pre></div>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<p class="first admonition-title">Warning</p>
 <p>From this point beyond, you are able to drive the robot with a keyboard. Should you loose control over the robot, do one of the following</p>
-<ul class="simple">
-<li><p>PRESS “k” TO STOP THE ROBOT!</p></li>
-<li><p>PRESS THE EMERGENCY SWITCH ON THE ROBOT.</p></li>
-<li><p>LIFT THE ROBOT FROM THE GROUND AND CALL AN INSTRUCTOR.</p></li>
+<ul class="last simple">
+<li>PRESS “k” TO STOP THE ROBOT!</li>
+<li>PRESS THE EMERGENCY SWITCH ON THE ROBOT.</li>
+<li>LIFT THE ROBOT FROM THE GROUND AND CALL AN INSTRUCTOR.</li>
 </ul>
 </div>
 </div></blockquote>
 </li>
-<li><p>Look at the instructions printed to the terminal. Your tasks are:</p>
+<li><p class="first">Look at the instructions printed to the terminal. Your tasks are:</p>
 <ol class="arabic simple">
-<li><p>Move around to understand the dynamics of the robot;</p></li>
-<li><p>Use Shift or Caps Lock to use holonomic mode;</p></li>
-<li><p>Change the driving speed by increasing / decreasing linear and agular velocities.</p></li>
+<li>Move around to understand the dynamics of the robot;</li>
+<li>Use Shift or Caps Lock to use holonomic mode;</li>
+<li>Change the driving speed by increasing / decreasing linear and agular velocities.</li>
 </ol>
 <blockquote>
 <div><div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Notice that the teleop node only receives keypresses only when the terminal window is active.</p>
+<p class="first admonition-title">Hint</p>
+<p class="last">Notice that the teleop node only receives keypresses only when the terminal window is active.</p>
 </div>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Use <code class="code docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">C</span></code> to stop the node.</p>
+<p class="first admonition-title">Tip</p>
+<p class="last">Use <code class="code docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">C</span></code> to stop the node.</p>
 </div>
 </div></blockquote>
 </li>

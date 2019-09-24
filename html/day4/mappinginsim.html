@@ -189,12 +189,12 @@ we will use different ROS packages to map a simulated environment.</p>
 <h2>Launching the simulation<a class="headerlink" href="#launching-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>In separate terminals, run:</p>
 <ol class="arabic">
-<li><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_description gazebo_teleop_keyboard.launch world:<span class="o">=</span><span class="k">$(</span>rospack find turtlebot3_gazebo<span class="k">)</span>/worlds/turtlebot3_world.world
+<li><div class="first highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description gazebo_teleop_keyboard.launch world:<span class="o">=</span><span class="k">$(</span>rospack find turtlebot3_gazebo<span class="k">)</span>/worlds/turtlebot3_world.world
 </pre></div>
 </div>
 <p>This will launch the simulation environment. Also, from this terminal, you can use keyboard teleop.</p>
 </li>
-<li><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_description display_2dmapping.launch
+<li><div class="first highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description display_2dmapping.launch
 </pre></div>
 </div>
 <p>This will launch RViz, that shows the generated map.</p>
@@ -205,14 +205,14 @@ we will use different ROS packages to map a simulated environment.</p>
 <h2>gmapping<a class="headerlink" href="#gmapping" title="Permalink to this headline">¶</a></h2>
 <p>gmapping is a popular 2D SLAM software in ROS.
 It uses laserscans to build a 2D map.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun gmapping slam_gmapping
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun gmapping slam_gmapping
 </pre></div>
 </div>
 <p>This will launch the gmapping mapping software.</p>
 <p>Drive around, using your keyboard, and map the world.</p>
 <p>To configure gmapping, refer to <a class="reference external" href="http://wiki.ros.org/gmapping">http://wiki.ros.org/gmapping</a> .</p>
 <p>To use your own parameters, add them to rosrun command like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun gmapping slam_gmapping _map_update_interval:<span class="o">=</span><span class="m">1</span>.0
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun gmapping slam_gmapping _map_update_interval:<span class="o">=</span>1.0
 </pre></div>
 </div>
 <p>Notice the underscore before the parameter.
@@ -224,14 +224,16 @@ This example will change map update interval to 1 second
 <p>Kill the gmapping process.</p>
 <p>Google Cartographer also uses odometry data.</p>
 <ol class="arabic">
-<li><p>Find out what topic has odometry data,
-using ROS tools e.g. rostopic list, rostopic echo etc.</p></li>
-<li><p>If you have determined the correct topic, launch</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_sim_cartographer_2d.launch odom_topic:<span class="o">=</span>&lt;YOUR ODOMETRY TOPIC&gt;
+<li><p class="first">Find out what topic has odometry data,
+using ROS tools e.g. rostopic list, rostopic echo etc.</p>
+</li>
+<li><p class="first">If you have determined the correct topic, launch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_sim_cartographer_2d.launch odom_topic:<span class="o">=</span>&lt;YOUR ODOMETRY TOPIC&gt;
 </pre></div>
 </div>
 </li>
-<li><p>Try mapping.</p></li>
+<li><p class="first">Try mapping.</p>
+</li>
 </ol>
 </div>
 </div>

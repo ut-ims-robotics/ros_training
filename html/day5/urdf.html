@@ -187,13 +187,13 @@ kinematically described.</p>
 that connects <code class="docutils literal notranslate"><span class="pre">link2</span></code> at the end of <code class="docutils literal notranslate"><span class="pre">link1</span></code> via a revolute joint.
 After you have modified the URDF-file, you can use <code class="docutils literal notranslate"><span class="pre">display.launch</span></code> to see if everything appears as depicted in the next figure.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/urdf_link2_added.png"><img alt="../_images/urdf_link2_added.png" src="../_images/urdf_link2_added.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
 <p>Next we’ll add one more link to the URDF-file. This will serve as <em>virtual</em> end-effector for our manipulator. Create a link without the visual tag: the entire link description shall be <code class="docutils literal notranslate"><span class="pre">&lt;link</span> <span class="pre">name=&quot;tool0&quot;/&gt;</span></code>. Now use a fixed-type joint to attach this <code class="docutils literal notranslate"><span class="pre">tool0</span></code> link at the end of <code class="docutils literal notranslate"><span class="pre">link2</span></code>.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/urdf_tool0_added.png"><img alt="../_images/urdf_tool0_added.png" src="../_images/urdf_tool0_added.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>

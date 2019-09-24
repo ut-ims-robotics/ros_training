@@ -180,10 +180,9 @@
 <h1>Using parameters in your node<a class="headerlink" href="#using-parameters-in-your-node" title="Permalink to this headline">¶</a></h1>
 <p>Next, we’re going to implement parameters into the fake sonar driver. Parameters are stored at ROS Master and can be accessed through node handles. Please see <a class="reference external" href="http://wiki.ros.org/roscpp_tutorials/Tutorials/Parameters">Parameters tutorial</a> for reference.</p>
 <ol class="arabic simple">
-<li><p>Use the default value version of the <code class="docutils literal notranslate"><span class="pre">param()</span></code> function to gain the following features to the fake sonar driver:</p>
-<ul class="simple">
-<li><p>if the parameter <code class="docutils literal notranslate"><span class="pre">frequency</span></code> exists on the parameter server, use its value in the sine function.</p></li>
-<li><p>if the parameter is not specified, fallback to a default value.</p></li>
+<li>Use the default value version of the <code class="docutils literal notranslate"><span class="pre">param()</span></code> function to gain the following features to the fake sonar driver:<ul>
+<li>if the parameter <code class="docutils literal notranslate"><span class="pre">frequency</span></code> exists on the parameter server, use its value in the sine function.</li>
+<li>if the parameter is not specified, fallback to a default value.</li>
 </ul>
 </li>
 </ol>

@@ -2,7 +2,9 @@
 Day 1
 #######
 
-.. .. Slides are available here: :download:`pdf <ros_intro_slides.pdf>`
+
+
+Slides are available here: :download:`pdf <day1_slides.pdf>`
 
 .. toctree::
    :maxdepth: 2

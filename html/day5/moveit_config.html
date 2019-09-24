@@ -185,69 +185,72 @@
 <p>In order to launch MoveIt Setup Assistant:</p>
 <blockquote>
 <div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">roslaunch</span> <span class="pre">moveit_setup_assistant</span> <span class="pre">setup_assistant.launch</span></code></p>
-<div class="figure align-default">
+<div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_01.png"><img alt="../_images/moveit_setup_01.png" src="../_images/moveit_setup_01.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
 <p>Next:</p>
 <ol class="arabic">
-<li><p>click on <em>Create New MoveIt Configuration Package</em>,</p></li>
-<li><p>use <em>Browse</em> button to select the URDF-file created in previous task, and</p></li>
-<li><p>click on <em>Load Files</em> button.</p>
-<div class="figure align-default">
+<li><p class="first">click on <em>Create New MoveIt Configuration Package</em>,</p>
+</li>
+<li><p class="first">use <em>Browse</em> button to select the URDF-file created in previous task, and</p>
+</li>
+<li><p class="first">click on <em>Load Files</em> button.</p>
+<div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_01-after.png"><img alt="../_images/moveit_setup_01-after.png" src="../_images/moveit_setup_01-after.png" style="width: 600pt;" /></a>
 </div>
 </li>
 </ol>
 <p>On <em>Self-Collisions</em> tab:</p>
 <ol class="arabic">
-<li><p>slide <em>Sampling Density</em> to the highest possible level and</p></li>
-<li><p>click on <em>Generate Collision Matrix</em>.</p>
-<div class="figure align-default">
+<li><p class="first">slide <em>Sampling Density</em> to the highest possible level and</p>
+</li>
+<li><p class="first">click on <em>Generate Collision Matrix</em>.</p>
+<div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_02-after.png"><img alt="../_images/moveit_setup_02-after.png" src="../_images/moveit_setup_02-after.png" style="width: 600pt;" /></a>
 </div>
 </li>
 </ol>
 <p>On <em>Virtual Joints</em> tab click on <em>Add Virtual Joint</em>, fill it with the following information, and save it.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_03-after.png"><img alt="../_images/moveit_setup_03-after.png" src="../_images/moveit_setup_03-after.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
 <p>The final look on <em>Virtual Joints</em> tab should appear as follows.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_03-after2.png"><img alt="../_images/moveit_setup_03-after2.png" src="../_images/moveit_setup_03-after2.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
 <p>On <em>Planning Groups</em> tab, click on <em>Add Group</em> and fill it as follows.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_04-after.png"><img alt="../_images/moveit_setup_04-after.png" src="../_images/moveit_setup_04-after.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
 <p>Next we will define the planning group by adding a kinematic chain. Use <code class="docutils literal notranslate"><span class="pre">base_link</span></code> as <em>Base Link</em> and <code class="docutils literal notranslate"><span class="pre">tool0</span></code> as <em>Tip Link</em>.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_04-after2.png"><img alt="../_images/moveit_setup_04-after2.png" src="../_images/moveit_setup_04-after2.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
 <p>The final view on the <em>Planning Groups</em> tab should look as follows.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_04-after3.png"><img alt="../_images/moveit_setup_04-after3.png" src="../_images/moveit_setup_04-after3.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
 <p>On <em>Robot Poses</em> tab, click on <em>Add Pose</em> to create one predefined pose for your robot. Based on your preference, choose the joint values and name for the pose.
 The final view on the <em>Robot Poses</em> tab could look as follows.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_05-after2.png"><img alt="../_images/moveit_setup_05-after2.png" src="../_images/moveit_setup_05-after2.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
 <p>On <em>End Effectors</em> tab, click on <em>Add Effector</em>. It is important to make <code class="docutils literal notranslate"><span class="pre">tool0</span></code> your parent link for the end effector.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_06-after.png"><img alt="../_images/moveit_setup_06-after.png" src="../_images/moveit_setup_06-after.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
@@ -257,7 +260,7 @@ The final view on the <em>Robot Poses</em> tab could look as follows.</p>
 form of <code class="docutils literal notranslate"><span class="pre">robotname_moveit_config</span></code>. So in current case <code class="docutils literal notranslate"><span class="pre">my_robot_moveit_config</span></code> is the recommended name. Choose the <code class="docutils literal notranslate"><span class="pre">src/</span></code> folder in your catkin workspace
 as the location of the configuration package.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_12-after.png"><img alt="../_images/moveit_setup_12-after.png" src="../_images/moveit_setup_12-after.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>
@@ -267,11 +270,10 @@ as the location of the configuration package.</p>
 <h2>Testing the MoveIt configuration package<a class="headerlink" href="#testing-the-moveit-configuration-package" title="Permalink to this headline">¶</a></h2>
 <p>Among other files, the Setup Assistant generated the <code class="docutils literal notranslate"><span class="pre">demo.launch</span></code> for the robot.</p>
 <blockquote>
-<div><p><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">roslaunch</span> <span class="pre">my_robot_moveit_config</span> <span class="pre">demo.launch</span></code></p>
-</div></blockquote>
+<div><code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">roslaunch</span> <span class="pre">my_robot_moveit_config</span> <span class="pre">demo.launch</span></code></div></blockquote>
 <p>On <em>Planning</em> tab, make a tic in <em>Allow Approx IK Solutions</em> checkbox. Verify that the interactive markers, planning, and executing is working for the robot.</p>
 <blockquote>
-<div><div class="figure align-default">
+<div><div class="figure">
 <a class="reference internal image-reference" href="../_images/moveit_setup_working.png"><img alt="../_images/moveit_setup_working.png" src="../_images/moveit_setup_working.png" style="width: 600pt;" /></a>
 </div>
 </div></blockquote>

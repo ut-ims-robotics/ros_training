@@ -188,29 +188,30 @@
 <div class="section" id="further-information">
 <h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Steps to creating a workspace:  <a class="reference external" href="http://wiki.ros.org/catkin/Tutorials/create_a_workspace">Creating a Workspace</a></p></li>
-<li><p>Using a catkin workspace:  <a class="reference external" href="http://wiki.ros.org/catkin/Tutorials/using_a_workspace">Using a workspace</a></p></li>
+<li>Steps to creating a workspace:  <a class="reference external" href="http://wiki.ros.org/catkin/Tutorials/create_a_workspace">Creating a Workspace</a></li>
+<li>Using a catkin workspace:  <a class="reference external" href="http://wiki.ros.org/catkin/Tutorials/using_a_workspace">Using a workspace</a></li>
 </ul>
 </div>
 <div class="section" id="create-a-catkin-workspace">
 <h2>Create a Catkin Workspace<a class="headerlink" href="#create-a-catkin-workspace" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p>Start by creating a root directory for the workspace:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span>
+<li><p class="first">Start by creating a root directory for the workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">cd</span>
 mkdir -p catkin_ws/src
 </pre></div>
 </div>
 </li>
-<li><p>Next, we need to initialize the workspace. But before doing that, we have to be sure which workspace our new <cite>catkin_ws</cite> is going to extend. The rule is that the new initialized workspace will always extend the workspace that is currently sourced.</p></li>
-<li><p>This training is accompanied with support packages placed in separate workspace located at <code class="docutils literal notranslate"><span class="pre">~/clearbot_ros_ws</span></code>. The plan is to initialize our new <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code> so that it would extend the <code class="docutils literal notranslate"><span class="pre">clearbot_ros_ws</span></code>. So the only thing we need to do is make sure we have sourced <code class="docutils literal notranslate"><span class="pre">clearbot_ros_ws</span></code> before using the init command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/clearbot_ros_ws/devel/setup.bash
+<li><p class="first">Next, we need to initialize the workspace. But before doing that, we have to be sure which workspace our new <cite>catkin_ws</cite> is going to extend. The rule is that the new initialized workspace will always extend the workspace that is currently sourced.</p>
+</li>
+<li><p class="first">This training is accompanied with support packages placed in separate workspace located at <code class="docutils literal notranslate"><span class="pre">~/clearbot_ros_ws</span></code>. The plan is to initialize our new <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code> so that it would extend the <code class="docutils literal notranslate"><span class="pre">clearbot_ros_ws</span></code>. So the only thing we need to do is make sure we have sourced <code class="docutils literal notranslate"><span class="pre">clearbot_ros_ws</span></code> before using the init command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">source</span> ~/clearbot_ros_ws/devel/setup.bash
 <span class="nb">cd</span> ~/catkin_ws
 catkin init
 </pre></div>
 </div>
 </li>
-<li><p>The output of the <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">init</span></code> command tells you which workspaces were extended:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>...
+<li><p class="first">The output of the <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">init</span></code> command tells you which workspaces were extended:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>...
 Extending:             <span class="o">[</span>env<span class="o">]</span> /home/academy/clearbot_ros_ws/devel:/opt/ros/kinetic
 ...
 </pre></div>
@@ -219,39 +220,39 @@ Extending:             <span class="o">[</span>env<span class="o">]</span> /home
 </ol>
 <blockquote>
 <div><div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Look for the statement “Workspace configuration appears valid”, showing that your catkin workspace was created successfully. If you forgot to create the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory, or did not run <cite>catkin init</cite> from the workspace root (both common mistakes), you’ll get an error message like “WARNING: Source space does not yet exist”.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">Look for the statement “Workspace configuration appears valid”, showing that your catkin workspace was created successfully. If you forgot to create the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory, or did not run <cite>catkin init</cite> from the workspace root (both common mistakes), you’ll get an error message like “WARNING: Source space does not yet exist”.</p>
 </div>
 </div></blockquote>
 <ol class="arabic">
-<li><p>Build the workspace. This command may be issued anywhere under the workspace root-directory (i.e. <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code>).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin build
+<li><p class="first">Build the workspace. This command may be issued anywhere under the workspace root-directory (i.e. <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code>).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin build
 ls
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>See that the <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code>).directory now contains additional directories (build, devel, logs).</p></li>
+<li>See that the <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code>).directory now contains additional directories (build, devel, logs).</li>
 </ul>
 </li>
-<li><p>These new directories can be safely deleted at any time (either manually, or using <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">clean</span></code>). Re-run <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> to re-create the build/devel/logs directories.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin clean
+<li><p class="first">These new directories can be safely deleted at any time (either manually, or using <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">clean</span></code>). Re-run <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> to re-create the build/devel/logs directories.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin clean
 ls
 catkin build
 ls
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Catkin never changes any files in the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">Catkin never changes any files in the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory.</p>
 </div>
 </li>
-<li><p>Make the workspace visible to ROS. Source the setup file in the devel directory.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/catkin_ws/devel/setup.bash
+<li><p class="first">Make the workspace visible to ROS. Source the setup file in the devel directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">source</span> ~/catkin_ws/devel/setup.bash
 </pre></div>
 </div>
 <ul>
-<li><p>This file MUST be sourced for every new terminal. Add this to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file to source your new workspace automatically each time a new terminal is opened:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source ~/catkin_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+<li><p class="first">This file MUST be sourced for every new terminal. Add this to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file to source your new workspace automatically each time a new terminal is opened:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">echo</span> <span class="s2">&quot;source ~/catkin_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
 </pre></div>
 </div>
 </li>

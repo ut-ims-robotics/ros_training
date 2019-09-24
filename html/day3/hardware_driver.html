@@ -189,27 +189,28 @@
 <p>Our device consists of:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Arduino Nano v3</p></li>
-<li><p>Pololu AltIMU-10v4</p></li>
-<li><p>Ultrasound sensor HC-SR04</p></li>
+<li>Arduino Nano v3</li>
+<li>Pololu AltIMU-10v4</li>
+<li>Ultrasound sensor HC-SR04</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="get-the-base-package-for-the-sonar-driver">
 <h2>Get the base package for the sonar_driver<a class="headerlink" href="#get-the-base-package-for-the-sonar-driver" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p>Update the <code class="docutils literal notranslate"><span class="pre">ros_training</span></code> repository located in your home folder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/ros_training
+<li><p class="first">Update the <code class="docutils literal notranslate"><span class="pre">ros_training</span></code> repository located in your home folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">cd</span> ~/ros_training
 git pull
 </pre></div>
 </div>
 </li>
-<li><p>Copy the <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package to your <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code> workspace:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp -r ~/ros_training/resources/sonar_driver ~/catkin_ws/src/
+<li><p class="first">Copy the <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> package to your <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code> workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>cp -r ~/ros_training/resources/sonar_driver ~/catkin_ws/src/
 </pre></div>
 </div>
 </li>
-<li><p>Find and fix the bug deliberately left in the package.</p></li>
+<li><p class="first">Find and fix the bug deliberately left in the package.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="complete-our-broken-driver-code-by-filling-in-the-missing-parts">
@@ -217,93 +218,94 @@ git pull
 <p>This work will be combining the knowledge you learned from the past 2 days. Our motivation is to encourage you to work through the familiar problems in a new perspective. For that there will be no detailed step-by-step guide in this assignment.</p>
 <p>Once you got the package compiling, open the <code class="docutils literal notranslate"><span class="pre">sonar_hardware_client_node.cpp</span></code>. Follow the <code class="code docutils literal notranslate"><span class="pre">TODO:</span></code> labels in the code to complete the following tasks:</p>
 <ol class="arabic">
-<li><p>TODO: Get the following parameters from ROS parameter server:</p>
-<table class="docutils align-default">
+<li><p class="first">TODO: Get the following parameters from ROS parameter server:</p>
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 53%" />
-<col style="width: 47%" />
+<col width="53%" />
+<col width="47%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter</p></th>
-<th class="head"><p>Default value</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Default value</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>serial/port</p></td>
-<td><p>dev/ttyUSB0</p></td>
+<tbody valign="top">
+<tr class="row-even"><td>serial/port</td>
+<td>dev/ttyUSB0</td>
 </tr>
-<tr class="row-odd"><td><p>serial/baudrate</p></td>
-<td><p>115200</p></td>
+<tr class="row-odd"><td>serial/baudrate</td>
+<td>115200</td>
 </tr>
-<tr class="row-even"><td><p>imu/frame_id</p></td>
-<td><p>map</p></td>
+<tr class="row-even"><td>imu/frame_id</td>
+<td>map</td>
 </tr>
 </tbody>
 </table>
 </li>
-<li><p>TODO: Set up the following publishers and services:</p>
-<table class="docutils align-default">
+<li><p class="first">TODO: Set up the following publishers and services:</p>
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 32%" />
-<col style="width: 37%" />
-<col style="width: 31%" />
+<col width="32%" />
+<col width="37%" />
+<col width="31%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Publisher name</p></th>
-<th class="head"><p>Datatype</p></th>
-<th class="head"><p>topic</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Publisher name</th>
+<th class="head">Datatype</th>
+<th class="head">topic</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>imu_publisher</p></td>
-<td><p>sensor_msgs::Imu</p></td>
-<td><p>imu</p></td>
+<tbody valign="top">
+<tr class="row-even"><td>imu_publisher</td>
+<td>sensor_msgs::Imu</td>
+<td>imu</td>
 </tr>
-<tr class="row-odd"><td><p>sonar_publisher</p></td>
-<td><p>sensor_msgs::Range</p></td>
-<td><p>sonar_distance</p></td>
+<tr class="row-odd"><td>sonar_publisher</td>
+<td>sensor_msgs::Range</td>
+<td>sonar_distance</td>
 </tr>
-<tr class="row-even"><td><p>range_imu_publisher</p></td>
-<td><p>sonar_driver::RangeImu</p></td>
-<td><p>range_imu_combined</p></td>
+<tr class="row-even"><td>range_imu_publisher</td>
+<td>sonar_driver::RangeImu</td>
+<td>range_imu_combined</td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 34%" />
-<col style="width: 41%" />
-<col style="width: 24%" />
+<col width="34%" />
+<col width="41%" />
+<col width="24%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Service name</p></th>
-<th class="head"><p>Datatype</p></th>
-<th class="head"><p>topic</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Service name</th>
+<th class="head">Datatype</th>
+<th class="head">topic</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>set_sonar_range_server</p></td>
-<td><p>sonar_driver::SetSonarRange</p></td>
-<td><p>set_sonar_range</p></td>
+<tbody valign="top">
+<tr class="row-even"><td>set_sonar_range_server</td>
+<td>sonar_driver::SetSonarRange</td>
+<td>set_sonar_range</td>
 </tr>
 </tbody>
 </table>
 <ul class="simple">
-<li><p>Create a custom message for <code class="docutils literal notranslate"><span class="pre">range_imu_publisher</span></code> that combines <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Range</span></code> and <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Imu</span></code>.</p></li>
+<li>Create a custom message for <code class="docutils literal notranslate"><span class="pre">range_imu_publisher</span></code> that combines <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Range</span></code> and <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Imu</span></code>.</li>
 </ul>
 </li>
-<li><p>TODO: Create a timer to periodically read data from the serial buffer:</p>
+<li><p class="first">TODO: Create a timer to periodically read data from the serial buffer:</p>
 <ul class="simple">
-<li><p>set the period to 0.05 s (20 Hz)</p></li>
-<li><p>set the callback function to <code class="code docutils literal notranslate"><span class="pre">SonarHardwareClient::read</span></code></p></li>
+<li>set the period to 0.05 s (20 Hz)</li>
+<li>set the callback function to <code class="code docutils literal notranslate"><span class="pre">SonarHardwareClient::read</span></code></li>
 </ul>
 </li>
-<li><p>TODO: Clamp the sonar range value between 0 and 2.</p></li>
-<li><p>TODO: Implement the function for processing the sonar data:</p>
+<li><p class="first">TODO: Clamp the sonar range value between 0 and 2.</p>
+</li>
+<li><p class="first">TODO: Implement the function for processing the sonar data:</p>
 <ul class="simple">
-<li><p>Create and publish IMU data as <code class="docutils literal notranslate"><span class="pre">sensor_msgs::Imu</span></code> message</p></li>
-<li><p>Create and publish sonar data as <code class="docutils literal notranslate"><span class="pre">sensor_msgs::Range</span></code> message</p></li>
-<li><p>Create and publish our custom <code class="docutils literal notranslate"><span class="pre">sonar_driver::RangeImu</span></code> message</p></li>
+<li>Create and publish IMU data as <code class="docutils literal notranslate"><span class="pre">sensor_msgs::Imu</span></code> message</li>
+<li>Create and publish sonar data as <code class="docutils literal notranslate"><span class="pre">sensor_msgs::Range</span></code> message</li>
+<li>Create and publish our custom <code class="docutils literal notranslate"><span class="pre">sonar_driver::RangeImu</span></code> message</li>
 </ul>
 </li>
 </ol>

@@ -2,7 +2,9 @@
 Day 3
 ######
 
-.. Slides are available here: :download:`pdf <day3_slides.pdf>`
+
+
+Slides are available here: :download:`pdf <day3_slides.pdf>`
 
 .. toctree::
    :maxdepth: 2

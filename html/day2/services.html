@@ -182,44 +182,52 @@
   <div class="section" id="service-server-service-client">
 <h1>Service Server &amp; Service Client<a class="headerlink" href="#service-server-service-client" title="Permalink to this headline">¶</a></h1>
 <p>The first type of ROS communication that we explored was a one-way interaction called messages which are sent over channels called topics. Now we are going to explore a different communication type, which is a two-way interaction via a request from one node to another and a response from that node to the first.</p>
-<dl class="simple">
-<dt>After completing this exercise, you will have the answers to the following questions:</dt><dd><ul class="simple">
-<li><p>How to create a custom messages/services?</p></li>
-<li><p>Wow to use <code class="docutils literal notranslate"><span class="pre">message_genetation</span></code>?</p></li>
-<li><p>How to implement a simple service server?</p></li>
+<dl class="docutils">
+<dt>After completing this exercise, you will have the answers to the following questions:</dt>
+<dd><ul class="first last simple">
+<li>How to create a custom messages/services?</li>
+<li>Wow to use <code class="docutils literal notranslate"><span class="pre">message_genetation</span></code>?</li>
+<li>How to implement a simple service server?</li>
 </ul>
 </dd>
 </dl>
 <ol class="arabic">
-<li><p>First, read through the ROS tutorials section on <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrvhow">Creating a ROS msg and srv</a>.</p></li>
-<li><p>Next, navigate to the root of your <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package and create a subdirectory named <code class="docutils literal notranslate"><span class="pre">srv</span></code> for our custom service. Our service will enable changing the sonar’s field of view (FOV), which is published as part of the <code class="docutils literal notranslate"><span class="pre">Range</span></code> message.</p></li>
-<li><p>In the <code class="docutils literal notranslate"><span class="pre">srv</span></code> directory, create a service file named <code class="docutils literal notranslate"><span class="pre">SetSonarFOV.srv</span></code> with the following request and response parts:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sets .</span>
+<li><p class="first">First, read through the ROS tutorials section on <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrvhow">Creating a ROS msg and srv</a>.</p>
+</li>
+<li><p class="first">Next, navigate to the root of your <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package and create a subdirectory named <code class="docutils literal notranslate"><span class="pre">srv</span></code> for our custom service. Our service will enable changing the sonar’s field of view (FOV), which is published as part of the <code class="docutils literal notranslate"><span class="pre">Range</span></code> message.</p>
+</li>
+<li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">srv</span></code> directory, create a service file named <code class="docutils literal notranslate"><span class="pre">SetSonarFOV.srv</span></code> with the following request and response parts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># Sets .</span>
 <span class="n">float64</span> <span class="n">fov_to_set</span>
 <span class="o">---</span>
 <span class="n">float64</span> <span class="n">set_fov</span>
 </pre></div>
 </div>
 </li>
-<li><p>Make changes in your <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> and <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> to include <code class="docutils literal notranslate"><span class="pre">message_generation</span></code> for this service.</p></li>
-<li><p>Test it out:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rossrv show fake_sonar_driver SetSonarFOV
+<li><p class="first">Make changes in your <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> and <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> to include <code class="docutils literal notranslate"><span class="pre">message_generation</span></code> for this service.</p>
+</li>
+<li><p class="first">Test it out:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>rossrv show fake_sonar_driver SetSonarFOV
 </pre></div>
 </div>
 </li>
-<li><p>Good Job! It’s now time to learn the steps needed to create a service server (waits for request and comes up with response) and client (makes request for info then waits for response).</p></li>
-<li><p>Complete the <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">Writing a Simple Service and Client (C++)</a> tutorial.</p></li>
-<li><p>Now that you know how service server and client are implemented in nodes, let’s add a service server to <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code>.</p></li>
-<li><p>Add the following functionality to our fake sonar node:</p>
+<li><p class="first">Good Job! It’s now time to learn the steps needed to create a service server (waits for request and comes up with response) and client (makes request for info then waits for response).</p>
+</li>
+<li><p class="first">Complete the <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">Writing a Simple Service and Client (C++)</a> tutorial.</p>
+</li>
+<li><p class="first">Now that you know how service server and client are implemented in nodes, let’s add a service server to <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code>.</p>
+</li>
+<li><p class="first">Add the following functionality to our fake sonar node:</p>
 <ul class="simple">
-<li><p>the node advertises a service on topic <code class="docutils literal notranslate"><span class="pre">/set_sonar_fov</span></code></p></li>
-<li><p>the service type is <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver/SetSonarFOV</span></code></p></li>
-<li><p>the server will check <code class="docutils literal notranslate"><span class="pre">fov_to_set</span></code> field and responds back with the same value in <code class="docutils literal notranslate"><span class="pre">set_fov</span></code> field.</p></li>
+<li>the node advertises a service on topic <code class="docutils literal notranslate"><span class="pre">/set_sonar_fov</span></code></li>
+<li>the service type is <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver/SetSonarFOV</span></code></li>
+<li>the server will check <code class="docutils literal notranslate"><span class="pre">fov_to_set</span></code> field and responds back with the same value in <code class="docutils literal notranslate"><span class="pre">set_fov</span></code> field.</li>
 </ul>
 </li>
-<li><p>Test the server with <code class="code docutils literal notranslate"><span class="pre">rossrv</span> <span class="pre">call</span> <span class="pre">/sonar_distance</span> <span class="pre">1.4</span></code> and show the result to the instructor.</p></li>
-<li><p>Improve the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code> such that the <code class="docutils literal notranslate"><span class="pre">fov_to_set</span></code> value would be updated into the <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code> topic. The easies way to do this is by defining <code class="docutils literal notranslate"><span class="pre">field_of_view</span></code> as a global variable:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;...&gt;</span><span class="cp"></span>
+<li><p class="first">Test the server with <code class="code docutils literal notranslate"><span class="pre">rossrv</span> <span class="pre">call</span> <span class="pre">/sonar_distance</span> <span class="pre">1.4</span></code> and show the result to the instructor.</p>
+</li>
+<li><p class="first">Improve the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code> such that the <code class="docutils literal notranslate"><span class="pre">fov_to_set</span></code> value would be updated into the <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code> topic. The easies way to do this is by defining <code class="docutils literal notranslate"><span class="pre">field_of_view</span></code> as a global variable:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;...&gt;</span><span class="cp"></span>
 
 <span class="kt">double</span> <span class="n">field_of_view</span><span class="p">;</span>
 
@@ -236,23 +244,25 @@
 </pre></div>
 </div>
 </li>
-<li><p>Would it be awesome to visualize the sonar range and its field of view graphically? In ROS, this is peace of cake:</p>
+<li><p class="first">Would it be awesome to visualize the sonar range and its field of view graphically? In ROS, this is peace of cake:</p>
 <ul class="simple">
-<li><p>Open a new terminal and type: <code class="code docutils literal notranslate"><span class="pre">rviz</span></code></p></li>
-<li><p>In RViz, click the <code class="docutils literal notranslate"><span class="pre">add</span></code> button on the Displays panel (the one on the left side).</p></li>
-<li><p>Select the <code class="docutils literal notranslate"><span class="pre">By</span> <span class="pre">topic</span></code> tab and double-click on the <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code> topic.</p></li>
+<li>Open a new terminal and type: <code class="code docutils literal notranslate"><span class="pre">rviz</span></code></li>
+<li>In RViz, click the <code class="docutils literal notranslate"><span class="pre">add</span></code> button on the Displays panel (the one on the left side).</li>
+<li>Select the <code class="docutils literal notranslate"><span class="pre">By</span> <span class="pre">topic</span></code> tab and double-click on the <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code> topic.</li>
 </ul>
 </li>
-<li><p>Open another terminal and change the field of view with the <code class="code docutils literal notranslate"><span class="pre">rossrv</span> <span class="pre">call</span></code> command. See if you notice any changes in RViz.</p></li>
-<li><p>Present your solution to the instructor. Congratulations, you are now ready to face the challenges in day 3!</p></li>
+<li><p class="first">Open another terminal and change the field of view with the <code class="code docutils literal notranslate"><span class="pre">rossrv</span> <span class="pre">call</span></code> command. See if you notice any changes in RViz.</p>
+</li>
+<li><p class="first">Present your solution to the instructor. Congratulations, you are now ready to face the challenges in day 3!</p>
+</li>
 </ol>
 <div class="section" id="bonus-task">
 <h2>Bonus task<a class="headerlink" href="#bonus-task" title="Permalink to this headline">¶</a></h2>
 <p>Currently our fake sonar node has publishers and subscribers laying next to main(). However, to make our code modular, we should restructure it and place the publisher, service server, and callback functions into a separate <code class="docutils literal notranslate"><span class="pre">FakeSonarDriver</span></code> class.</p>
 <ol class="arabic simple">
-<li><p>Create the <code class="docutils literal notranslate"><span class="pre">src/fake_sonar_driver.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">include/fake_sonar_driver/fake_sonar_driver.h</span></code> files.</p></li>
-<li><p>Replace the existing while loop with a <a class="reference external" href="http://wiki.ros.org/roscpp/Overview/Timers">timer</a> that would update the sine() value in the class.</p></li>
-<li><p>The <code class="code docutils literal notranslate"><span class="pre">main()</span></code> function should now simply create the <code class="docutils literal notranslate"><span class="pre">FakeSonarDriver</span></code> object and spin forever using <code class="docutils literal notranslate"><span class="pre">ros::spin()</span></code>.</p></li>
+<li>Create the <code class="docutils literal notranslate"><span class="pre">src/fake_sonar_driver.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">include/fake_sonar_driver/fake_sonar_driver.h</span></code> files.</li>
+<li>Replace the existing while loop with a <a class="reference external" href="http://wiki.ros.org/roscpp/Overview/Timers">timer</a> that would update the sine() value in the class.</li>
+<li>The <code class="code docutils literal notranslate"><span class="pre">main()</span></code> function should now simply create the <code class="docutils literal notranslate"><span class="pre">FakeSonarDriver</span></code> object and spin forever using <code class="docutils literal notranslate"><span class="pre">ros::spin()</span></code>.</li>
 </ol>
 </div>
 </div>
