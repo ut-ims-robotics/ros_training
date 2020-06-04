@@ -192,7 +192,7 @@ We will be using Google Cartographer.</p>
 source folder.</p>
 </li>
 <li><p class="first">In your source folder, use</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin_create_pkg &lt;your_package_name&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin_create_pkg &lt;your_package_name&gt;
 </pre></div>
 </div>
 <p>where your package name could be something along the lines of <em>my_mapping</em>.
@@ -211,7 +211,7 @@ into your new package’s <em>launch</em> folder.</p>
 </li>
 <li><p class="first">Using <strong>roscp</strong>, copy the following files from <em>robotont_teleop</em>
 into your package’s configuration folder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>robotont_cartographer_2d.lua
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>robotont_cartographer_2d.lua
 robotont_cartographer_localization_2d.lua
 robotont_depth_camera_2d.lua
 costmap_common.yaml
@@ -246,19 +246,19 @@ let’s try running the SLAM package.</p>
 <li><p class="first">In robot’s terminal, run <strong>roscore</strong>.</p>
 </li>
 <li><p class="first">In another robot terminal, launch</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch &lt;your_package_name&gt; teleop_cartographer_2d.launch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch &lt;your_package_name&gt; teleop_cartographer_2d.launch
 </pre></div>
 </div>
 <p>This will run the mapping software.</p>
 </li>
 <li><p class="first">In the PC, launch:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description display_2dmapping.launch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_description display_2dmapping.launch
 </pre></div>
 </div>
 <p>This will launch preconfigured RViz environment.</p>
 </li>
 <li><p class="first">In the PC, launch:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_pc_side.launch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_pc_side.launch
 </pre></div>
 </div>
 <p>From this terminal, you can control the robot.</p>

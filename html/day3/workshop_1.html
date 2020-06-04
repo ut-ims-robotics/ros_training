@@ -216,7 +216,7 @@
 <li><p class="first">Open the sonar_hardware_client_node.cpp file from the previous workshop.</p>
 <ol>
 <li><p class="first">Annotate above the <code class="docutils literal notranslate"><span class="pre">SonarHardwareClient</span></code> class:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * @brief Object that handles communication with an IMU + sonar hardware via serial port.</span>
 <span class="cm"> * Publishes the processed IMU data as sensor_msgs::Imu and sonar data as sensor_msgs::Range.</span>
 <span class="cm"> * </span>
@@ -228,12 +228,12 @@
 <li><p class="first">Annotate above the <code class="docutils literal notranslate"><span class="pre">processSonarDataframe()</span></code> method similarly</p>
 </li>
 <li><p class="first">Annotate any class member variables that you have added. For variables we can use a simpler documentation notation <code class="docutils literal notranslate"><span class="pre">///</span></code> or <code class="docutils literal notranslate"><span class="pre">///&lt;</span></code>:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="c1">/// my_example_variable_ documentation</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">/// my_example_variable_ documentation</span>
 <span class="kt">int</span> <span class="n">my_example_variable_</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="kt">int</span> <span class="n">my_example_variable_</span><span class="p">;</span>   <span class="c1">///&lt; my_example_variable_ documentation</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">my_example_variable_</span><span class="p">;</span>   <span class="c1">///&lt; my_example_variable_ documentation</span>
 </pre></div>
 </div>
 </li>
@@ -247,22 +247,22 @@
 <h3>Generate documentation<a class="headerlink" href="#generate-documentation" title="Permalink to this headline">¶</a></h3>
 <ol>
 <li><p class="first">Install <code class="docutils literal notranslate"><span class="pre">rosdoc_lite</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">rosdoc</span><span class="o">-</span><span class="n">lite</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">rosdoc</span><span class="o">-</span><span class="n">lite</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Build the workspace so we can produce documentation for its packages later:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">catkin</span> <span class="n">build</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">catkin</span> <span class="n">build</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Source the workspace</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">source</span> <span class="o">./</span><span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">./</span><span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Run <code class="docutils literal notranslate"><span class="pre">rosdoc_lite</span></code> to generate the documentation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">roscd</span> <span class="n">sonar_driver</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roscd</span> <span class="n">sonar_driver</span>
 <span class="n">rosdoc_lite</span> <span class="o">.</span>
 </pre></div>
 </div>
@@ -273,7 +273,7 @@
 <h3>View the Documentation<a class="headerlink" href="#view-the-documentation" title="Permalink to this headline">¶</a></h3>
 <ol>
 <li><p class="first">Open the documentation in a browser, for example in firefox:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">firefox</span> <span class="n">doc</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">firefox</span> <span class="n">doc</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
 </pre></div>
 </div>
 </li>

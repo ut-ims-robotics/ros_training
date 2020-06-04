@@ -5,7 +5,7 @@ The first type of ROS communication that we explored was a one-way interaction c
 
 After completing this exercise, you will have the answers to the following questions:
   * How to create a custom messages/services?
-  * Wow to use ``message_genetation``?
+  * How to use ``message_generation``?
   * How to implement a simple service server?
    
     

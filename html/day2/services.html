@@ -186,7 +186,7 @@
 <dt>After completing this exercise, you will have the answers to the following questions:</dt>
 <dd><ul class="first last simple">
 <li>How to create a custom messages/services?</li>
-<li>Wow to use <code class="docutils literal notranslate"><span class="pre">message_genetation</span></code>?</li>
+<li>How to use <code class="docutils literal notranslate"><span class="pre">message_generation</span></code>?</li>
 <li>How to implement a simple service server?</li>
 </ul>
 </dd>
@@ -197,7 +197,7 @@
 <li><p class="first">Next, navigate to the root of your <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package and create a subdirectory named <code class="docutils literal notranslate"><span class="pre">srv</span></code> for our custom service. Our service will enable changing the sonar’s field of view (FOV), which is published as part of the <code class="docutils literal notranslate"><span class="pre">Range</span></code> message.</p>
 </li>
 <li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">srv</span></code> directory, create a service file named <code class="docutils literal notranslate"><span class="pre">SetSonarFOV.srv</span></code> with the following request and response parts:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># Sets .</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sets .</span>
 <span class="n">float64</span> <span class="n">fov_to_set</span>
 <span class="o">---</span>
 <span class="n">float64</span> <span class="n">set_fov</span>
@@ -207,7 +207,7 @@
 <li><p class="first">Make changes in your <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> and <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> to include <code class="docutils literal notranslate"><span class="pre">message_generation</span></code> for this service.</p>
 </li>
 <li><p class="first">Test it out:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>rossrv show fake_sonar_driver SetSonarFOV
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rossrv show fake_sonar_driver SetSonarFOV
 </pre></div>
 </div>
 </li>
@@ -227,7 +227,7 @@
 <li><p class="first">Test the server with <code class="code docutils literal notranslate"><span class="pre">rossrv</span> <span class="pre">call</span> <span class="pre">/sonar_distance</span> <span class="pre">1.4</span></code> and show the result to the instructor.</p>
 </li>
 <li><p class="first">Improve the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code> such that the <code class="docutils literal notranslate"><span class="pre">fov_to_set</span></code> value would be updated into the <code class="docutils literal notranslate"><span class="pre">/sonar_distance</span></code> topic. The easies way to do this is by defining <code class="docutils literal notranslate"><span class="pre">field_of_view</span></code> as a global variable:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;...&gt;</span><span class="cp"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;...&gt;</span><span class="cp"></span>
 
 <span class="kt">double</span> <span class="n">field_of_view</span><span class="p">;</span>
 

@@ -181,17 +181,17 @@
 <li><p class="first">Create a ssh-connection to the robot and launch roscore to keep ROS running and prevent us from having to restart all nodes every time. (If you close the first roslaunch you ran, whole ROS system will collapse because it is the same as killing the core.)</p>
 </li>
 <li><p class="first">Create a ssh-connection to the robot and launch</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_3dmapping.launch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_3dmapping.launch
 </pre></div>
 </div>
 </li>
 <li><p class="first">In another terminal in your PC, for visualization, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_description display_3dmapping.launch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_description display_3dmapping.launch
 </pre></div>
 </div>
 </li>
 <li><p class="first">In another terminal, for controlling the robot, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_pc_side.launch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_pc_side.launch
 </pre></div>
 </div>
 </li>
@@ -207,7 +207,7 @@ But if you want to explore more options/parameters, refer to <a class="reference
 <li><p class="first">Kill the process where you ran <em>teleop_3dmapping.launch</em> .</p>
 </li>
 <li><p class="first">Instead, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roslaunch robotont_teleop teleop_3dmapping.launch angular_update:<span class="o">=</span>0.1 linear_update:<span class="o">=</span>0.1 cell_size:<span class="o">=</span>0.1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch robotont_teleop teleop_3dmapping.launch angular_update:<span class="o">=</span><span class="m">0</span>.1 linear_update:<span class="o">=</span><span class="m">0</span>.1 cell_size:<span class="o">=</span><span class="m">0</span>.1
 </pre></div>
 </div>
 <p>And here you can change some values and hopefully get a better 3D map.</p>

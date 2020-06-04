@@ -186,7 +186,7 @@
 <ol class="arabic">
 <li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver</span></code> package folder, edit the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file using <code class="docutils literal notranslate"><span class="pre">gedit</span></code>. Browse through the example rules, and add an executable(<code class="docutils literal notranslate"><span class="pre">add_executable</span></code>), node named <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver_node</span></code>, source file named <code class="docutils literal notranslate"><span class="pre">fake_sonar_driver.cpp</span></code>. Also within the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>, make sure your new fake_sonar_driver_node gets linked (‘target_link_libraries’) to the catkin libraries.</p>
 <p>For reference, take a look at <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes">Understanding Nodes</a>.</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span class="nb">add_compile_options</span><span class="p">(</span><span class="s">-std=c++11</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">add_compile_options</span><span class="p">(</span><span class="s">-std=c++11</span><span class="p">)</span>
 <span class="nb">add_executable</span><span class="p">(</span><span class="s">fake_sonar_driver_node</span> <span class="s">src/sonar_driver_node.cpp</span><span class="p">)</span>
 <span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">fake_sonar_driver_node</span> <span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
 </pre></div>
@@ -205,7 +205,7 @@
 <li><p class="first">In the package folder, create the file <code class="docutils literal notranslate"><span class="pre">src/fake_sonar_driver_node.cpp</span></code> and open it in a text editor.</p>
 </li>
 <li><p class="first">Add the ros header (include ros.h).</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">**  Simple ROS Node</span>
 <span class="cm">**/</span>
 <span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
@@ -213,7 +213,7 @@
 </div>
 </li>
 <li><p class="first">Add a main function (typical in c++ programs).</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">**  Simple ROS Node</span>
 <span class="cm">**/</span>
 <span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
@@ -226,7 +226,7 @@
 </div>
 </li>
 <li><p class="first">Initialize your ROS node (within the main).</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">**  Simple ROS Node</span>
 <span class="cm">**/</span>
 <span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
@@ -240,7 +240,7 @@
 </div>
 </li>
 <li><p class="first">Create a ROS node handle.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">**  Simple ROS Node</span>
 <span class="cm">**/</span>
 <span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
@@ -257,7 +257,7 @@
 </div>
 </li>
 <li><p class="first">Print a “Hello World” message using ROS print tools.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">**  Simple ROS Node</span>
 <span class="cm">**/</span>
 <span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
@@ -276,7 +276,7 @@
 </div>
 </li>
 <li><p class="first">Do not exit the program automatically - keep the node alive.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cm">/**</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">**  Simple ROS Node</span>
 <span class="cm">**/</span>
 <span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
@@ -316,7 +316,7 @@
 <h2>Run a Node<a class="headerlink" href="#run-a-node" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Open a terminal and start the ROS master.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roscore
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roscore
 </pre></div>
 </div>
 <div class="admonition note">
@@ -331,14 +331,14 @@
 <li><p class="first">This will automatically export the results of the build into your new terminal session.</p>
 </li>
 <li><p class="first">If you’re reusing an existing terminal, you’ll need to manually source the setup files (since we added a new node):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="nb">source</span> ~/catkin_ws/devel/setup.bash
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/catkin_ws/devel/setup.bash
 </pre></div>
 </div>
 </li>
 </ul>
 </li>
 <li><p class="first">Run your node.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>rosrun fake_sonar_driver fake_sonar_driver_node
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun fake_sonar_driver fake_sonar_driver_node
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -347,7 +347,7 @@
 </div>
 </li>
 <li><p class="first">In a third terminal, check what nodes are running.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>rosnode list
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosnode list
 </pre></div>
 </div>
 <p>In addition to the /rosout node, you should now see a new /fake_sonar_driver_node listed.</p>

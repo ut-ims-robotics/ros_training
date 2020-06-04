@@ -207,24 +207,24 @@
 <p>We will first create a simple test, so that you can see the workflow.</p>
 <ol class="arabic">
 <li><p class="first">Create a <cite>test</cite> folder in the sonar_driver/src folder. If you already have one then skip to step 2. In the workspace directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roscd sonar_driver
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roscd sonar_driver
 mkdir src/test
 </pre></div>
 </div>
 </li>
 <li><p class="first">Create utest.cpp (just a random name) file in the <cite>sonar_driver/src/test</cite> folder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>touch src/test/utest.cpp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch src/test/utest.cpp
 </pre></div>
 </div>
 </li>
 <li><p class="first">Open utest.cpp in your code editor and include ros &amp; gtest:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write a dummy test that will return true if executed. This will test our framework and we will replace it later with more useful tests:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="n">TEST</span><span class="p">(</span><span class="n">TestSuite</span><span class="p">,</span> <span class="n">sonar_driver_framework</span><span class="p">)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">TEST</span><span class="p">(</span><span class="n">TestSuite</span><span class="p">,</span> <span class="n">sonar_driver_framework</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">ASSERT_TRUE</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 <span class="p">}</span>
@@ -232,7 +232,7 @@ mkdir src/test
 </div>
 </li>
 <li><p class="first">Next include the general main function, which will execute the unit tests we write later:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">testing</span><span class="o">::</span><span class="n">InitGoogleTest</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
   <span class="k">return</span> <span class="n">RUN_ALL_TESTS</span><span class="p">();</span>
@@ -241,7 +241,7 @@ mkdir src/test
 </div>
 </li>
 <li><p class="first">Edit <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code> CMakeLists.txt to build the utest.cpp file. Find the comment which says “TODO: Add test targets” and replace that with:</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span class="nb">if</span><span class="p">(</span><span class="s">CATKIN_ENABLE_TESTING</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">if</span><span class="p">(</span><span class="s">CATKIN_ENABLE_TESTING</span><span class="p">)</span>
   <span class="nb">find_package</span><span class="p">(</span><span class="s">rostest</span> <span class="s">REQUIRED</span><span class="p">)</span>
   <span class="nb">add_rostest_gtest</span><span class="p">(</span><span class="s">utest_node</span> <span class="s">test/utest_launch.test</span> <span class="s">src/test/utest.cpp</span><span class="p">)</span>
   <span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">utest_node</span> <span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
@@ -250,18 +250,18 @@ mkdir src/test
 </div>
 </li>
 <li><p class="first">Create a test folder under <code class="docutils literal notranslate"><span class="pre">sonar_driver</span></code>. If you already have one, then go to the next step.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roscd sonar_driver
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roscd sonar_driver
 mkdir <span class="nb">test</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Create a test launch file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>touch test/utest_launch.test
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch test/utest_launch.test
 </pre></div>
 </div>
 </li>
 <li><p class="first">Open the utest_launch.test file in your code editor and populate the file:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 <span class="nt">&lt;launch&gt;</span>
     <span class="nt">&lt;test</span> <span class="na">test-name=</span><span class="s">&quot;unit_test_node&quot;</span> <span class="na">pkg=</span><span class="s">&quot;sonar_driver&quot;</span> <span class="na">type=</span><span class="s">&quot;utest_node&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
@@ -269,20 +269,20 @@ mkdir <span class="nb">test</span>
 </div>
 </li>
 <li><p class="first">Build and test the framework in your package root folder</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>roscd sonar_driver
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roscd sonar_driver
 catkin run_tests sonar_driver
 </pre></div>
 </div>
 <p>The console output should show (buried in the midst of many build messages):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span class="o">[</span>ROSTEST<span class="o">]</span>-----------------------------------------------------------------------
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>ROSTEST<span class="o">]</span>-----------------------------------------------------------------------
 
 <span class="o">[</span>sonar_driver.rosunit-unit_test_node/sonar_driver_framework<span class="o">][</span>passed<span class="o">]</span>
 
 SUMMARY
  * RESULT: SUCCESS
- * TESTS: 1
- * ERRORS: 0
- * FAILURES: 0
+ * TESTS: <span class="m">1</span>
+ * ERRORS: <span class="m">0</span>
+ * FAILURES: <span class="m">0</span>
 </pre></div>
 </div>
 <p>This means our framework is functional and now we can add usefull unit tests.</p>
@@ -299,7 +299,7 @@ SUMMARY
 <li><p class="first">The rostest package provides several tools for inspecting basic topic characteristics <a class="reference external" href="http://wiki.ros.org/rostest/Nodes#hztest">hztest</a>, <a class="reference external" href="http://wiki.ros.org/rostest/Nodes#paramtest">paramtest</a>, <a class="reference external" href="http://wiki.ros.org/rostest/Nodes#publishtest">publishtest</a>.  We’ll add some basic tests to verify that the <code class="docutils literal notranslate"><span class="pre">sonar_hardware_client_node</span></code> node is outputting the expected topics and that the messages are getting throug.</p>
 </li>
 <li><p class="first">Add the test description to the <cite>utest_launch.test</cite> file:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span class="c">&lt;!-- Start the Sonar --&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Start the Sonar --&gt;</span>
 <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;serial_port&quot;</span> <span class="na">default=</span><span class="s">&quot;/dev/ttyUSB0&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;baudrate&quot;</span> <span class="na">default=</span><span class="s">&quot;115200&quot;</span><span class="nt">/&gt;</span>
 
@@ -325,7 +325,7 @@ SUMMARY
 </div>
 </li>
 <li><p class="first">Run the test. NOTE: Your device should be connected:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin run_tests sonar_driver
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin run_tests sonar_driver
 </pre></div>
 </div>
 <p>You should see:</p>
@@ -334,7 +334,7 @@ SUMMARY
 </div></blockquote>
 </li>
 <li><p class="first">Add a <a class="reference external" href="http://wiki.ros.org/rostest/Nodes#hztest">hztest</a> to your <cite>utest_launch.test</cite> file and  make it look for 50 Hz signal with 10 Hz error margin:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre>See http://wiki.ros.org/rostest/Nodes#hztest for an example.
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>See http://wiki.ros.org/rostest/Nodes#hztest for an example.
 </pre></div>
 </div>
 </li>
@@ -344,12 +344,12 @@ SUMMARY
 <h3>Write specific unit tests<a class="headerlink" href="#write-specific-unit-tests" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">Lets now test more specific functions in our code. As an example lets test a function that is responsible for parsing raw serial strings to <code class="docutils literal notranslate"><span class="pre">Dataframe</span></code> structures (see /include/sonar_driver/sonar_driver_dataframe.h). In <cite>utest.cpp</cite>:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&quot;sonar_driver/packet_parser.h&quot;</span><span class="cp"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;sonar_driver/packet_parser.h&quot;</span><span class="cp"></span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Then define a new test. Use the following code as a base structure:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span class="n">TEST</span><span class="p">(</span><span class="n">SonarDriverTestSuite</span><span class="p">,</span> <span class="n">packet_parser_test</span><span class="p">)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">TEST</span><span class="p">(</span><span class="n">SonarDriverTestSuite</span><span class="p">,</span> <span class="n">packet_parser_test</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="c1">// Define the raw messages and expected dataframes that are true</span>
   <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">sonar_driver</span><span class="o">::</span><span class="n">Dataframe</span><span class="o">&gt;</span> <span class="n">test_frame_map_true</span> <span class="o">=</span>
@@ -403,12 +403,12 @@ SUMMARY
 </div>
 </li>
 <li><p class="first">Fill the <code class="docutils literal notranslate"><span class="pre">TODOs</span></code> in the previous code block and run the tests</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin run_tests sonar_driver
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin run_tests sonar_driver
 </pre></div>
 </div>
 </li>
 <li><p class="first">view the results of the test:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre>catkin_test_results build/sonar_driver
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin_test_results build/sonar_driver
 </pre></div>
 </div>
 </li>
