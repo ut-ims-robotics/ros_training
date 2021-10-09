@@ -29,7 +29,7 @@ def main(kill_on_ctrl_c):
                 break
             else:
                 print ("Got a Control+C, ignoring...")
-    print "Loop exited"
+    print ("Loop exited")
 
 if '__main__' == __name__:
     if len(argv) > 2:
